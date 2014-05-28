@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Astra Admin
+    = stylesheet_link_tag    "admin", media: "all"
+    = javascript_include_tag "admin"
+    = csrf_meta_tags
+  %body
+    - if current_admin
+      = render 'admin/partials/header'
+    .uk-container.uk-container-center.uk-margin
+      = yield

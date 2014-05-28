@@ -1,0 +1,39 @@
+= form_for([:admin, @cloth], html: { class: 'uk-form uk-form-horizontal' }) do |f|
+  - if @cloth.errors.any?
+    = render '/admin/partials/form_errors', f: f
+
+  %fieldset
+    %legend
+      .uk-form-row
+        = f.label :image, class: 'uk-form-label'
+        .uk-form-controls
+          = f.file_field :image, class: 'uk-width-1-2'
+          - if f.object.image.present?
+            = image_tag(f.object.image(:preview), class: 'uk-width-1-2')
+
+      .uk-form-row
+        = f.label :show, class: 'uk-form-label'
+        .uk-form-controls
+          = f.check_box :show, class: 'uk-width-1-2'
+
+      .uk-form-row
+        %label.uk-form-label Наличие в категориях
+        .uk-form-controls
+          %ul.uk-list
+            - @categories.each_with_index do |category, index|
+              %li
+                %label{for: "cloth_category_ids_#{index}"}
+                  = check_box_tag 'cloth[category_ids][]', category.id, @cloth.categories.include?(category), id: "cloth_category_ids_#{index}"
+                  = category.title
+
+      .uk-form-row
+        .uk-width-1-2.uk-container-center.uk-margin
+          = f.submit 'Сохранить', class: 'uk-button uk-button-large uk-button-success'
+          = link_to 'Назад', admin_cloths_path, class: 'uk-button uk-button-large'
+
+
+  -# .form-group
+  -#   = f.label :with_image
+  -#   = f.check_box :with_image, class: 'form-control'
+  -#   hint: показывать в большом блоке или нет
+

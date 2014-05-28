@@ -1,0 +1,7 @@
+#error_explanation.thumbnail
+  .caption
+    .lead
+      = I18n.t(:errors_prohibited_this_record_from_being_saved, count: f.object.errors.count)
+    %ul
+      - f.object.errors.full_messages.each do |msg|
+        %li= msg

@@ -1,0 +1,59 @@
+= form_for([:admin, @category], html: { class: 'uk-form uk-form-horizontal' }) do |f|
+  - if @category.errors.any?
+    = render '/admin/partials/form_errors', f: f
+
+  %fieldset
+    %legend
+      .uk-form-row
+        = f.label :title, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :title, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :slug, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :slug, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :image, class: 'uk-form-label'
+        .uk-form-controls
+          = f.file_field :image, class: 'uk-width-1-2'
+          - if f.object.image.present?
+            = image_tag(f.object.image(:preview), class: 'uk-width-1-2')
+
+      .uk-form-row
+        = f.label :pos, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :pos, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :detail, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :detail, class: 'uk-width-1-1 form-textarea', rows: 7
+
+      .uk-form-row
+        = f.label :sub_detail, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :sub_detail, class: 'uk-width-1-1 form-textarea', rows: 7
+
+      .uk-form-row
+        = f.label :detail_product, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :detail_product, class: 'uk-width-1-1 form-textarea', rows: 7
+
+      .uk-form-row
+        = f.label :show, class: 'uk-form-label'
+        .uk-form-controls
+          = f.check_box :show, class: 'uk-width-1-2'
+
+      .uk-form-row
+        .uk-width-1-2.uk-container-center.uk-margin
+          = f.submit 'Сохранить', class: 'uk-button uk-button-large uk-button-success'
+          = link_to 'Назад', admin_categories_path, class: 'uk-button uk-button-large'
+
+
+  -# .form-group
+  -#   = f.label :with_image
+  -#   = f.check_box :with_image, class: 'form-control'
+  -#   hint: показывать в большом блоке или нет
+

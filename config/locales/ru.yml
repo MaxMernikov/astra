@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    # models:
+    #   user: Пользователи
+    attributes:
+      order:
+        name: Имя
+        phone: Телефон для связи
+        details: Дополнительная информация о заказе
+        cloth: Вариант расцветки

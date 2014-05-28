@@ -1,0 +1,17 @@
+.uk-grid
+  .uk-width-1-1
+    %h2
+      Список тканей
+      %small= link_to 'Добавить ткань', new_admin_cloth_path
+
+.uk-grid
+  - @cloths.each do |cloth|
+    .uk-width-medium-1-2.uk-width-large-1-5{ class: cloth.show ? '' : 'not_show' }
+      = image_tag(cloth.image(:preview))
+      .uk-margin-small-top
+        .uk-button-group.uk-align-right
+          -# = link_to 'Show', category_place_path(place.category, place), target: '_blank'
+          = link_to edit_admin_cloth_path(cloth), class: 'uk-button uk-button-small uk-button-success' do
+            .uk-icon-pencil
+          = link_to admin_cloth_path(cloth), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger' do
+            .uk-icon-times

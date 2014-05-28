@@ -1,0 +1,5 @@
+.uk-grid
+  - blocks.each do |block|
+    %div{ class: block_row_class(blocks.size)}
+      = link_to block do
+        = image_tag(block.image)

@@ -1,0 +1,32 @@
+.uk-grid
+  .uk-width-1-1
+    %h2
+      Список мест
+      %small= link_to 'Добавить категорию', new_admin_category_path
+
+.uk-wrapper
+  %table.uk-table
+    %thead
+      %tr
+        %th
+        %th
+        %th
+    %tbody
+      - @categories.each do |category|
+        %tr{ class: category.show ? '' : 'not_show' }
+          %td= category.pos
+          %td
+            .uk-grid
+              .uk-width-large-3-5
+                .uk-article-lead= category.title
+                %br
+                = mark(category.detail)
+              .uk-width-large-2-5
+                = image_tag(category.image(:preview), class: 'uk-responsive-width')
+          %td
+            .uk-button-group
+              -# = link_to 'Show', category_place_path(place.category, place), target: '_blank'
+              = link_to edit_admin_category_path(category), class: 'uk-button uk-button-small uk-button-success' do
+                .uk-icon-pencil
+              = link_to admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger' do
+                .uk-icon-times

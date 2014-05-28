@@ -1,0 +1,77 @@
+$bgc: rgba(255, 255, 255, 0.65)
+
+.other_cloth
+  &.hidden
+    cursor: pointer
+    height: 146px
+    overflow: hidden
+
+    .cloth_previews
+      top: -20px
+
+    &:hover
+      .cloth_preview
+        top: -20px
+
+        -webkit-transition: top 0.2s
+        transition: top 0.2s
+
+        &.preview_1
+          -webkit-transition-delay: 0.03s
+          transition-delay: 0.03s
+        &.preview_2
+          -webkit-transition-delay: 0.05s
+          transition-delay: 0.05s
+        &.preview_3
+          -webkit-transition-delay: 0.08s
+          transition-delay: 0.08s
+        &.preview_4
+          -webkit-transition-delay: 0.13s
+          transition-delay: 0.13s
+
+        border-color: #FFFFFF
+
+  .label
+    z-index: 3
+    position: relative
+    margin-top: 25px
+    font-size: 36px
+    line-height: 42px
+    text-shadow: 1px 0 1px $bgc, -1px 0 6px $bgc, 0 1px 6px $bgc, 0 -1px 6px $bgc, 1px 0 0px $bgc, 0 1px 0px $bgc
+
+
+.cloth_previews
+  top: 20px
+  padding-bottom: 40px
+  position: relative
+  z-index: 2
+  &:after
+    clear: both
+
+  .cloth_preview
+    -webkit-transition: all 0.4s
+    transition: all 0.4s
+    cursor: pointer
+
+    position: relative
+    top: 0
+    width: 20%
+    border-radius: 100px
+    float: left
+    border: 9px solid #FFFFFF
+    box-sizing: border-box
+
+    &.preview_1, &.preview_2, &.preview_3, &.preview_4
+      -webkit-transition-delay: 0s
+      transition-delay: 0s
+
+    &:hover
+      border-color: #EEEEEE
+
+    &.active
+      border-color: #DDDDDD
+
+
+
+.cloth_variants, #default
+  display: none

@@ -1,0 +1,21 @@
+.uk-article
+  %table.uk-table
+    %thead
+      %tr
+        %th
+        - @categories.each do |category|
+          %th= category.title
+        %th
+    %tbody
+      - @cloths.each do |cloth|
+        %tr
+          %td.uk-width-1-10
+            = image_tag(cloth.image(:preview))
+          - @categories.each do |category|
+            %td{class: (category.cloths.include?(cloth) ? 'presence' : ''), width: '16%'}
+            -# %td
+            -#   = category.cloths.include?(cloth)
+          %td
+            = link_to edit_admin_cloth_path(cloth), class: 'uk-button uk-button-small uk-button-success' do
+              .uk-icon-pencil
+

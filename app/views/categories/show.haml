@@ -1,0 +1,18 @@
+.uk-width-1-1.header_image{ style: "background-image: url(#{@category.image(:original)})" }
+  = image_tag(@category.image(:original), class: 'uk-responsive-width')
+
+.uk-grid
+  .uk-width-1-1
+    .uk-wrapper
+      %h1.uk-text-slim.tac.uk-margin-top= @category.title
+
+.uk-grid
+  .uk-width-1-1.uk-width-medium-3-5.uk-push-1-5
+    .uk-wrapper
+      = mark(@category.detail)
+
+.uk-grid
+  .uk-width-1-1.uk-width-medium-8-10.uk-push-1-10
+    = block_former(@category.products.show * 3)
+
+.uk-margin-large-bottom

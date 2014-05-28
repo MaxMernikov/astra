@@ -1,0 +1,40 @@
+.uk-width-1-1.header_image.index{ style: "background-image: url(assets/fish/bg2.jpg)" }
+  = image_tag('fish/1.jpg', class: 'uk-responsive-width')
+
+.index_promo.uk-width-large-2-5.uk-width-medium-1-2
+  .uk-wrapper.uk-margin-top.uk-margin-bottom
+    .uk-article-mmm
+      Эти ощущения комфорта и уверенности в надежности и целостности, когда все то что окружает тебя, по твоему вкусу, приятно на ощупь, имеет текстуру находящююся с тобой в гармонии, является продолжением тебя и элементом самовыражения.
+
+- @categories.each_slice(2) do |category|
+  - if category[0].present?
+    .uk-grid.uk-margin-remove.uk-padding-remove{ "data-uk-grid-match" => ''}
+      .uk-width-1-1.uk-width-medium-1-2.image_block
+        .backgr_image{ style: "background-image: url(#{ category[0].image(:original)})" }
+
+      .uk-width-medium-1-2
+        .uk-article.tac.fragment
+          .uk-article-title
+            = category[0].title
+          %hr.uk-article-divider
+          .uk-wrapper
+            = mark(category[0].detail)
+            %br
+            %br
+            = link_to 'подробности', category[0].slug, class: 'uk-button'
+
+  - if category[1].present?
+    .uk-grid.uk-margin-remove.uk-padding-remove{ "data-uk-grid-match" => ''}
+      .uk-width-1-1.uk-width-medium-1-2.uk-push-1-2.image_block
+        .backgr_image{ style: "background-image: url(#{ category[1].image(:original)})" }
+
+      .uk-width-medium-1-2.uk-pull-1-2
+        .uk-article.tac.fragment
+          .uk-article-title
+            = category[1].title
+          %hr.uk-article-divider
+          .uk-wrapper
+            = mark(category[1].detail)
+            %br
+            %br
+            = link_to 'подробности', category[1].slug, class: 'uk-button'
