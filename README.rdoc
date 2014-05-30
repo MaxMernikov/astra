@@ -1,5 +1,7 @@
 == README
 
+scp config/database.yml root@82.196.1.8:/root/www/astra/shared/config/database.yml 
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

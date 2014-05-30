@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_categories
 
   def after_sign_in_path_for(resource)
-    admin_index_path
+    admin_dashboards_path
   end
 
   def current_ability
