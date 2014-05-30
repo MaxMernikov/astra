@@ -45,6 +45,7 @@ namespace :deploy do
     end
   end
 
+  after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:restart'
   # after :finishing, 'deploy:cleanup'
   # after :finishing, 'deploy:restart_workers'
