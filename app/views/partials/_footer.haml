@@ -9,7 +9,8 @@
         .uk-width-medium-1-3.uk-width-1-2.uk-margin
           %ul.uk-list.uk-list-line
             %li оформить заказ
-            %li наши контакты
+            %li
+              = link_to 'наши контакты', '#contacts', 'data-uk-offcanvas' => ''
             %li задать вопрос
         .uk-width-medium-1-3.uk-width-1-2.tac.icon_set.uk-margin
           = link_to '', '#', class: 'uk-icon-button uk-icon-vk'

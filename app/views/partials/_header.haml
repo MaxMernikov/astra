@@ -7,7 +7,28 @@
       .city - Minsk -
     .uk-width-1-5
       .contacts.uk-align-right
-        = link_to '/lood' do
+        = link_to '#contacts', 'data-uk-offcanvas' => '' do
           %i.uk-icon-button.uk-icon-phone
           %span контакты
 
+
+#contacts.uk-offcanvas
+  .uk-offcanvas-bar.uk-offcanvas-bar-flip
+    .uk-panel
+      %h3.uk-panel-title
+        Наши контакты
+
+      Все интересующие вас вопросы вы можете отправить нам на почту или задать по телефону в любое время на протяжении светового дня.
+      %br
+      %br
+
+      Телефон:
+      %br
+      = link_to '+ 375 29 769-78-87 (МТС)', 'tel://80297697887'
+      %br
+      %br
+      Email:
+      %br
+      = mail_to 'maxmernikov@gmail.com'
+      %br
+      Почтовое сообщение будет обработано в течении часа.
