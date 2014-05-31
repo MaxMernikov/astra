@@ -1,4 +1,4 @@
-Class Admin::OrdersController << ApplicationController
+class Admin::OrdersController < ApplicationController
   # load_and_authorize_resource except: [:create]
   layout 'admin'
   before_action :set_order, only: [:show, :update, :destroy]
