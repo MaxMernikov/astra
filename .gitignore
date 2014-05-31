@@ -17,3 +17,4 @@
 /public/system/*
 /config/database.yml
 /app/assets/images/fish/*
+/public/assets/*
