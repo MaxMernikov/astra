@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     if order.save
-      render js: 'console.log("23")'
+      render js: 'success_order()'
     else
       render js: 'console.log("' + order.errors.full_messages.join(', ') + '")'
     end

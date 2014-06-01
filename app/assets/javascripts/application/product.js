@@ -11,20 +11,29 @@ $( function() {
       $('.cloth_variants').show(300);
       $('.cloth_variants .cloth_preview').attr('src', $(this).attr('src'))
       $('#order_cloth_id').val( $(this).data('clothId') );
+      $('html, body').animate({
+        scrollTop: ($('#new_order').offset().top - 70)
+      }, 400);
+      $('#add_cloth').text('изменить')
     }
   })
 
-  $('#remove_cloth').click(function(){
-    $('.cloth_variants').hide(300);
-  });
+  $('#remove_cloth').click(function(){ remove_cloth() });
+
+  $('#add_cloth').click(function(){
+    $('html, body').animate({
+      scrollTop: ($('.other_cloth').offset().top - 16)
+    }, 400);
+    $('.other_cloth').removeClass('hidden');
+  })
 
   $.validator.addMethod("PHONE", function(value,element){
     // if(element.value.match(/^8 \(\d\d\d\) \d\d\d \d\d \d\d$/) != null){
-    if(element.value.match(/^\d\d\d \d\d\d\d\d\d\d$/) != null){
+    if(element.value.match(/^\d\d\d \d\d\d-\d\d-\d\d$/) != null){
       value = true;
     }else{ value = false; }
     return this.optional(element) || value;
-  },  "Телефон указан в неверном формате");
+  },  "Телефон указан в неверном формате.");
 
   var rules = {
     'order[name]': { required:true },
@@ -50,4 +59,20 @@ $( function() {
     //   process_form(form);
     // }
   });
+
+  $('#order_phone').mask("999 999-99-99");
+
 } )
+
+function remove_cloth(){
+  $('.cloth_variants').hide(300);
+  $('.cloth_preview.active').removeClass('active');
+  $('#add_cloth').text('выбрать');
+}
+
+function success_order(){
+  var modal = new $.UIkit.modal.Modal("#success_order");
+  modal.show();
+  $('#new_order')[0].reset();
+  remove_cloth();
+}
