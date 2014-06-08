@@ -1,10 +1,14 @@
 class Product < ActiveRecord::Base
   belongs_to :category
 
-  has_attached_file :image, styles: { preview: '500x500#' }
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }, presence: true
+  has_many :images
+  accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
 
-  validates :cost, presence: true
+  validates :cost, :images, presence: true
 
   scope :show, -> { where(show: true) }
+
+  def first_image
+    self.images.first.image(:preview)
+  end
 end

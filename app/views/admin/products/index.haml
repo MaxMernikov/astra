@@ -7,7 +7,7 @@
 .uk-grid
   - @products.each do |product|
     .uk-width-medium-1-2.uk-width-large-1-5{ class: product.show ? '' : 'not_show' }
-      = image_tag(product.image(:preview))
+      = image_tag(product.images.first.image(:preview))
       .uk-margin-small-top
         %span.uk-article-lead
           = product.cost

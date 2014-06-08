@@ -27,17 +27,19 @@ $( function() {
     $('.other_cloth').removeClass('hidden');
   })
 
-  $.validator.addMethod("PHONE", function(value,element){
-    // if(element.value.match(/^8 \(\d\d\d\) \d\d\d \d\d \d\d$/) != null){
-    if(element.value.match(/^\d\d\d \d\d\d-\d\d-\d\d$/) != null){
-      value = true;
-    }else{ value = false; }
-    return this.optional(element) || value;
-  },  "Телефон указан в неверном формате.");
+  // $.validator.addMethod("PHONE", function(value,element){
+  //   // if(element.value.match(/^8 \(\d\d\d\) \d\d\d \d\d \d\d$/) != null){
+  //   if(element.value.match(/^\d\d\d \d\d\d-\d\d-\d\d$/) != null){
+  //     value = true;
+  //   }else{ value = false; }
+  //   return this.optional(element) || value;
+  // },  "Телефон указан в неверном формате.");
 
   var rules = {
     'order[name]': { required:true },
-    'order[phone]': { required:true, PHONE: true }
+    'order[phone]': { required:true}
+    // 'order[phone]': { required:true, PHONE: true }
+
   };
 
   var messages = {
@@ -60,7 +62,7 @@ $( function() {
     // }
   });
 
-  $('#order_phone').mask("999 999-99-99");
+  $('#order_phone').mask("(999) 999-99-99");
 
 } )
 

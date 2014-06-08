@@ -9,12 +9,11 @@
         .uk-form-controls
           = f.select :category_id, Category.by_pos.map{|c| [c.title, c.id] }, class: 'uk-width-1-2'
 
-      .uk-form-row
-        = f.label :image, class: 'uk-form-label'
-        .uk-form-controls
-          = f.file_field :image, class: 'uk-width-1-2'
-          - if f.object.image.present?
-            = image_tag(f.object.image(:preview), class: 'uk-width-1-2')
+      #images
+        = f.fields_for :images do |image|
+          = render 'image_fields', f: image
+          .links
+            = link_to_add_association 'add image', f, :images
 
       .uk-form-row
         = f.label :show, class: 'uk-form-label'

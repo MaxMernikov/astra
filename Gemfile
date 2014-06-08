@@ -37,7 +37,9 @@ end
 
 gem 'haml'
 gem 'devise'
-gem 'cancan'
+gem 'cancancan'
+
+gem 'cocoon'
 
 gem 'paperclip', '~> 4.1'
 gem 'redcarpet'

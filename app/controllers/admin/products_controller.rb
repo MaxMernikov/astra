@@ -9,9 +9,11 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.images.build
   end
 
   def edit
+    @product.images.build
   end
 
   def create
@@ -44,6 +46,6 @@ private
   end
 
   def product_params
-    params.require(:product).permit(:title, :category_id, :cost, :show, :image)
+    params.require(:product).permit(:title, :category_id, :cost, :show, images_attributes: [:id, :image, :_destroy])
   end
 end
