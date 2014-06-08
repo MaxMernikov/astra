@@ -53,10 +53,11 @@
             .cloth_variants.hide
               = f.hidden_field :cloth_id
 
+              = image_tag(@product.first_image, class: 'cloth_preview')
+
               %span.pseudo_link#remove_cloth удалить
               уникальную расцветку
 
-              #default= @product.first_image
         .uk-form-row
           = f.label :details, class: 'uk-form-label'
           .uk-form-controls

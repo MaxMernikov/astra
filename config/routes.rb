@@ -6,7 +6,7 @@ Astra::Application.routes.draw do
     resources :products
     resources :cloths
     resources :categories_cloths
-    resources :orders
+    resources :orders, except: [:show, :new, :create]
   end
 
   resources :categories, only: [:show], path: ''

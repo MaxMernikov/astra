@@ -1,0 +1,51 @@
+= form_for([:admin, @order], html: { class: 'uk-form uk-form-horizontal' }) do |f|
+  - if @order.errors.any?
+    = render '/admin/partials/form_errors', f: f
+
+  %fieldset
+    %legend
+      .uk-form-row
+        = f.label :name, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :name, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :phone, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :phone, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :email, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :email, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :product, class: 'uk-form-label'
+        .uk-form-controls
+          = image_tag(f.object.product.first_image, class: 'uk-width-1-2')
+
+      - if f.object.cloth.present?
+        .uk-form-row
+          = f.label :cloth, class: 'uk-form-label'
+          .uk-form-controls
+            = image_tag(f.object.cloth.image(:preview), class: 'uk-width-1-2')
+
+      .uk-form-row
+        = f.label :details, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :details, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :mark, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :mark, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :complete, class: 'uk-form-label'
+        .uk-form-controls
+          = f.check_box :complete, class: 'uk-width-1-2'
+
+      .uk-form-row
+        .uk-width-1-2.uk-container-center.uk-margin
+          = f.submit 'Сохранить', class: 'uk-button uk-button-large uk-button-success'
+          = link_to 'Назад', admin_categories_path, class: 'uk-button uk-button-large'
