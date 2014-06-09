@@ -1,25 +1,27 @@
 .uk-grid.uk-margin-remove.uk-padding-remove
-  .uk-width-1-1.uk-width-medium-1-3.cycle-slideshow
+  .uk-width-1-1.uk-width-medium-1-3.cycle-slideshow{ 'data-cycle-pager-template' => '<span>{{slideNum}}</span>', 'data-cycle-pause-on-hover' => 'true', 'data-cycle-timeout' => '4240', 'data-cycle-speed' => '1000', 'data-cycle-manual-speed' => '300' }
     - @product.images.each do |image|
-      = image_tag(image.image(:preview), class: 'uk-responsive-width', 'data-cycle-timeout' => '3000', 'data-cycle-pager-template' => "<span>{{slideNum}}</span>" )
+      = image_tag(image.image(:preview), class: 'uk-responsive-width' )
     .cycle-pager.tac.uk-margin-top
   .uk-width-1-1.uk-width-medium-2-3.uk-margin-large-top
     .uk-wrapper
       = mark(@product.category.detail_product)
-      .uk-margin-large
-        %h3.uk-text-slim
-          Данный товар можно заказать в другой цветовой схеме
 
-        .uk-thumbnail.other_cloth.hidden
-          .label.tac.uk-text-slim
-            Показать доступные
-            %br
-            расцветки
+      - if @product.category.cloths.present?
+        .uk-margin-large
+          %h3.uk-text-slim
+            Данный товар можно заказать в другой цветовой схеме
 
-          .cloth_previews
-            - @product.category.cloths.each_with_index do |cloth, index|
-              = image_tag(cloth.image(:preview), class: "cloth_preview preview_#{index}", 'data-cloth-id' => cloth.id)
-            .clear
+          .uk-thumbnail.other_cloth.hidden
+            .label.tac.uk-text-slim
+              Показать доступные
+              %br
+              расцветки
+
+            .cloth_previews
+              - @product.category.cloths.each_with_index do |cloth, index|
+                = image_tag(cloth.image(:preview), class: "cloth_preview preview_#{index}", 'data-cloth-id' => cloth.id)
+              .clear
 
 .uk-grid.uk-margin-large
   .uk-width-1-1.uk-width-medium-1-2.uk-push-1-4.uk-width-medium-1-2
@@ -44,19 +46,20 @@
             = f.text_field :phone, class: 'uk-form-large uk-width-1-1'
             пример ввода: (029) 123-45-67
 
-        .uk-form-row
-          = f.label :cloth, class: 'uk-form-label'
-          .uk-form-controls
-            %span.pseudo_link#add_cloth выбрать
-            уникальную расцветку
-
-            .cloth_variants.hide
-              = f.hidden_field :cloth_id
-
-              = image_tag(@product.first_image, class: 'cloth_preview')
-
-              %span.pseudo_link#remove_cloth удалить
+        - if @product.category.cloths.present?
+          .uk-form-row
+            = f.label :cloth, class: 'uk-form-label'
+            .uk-form-controls
+              %span.pseudo_link#add_cloth выбрать
               уникальную расцветку
+
+              .cloth_variants.hide
+                = f.hidden_field :cloth_id
+
+                = image_tag(@product.first_image, class: 'cloth_preview')
+
+                %span.pseudo_link#remove_cloth удалить
+                уникальную расцветку
 
         .uk-form-row
           = f.label :details, class: 'uk-form-label'
