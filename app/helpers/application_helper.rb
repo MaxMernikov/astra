@@ -4,8 +4,10 @@ module ApplicationHelper
   end
 
   def mark(text)
-    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, hard_wrap: true)
-    raw "<div class='mark'>" + @markdown.render(text) + '</div>'
+    if text
+      @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options = {hard_wrap: true}) )
+      raw "<div class='mark'>" + @markdown.render(text) + '</div>'
+    end
   end
 
   def block_former(blocks)
