@@ -7,6 +7,10 @@
     .uk-wrapper
       = mark(@product.category.detail_product)
 
+      цена
+      = @product.cost
+      тысяч рублей
+
       - if @product.category.cloths.present?
         .uk-margin-large
           %h3.uk-text-slim

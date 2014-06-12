@@ -26,7 +26,7 @@
   - if category[1].present?
     .uk-grid.uk-margin-remove.uk-padding-remove{ "data-uk-grid-match" => ''}
       .uk-width-1-1.uk-width-medium-1-2.uk-push-1-2.image_block
-        .backgr_image{ style: "background-image: url(#{ category[1].image(:original)})" }
+        %a.backgr_image{ style: "background-image: url(#{ category[1].image(:original)})", href: category[0].slug }
 
       .uk-width-medium-1-2.uk-pull-1-2
         .uk-article.tac.fragment
