@@ -1,6 +1,6 @@
 .uk-wrapper
   %h2.uk-text-slim.tac
-    Форма офорления заказа
+    Оформление покупки
   = form_for Order.new, { html: { class: 'uk-form uk-form-horizontal' }, remote: true } do |f|
     = f.hidden_field :product_id, value: @product.id
     .uk-form-row
