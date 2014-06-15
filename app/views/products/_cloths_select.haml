@@ -1,0 +1,15 @@
+- if @product.category.cloths.present?
+  .uk-margin-large
+    %h3.uk-text-slim
+      Данный товар можно заказать в другой цветовой схеме
+
+    .uk-thumbnail.other_cloth.hidden
+      .label.tac.uk-text-slim
+        Показать доступные
+        %br
+        расцветки
+
+      .cloth_previews
+        - cloths.each_with_index do |cloth, index|
+          = image_tag(cloth.image(:preview), class: "cloth_preview preview_#{index}", 'data-cloth-id' => cloth.id)
+        .clear

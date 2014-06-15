@@ -64,6 +64,12 @@ $( function() {
 
   $('#order_phone').mask("(999) 999-99-99");
 
+  $('#buy_it_button').click(function(){
+    $('#buy_it_button').hide(300);
+    $('#buy_it_content').show(300);
+    $('#order_name').focus();
+  })
+
 } )
 
 function remove_cloth(){

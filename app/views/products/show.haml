@@ -3,6 +3,7 @@
     - @product.images.each do |image|
       = image_tag(image.image(:preview), class: 'uk-responsive-width' )
     .cycle-pager.tac.uk-margin-top
+
   .uk-width-1-1.uk-width-medium-2-3.uk-margin-large-top
     .uk-wrapper
       = mark(@product.category.detail_product)
