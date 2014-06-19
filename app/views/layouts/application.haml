@@ -1,12 +1,14 @@
 !!!
 %html
   %head
-    %title Astra
+    = display_meta_tags site: 'Astra', keywords: 'рюкзаки, городские рюкзаки, аксессуары', reverse: true
     %meta{charset: "utf-8"}/
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    = render 'partials/share'
   %body
     = render 'partials/header'
     = yield

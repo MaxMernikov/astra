@@ -105,3 +105,25 @@ label.error
   span
     font-weight: 300
     font-size: 13px
+
+.share_block
+  display: inline-block
+  margin-left: -40px
+  &:hover
+    .share_hint
+      opacity: 1
+      -webkit-transition: all 0.8s
+      transition: all 0.8s
+
+.share_hint
+  display: inline
+  margin-right: 8px
+  opacity: 0
+  -webkit-transition: all 0.4s
+  transition: all 0.4s
+  // -webkit-animation-name: uk-fade
+  // animation-name: uk-fade
+  // -webkit-animation-duration: .8s
+  // animation-duration: .8s
+  // -webkit-animation-timing-function: linear
+  // animation-timing-function: linear

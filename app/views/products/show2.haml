@@ -1,12 +1,18 @@
 .uk-grid.uk-margin-large
   .uk-width-1-1.uk-width-medium-1-2.uk-push-1-4.uk-width-medium-1-2
     .uk-wrapper
-      Компактный рюкзак для прогулок по городу - доступность необходимых вещей и свободные руки. Польза очевидна.
+      = @product.category.detail_product
 
 .uk-grid.uk-margin-remove.uk-padding-remove
   - @product.images.each do |image|
     .uk-width-1-1.uk-width-medium-1-3
       = image_tag(image.image(:preview), class: 'uk-responsive-width' )
+
+.uk-grid
+  .uk-width-1-1.tac
+    .share_block
+      .share_hint Share:
+      = render 'share'
 
 #buy_it.uk-grid.uk-margin-large
   #buy_it_button.uk-width-1-1.uk-width-medium-1-2.uk-push-1-4.uk-width-medium-1-2.uk-thumbnail.buy_it

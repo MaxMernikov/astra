@@ -64,12 +64,13 @@ $( function() {
 
   $('#order_phone').mask("(999) 999-99-99");
 
+  // кнопка купить
   $('#buy_it_button').click(function(){
-    $('#buy_it_button').hide(300);
-    $('#buy_it_content').show(300);
+    $('#buy_it_button').hide();
+    $('#buy_it_content').show();
+    $('#buy_it_content').addClass('uk-animation-fade');
     $('#order_name').focus();
   })
-
 } )
 
 function remove_cloth(){
@@ -83,4 +84,10 @@ function success_order(){
   modal.show();
   $('#new_order')[0].reset();
   remove_cloth();
+}
+
+function popupwindow(url, w, h) {
+  var left = (screen.width/2)-(w/2);
+  var top = (screen.height/2)-(h/2);
+  return open(url, "displayWindow", 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
 }

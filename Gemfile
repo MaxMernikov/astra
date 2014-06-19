@@ -43,6 +43,7 @@ gem 'cocoon'
 
 gem 'paperclip', '~> 4.1'
 gem 'redcarpet'
+gem 'meta-tags'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'

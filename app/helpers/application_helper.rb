@@ -40,4 +40,8 @@ module ApplicationHelper
       'uk-width-1-1 uk-width-medium-1-3'
     end
   end
+
+  def absolute_attachment_url(attachment_name, attachment_style = :original)
+    "#{request.protocol}#{request.host_with_port}#{attachment_name.url(attachment_style)}"
+  end
 end

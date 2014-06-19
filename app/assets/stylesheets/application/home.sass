@@ -6,6 +6,13 @@ body
   .uk-text-ultra-slim
     font-weight: 100
 
+i.uk-icon-button
+  color: #999
+  -webkit-transition: all 0.4s
+  transition: all 0.4s
+  &:active, &:hover
+    color: #444
+
 .header
   height: 85px
   border-bottom: 1px solid #ddd
@@ -14,11 +21,8 @@ body
     font-size: 16px
     a
       i
-        color: #999
       &:active, &:hover
         text-decoration: none
-        i, span
-          color: #444
       span
         margin-left: 4px
         color: #999
