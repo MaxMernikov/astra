@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    @products = Product.by_position
   end
 
   def new
@@ -46,6 +46,6 @@ private
   end
 
   def product_params
-    params.require(:product).permit(:title, :category_id, :cost, :show, images_attributes: [:id, :image, :_destroy])
+    params.require(:product).permit(:title, :category_id, :cost, :show, :pos, images_attributes: [:id, :image, :_destroy])
   end
 end

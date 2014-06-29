@@ -4,9 +4,14 @@
       = @product.category.detail_product
 
 .uk-grid.uk-margin-remove.uk-padding-remove
-  - @product.images.each do |image|
-    .uk-width-1-1.uk-width-medium-1-3
-      = image_tag(image.image(:preview), class: 'uk-responsive-width' )
+  - if @product.images.count == 3
+    - @product.images.each do |image|
+      .uk-width-1-1.uk-width-medium-1-3
+        = image_tag(image.image(:preview), class: 'uk-responsive-width' )
+  - elsif @product.images.count == 2
+    - @product.images.each do |image|
+      .uk-width-1-1.uk-width-medium-1-3.uk-push-1-6
+        = image_tag(image.image(:preview), class: 'uk-responsive-width' )
 
 .uk-grid
   .uk-width-1-1.tac

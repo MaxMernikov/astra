@@ -31,6 +31,11 @@
           = f.text_field :title, class: 'uk-width-1-2'
 
       .uk-form-row
+        = f.label :pos, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :pos, class: 'uk-width-1-2'
+
+      .uk-form-row
         .uk-width-1-2.uk-container-center.uk-margin
           = f.submit 'Сохранить', class: 'uk-button uk-button-large uk-button-success'
           = link_to 'Назад', admin_products_path, class: 'uk-button uk-button-large'
