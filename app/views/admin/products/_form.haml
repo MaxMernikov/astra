@@ -37,6 +37,11 @@
           = f.text_field :pos, class: 'uk-width-1-2'
 
       .uk-form-row
+        = f.label :about_product, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :about_product, class: 'uk-width-1-1', rows: 6
+
+      .uk-form-row
         .uk-width-1-2.uk-container-center.uk-margin
           = f.submit 'Сохранить', class: 'uk-button uk-button-large uk-button-success'
           = link_to 'Назад', admin_products_path, class: 'uk-button uk-button-large'
