@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
   validates :cost, :images, presence: true
 
   scope :show, -> { where(show: true) }
-  scope :by_position, -> { order(:pos) }
+  scope :by_pos, -> { order(:pos) }
 
   def first_image
     self.images.first.image(:preview)

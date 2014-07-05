@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.by_position
+    @products = Product.by_pos
   end
 
   def new
@@ -13,7 +13,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
-    @product.images.build
+    @product.images.build if @product.images.blank?
   end
 
   def create

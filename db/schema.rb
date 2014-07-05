@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629105754) do
+ActiveRecord::Schema.define(version: 20140705111159) do
+
+  create_table "about_product_images", force: true do |t|
+    t.integer  "category_id"
+    t.string   "image_file_name"
+    t.integer  "image_file_size"
+    t.string   "image_content_type"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "about_product_images", ["category_id"], name: "index_about_product_images_on_category_id", using: :btree
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false

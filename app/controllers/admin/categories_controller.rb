@@ -9,9 +9,11 @@ class Admin::CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @category.about_product_images.build
   end
 
   def edit
+    @category.about_product_images.build if @category.about_product_images.blank?
   end
 
   def create

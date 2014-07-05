@@ -87,6 +87,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
+    newrelic_rpm (3.8.1.221)
     orm_adapter (0.5.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -170,6 +171,7 @@ DEPENDENCIES
   jquery-rails
   meta-tags
   mysql2
+  newrelic_rpm
   paperclip (~> 4.1)
   rails (= 4.0.2)
   redcarpet

@@ -9,11 +9,12 @@
         .uk-form-controls
           = f.select :category_id, Category.by_pos.map{|c| [c.title, c.id] }, class: 'uk-width-1-2'
 
-      #images
+      #images.uk-margin
+        %hr
         = f.fields_for :images do |image|
           = render 'image_fields', f: image
-          .links
-            = link_to_add_association 'add image', f, :images
+        .links
+          = link_to_add_association 'add image', f, :images
 
       .uk-form-row
         = f.label :show, class: 'uk-form-label'

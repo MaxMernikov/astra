@@ -31,6 +31,13 @@
         .uk-form-controls
           = f.text_area :detail, class: 'uk-width-1-1 form-textarea', rows: 7
 
+      #about_product_images.uk-margin
+        %hr
+        = f.fields_for :about_product_images do |about_product_image|
+          = render 'about_product_image_fields', f: about_product_image
+        .links
+          = link_to_add_association 'add about_product_image', f, :about_product_images
+
       .uk-form-row
         = f.label :sub_detail, class: 'uk-form-label'
         .uk-form-controls
