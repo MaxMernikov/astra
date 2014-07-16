@@ -1,4 +1,5 @@
-%a{ onClick: "popupwindow('http://vkontakte.ru/share.php?url=#{ request.original_url }&image=#{request.env['SERVER_NAME']}#{ @product.images.first.image.url(:preview) }', 520, 300)" }
+
+%a{ onClick: "popupwindow('http://vkontakte.ru/share.php?url=#{ request.original_url }&image=#{request.protocol}#{request.host_with_port}#{ @product.images.first.image.url(:preview) }', 520, 300)" }
   %i.uk-icon-button.uk-icon-vk
 
 %a{ onClick: "popupwindow('http://www.facebook.com/sharer/sharer.php?u=#{ request.original_url }', 520, 300)" }
