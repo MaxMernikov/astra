@@ -5,7 +5,7 @@
         .uk-width-medium-1-3.uk-width-small-1-1.uk-margin.uk-margin-top
           %ul.uk-list.uk-list-line
             - @categories.each do |category|
-              %li= link_to category.title, category_path(category.slug)
+              %li= link_to category.plural_title, category_path(category.slug)
         .uk-width-medium-1-3.uk-width-1-2.uk-margin
           %ul.uk-list.uk-list-line
             -# %li оформить заказ
@@ -17,7 +17,7 @@
           = link_to '', 'https://www.facebook.com/astra.minsk', class: 'uk-icon-button uk-icon-facebook-square', target: '_blank'
           -# = link_to '', '#', class: 'uk-icon-button uk-icon-twitter'
           -# = link_to '', '#', class: 'uk-icon-button uk-icon-instagram'
-          = link_to '', 'https://plus.google.com/117316751011176115151', class: 'uk-icon-button uk-icon-google-plus', rel: 'publisher', target: '_blank'
+          = link_to '', 'https://plus.google.com/+AstraStoreByMinsk', class: 'uk-icon-button uk-icon-google-plus', rel: 'publisher', target: '_blank'
 
 
   .uk-width-medium-2-5.footer_bg

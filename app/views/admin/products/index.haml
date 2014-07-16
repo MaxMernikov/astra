@@ -6,9 +6,9 @@
 
 -# .uk-grid
 - @categories.by_pos.each do |category|
-  .uk-grid
+  .uk-grid.sortable_grid{ :'data-id' => category.id }
     - category.products.by_pos.each do |product|
-      .uk-width-medium-1-2.uk-width-large-1-5{ class: product.show ? '' : 'not_show' }
+      .uk-width-medium-1-2.uk-width-large-1-5.js_sort{ class: product.show ? '' : 'not_show', :'data-id' => product.id }
         = image_tag(product.images.first.image(:preview))
         .uk-margin-small-top
           %span.uk-article-lead
@@ -20,6 +20,7 @@
               .uk-icon-pencil
             = link_to admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger' do
               .uk-icon-times
+
 
         -# = link_to 'Edit', edit_admin_product_path(product), class: 'uk-button uk-button-small uk-button-success'
         -# = link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small'

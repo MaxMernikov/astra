@@ -2,4 +2,8 @@
  *= require_self
  *= require_tree ./core
  *= require_tree ./admin
+
+ * require jquery.ui.all
+ *= require jquery.ui.core
+ *= require jquery.ui.theme
  */

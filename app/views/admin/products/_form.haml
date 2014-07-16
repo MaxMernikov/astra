@@ -7,7 +7,7 @@
       .uk-form-row
         = f.label :category_id, class: 'uk-form-label'
         .uk-form-controls
-          = f.select :category_id, Category.by_pos.map{|c| [c.title, c.id] }, class: 'uk-width-1-2'
+          = f.select :category_id, Category.by_pos.map{|c| [c.plural_title, c.id] }, class: 'uk-width-1-2'
 
       #images.uk-margin
         %hr

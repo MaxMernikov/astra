@@ -40,6 +40,14 @@ class Admin::ProductsController < ApplicationController
     redirect_to admin_products_path
   end
 
+  def change_position
+    category = Category.find(params[:category_id])
+    params[:positions].each_with_index do |product_id, index|
+      Product.find(product_id).update_column(:pos, index)
+    end
+    render text: 'ok'
+  end
+
 private
   def set_product
     @product = Product.find(params[:id])

@@ -3,7 +3,9 @@ Astra::Application.routes.draw do
   namespace :admin do
     resources :dashboards, path: '', only: [:index]
     resources :categories
-    resources :products
+    resources :products do
+      post :change_position, on: :collection
+    end
     resources :cloths
     resources :categories_cloths
     resources :orders, except: [:show, :new, :create]

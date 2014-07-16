@@ -24,7 +24,7 @@
               %li
                 %label{for: "cloth_category_ids_#{index}"}
                   = check_box_tag 'cloth[category_ids][]', category.id, @cloth.categories.include?(category), id: "cloth_category_ids_#{index}"
-                  = category.title
+                  = category.plural_title
 
       .uk-form-row
         .uk-width-1-2.uk-container-center.uk-margin
