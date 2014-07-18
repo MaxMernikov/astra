@@ -4,14 +4,6 @@ $( function() {
   $( window ).resize(function() {
     set_size( 500 / $('.price_list').width() );
   })
-
-  $('.relative').hover(
-    function(){
-      $('.relative').addClass('hover');
-      $(this).removeClass('hover');
-    },function(){
-      $('.relative').removeClass('hover');
-    })
 });
 
 function set_size(zoom_factor){
