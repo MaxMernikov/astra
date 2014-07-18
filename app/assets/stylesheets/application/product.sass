@@ -120,12 +120,99 @@ label.error
 .share_hint
   display: inline
   margin-right: 8px
-  opacity: 0
+  // opacity: 0
+  // -webkit-transition: all 0.4s
+  // transition: all 0.4s
+
+.relative
+  opacity: 1
   -webkit-transition: all 0.4s
   transition: all 0.4s
-  // -webkit-animation-name: uk-fade
-  // animation-name: uk-fade
-  // -webkit-animation-duration: .8s
-  // animation-duration: .8s
-  // -webkit-animation-timing-function: linear
-  // animation-timing-function: linear
+  &.hover
+    opacity: 0.5
+  &:hover
+    .price_list
+      opacity: 1
+      animation: myfirst .5s
+      -webkit-animation: myfirst .5s
+      transform: scale3d(1, 1, 1)
+      -webkit-transform: scale3d(1, 1, 1)
+
+.price_list
+  box-sizing: border-box
+  color: white
+  left: 0
+  padding-left: 25px
+  position: absolute
+  top: 0
+  width: 100%
+
+  opacity: 0
+  -webkit-animation: mysecond 2s
+  animation: mysecond 2s
+  -webkit-transform: scale3d(.8, .8, .8)
+  transform: scale3d(.8, .8, .8)
+
+  img
+    width: 100%
+  div
+    position: absolute
+  .cost
+    top: 44%
+    left: 27%
+    font-size: 37px
+    font-weight: 100
+  .link
+    top: 66%
+    left: 24%
+    font-size: 13px
+    a
+      color: #FFFFFF
+      text-decoration: underline
+
+@-webkit-keyframes myfirst
+  0%
+    opacity: 0
+    -webkit-transform: scale3d(.8, .8, .8)
+  100%
+    opacity: 1
+    -webkit-transform: scale3d(1, 1, 1)
+
+@keyframes myfirst
+  0%
+    opacity: 0
+    transform: scale3d(.8, .8, .8)
+  100%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
+@-webkit-keyframes mysecond
+  0%
+    -webkit-transform: scale3d(1, 1, 1)
+    opacity: 1
+  20%
+    -webkit-transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  80%
+    -webkit-transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  100%
+    -webkit-transform: scale3d(.8, .8, .8)
+    opacity: 0
+
+@keyframes mysecond
+  0%
+    transform: scale3d(1, 1, 1)
+    opacity: 1
+  20%
+    transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  80%
+    transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  100%
+    transform: scale3d(.8, .8, .8)
+    opacity: 0
+
+.relative
+  position: relative
