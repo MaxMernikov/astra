@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707052311) do
+ActiveRecord::Schema.define(version: 20140729053437) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 20140707052311) do
     t.string   "accusative"
     t.string   "instrumental"
     t.string   "prepositional"
+    t.string   "description"
+    t.string   "keywords"
   end
 
   create_table "categories_cloths", id: false, force: true do |t|
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(version: 20140707052311) do
     t.datetime "updated_at"
     t.integer  "pos",           default: 0
     t.text     "about_product"
+    t.string   "description"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree

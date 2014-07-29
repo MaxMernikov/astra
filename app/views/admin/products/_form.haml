@@ -32,14 +32,17 @@
           = f.text_field :title, class: 'uk-width-1-2'
 
       .uk-form-row
-        = f.label :pos, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_field :pos, class: 'uk-width-1-2'
-
-      .uk-form-row
         = f.label :about_product, class: 'uk-form-label'
         .uk-form-controls
           = f.text_area :about_product, class: 'uk-width-1-1', rows: 6
+
+      %hr
+
+      .uk-form-row
+        = f.label :description, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :description, class: 'uk-width-1-1'
+
 
       .uk-form-row
         .uk-width-1-2.uk-container-center.uk-margin

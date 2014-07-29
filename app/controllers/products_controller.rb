@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 
     set_meta_tags title:          @product.category.title,
-                  description:    @product.category.detail_product,
+                  description:    @product.description ? @product.description : @product.category.description,
                   image_src:      (root_url + @product.images.first.image(:preview)).gsub('//', '/'),
                   og: {
                     title:    @product.category.title,
