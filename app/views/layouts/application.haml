@@ -3,14 +3,16 @@
   %head
     = display_meta_tags site: 'Astra', keywords: 'рюкзаки, городские рюкзаки, аксессуары', reverse: true
     %meta{charset: "utf-8"}/
-    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}/
 
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = render 'partials/share'
-  %body
+  %body.container-fluid
     = render 'partials/header'
     = yield
     = render 'partials/footer'
+    = render 'partials/help_widjet'
+
     = render 'partials/ga'

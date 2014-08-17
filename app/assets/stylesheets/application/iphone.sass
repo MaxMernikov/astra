@@ -1,0 +1,25 @@
+@media (max-width:767px)
+  .help_widjet
+    width: 100%
+    .help-text
+      font-weight: 300
+      letter-spacing: normal
+
+
+@media (min-width:768px)
+  .product_block
+    &:hover
+      .price_list
+        opacity: 1
+        animation: myfirst .5s
+        -webkit-animation: myfirst .5s
+        transform: scale3d(1, 1, 1)
+        -webkit-transform: scale3d(1, 1, 1)
+
+  .price_list
+    opacity: 0
+    -webkit-animation: mysecond 3s
+    animation: mysecond 3s
+    -webkit-transform: scale3d(.8, .8, .8)
+    transform: scale3d(.8, .8, .8)
+

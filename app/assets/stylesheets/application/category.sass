@@ -1,0 +1,94 @@
+.header_image
+  background-repeat: no-repeat
+  background-position: center
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  background-attachment: fixed
+  min-height: 240px
+
+  &.index
+    background-attachment: inherit
+    max-height: 900px
+
+h1
+  margin-top: 24px
+  &.slim
+    font-weight: 300
+
+
+.product_image
+  img
+    width: 100%
+
+
+
+.price_list
+  color: white
+  left: 5%
+  position: absolute
+  top: 0
+  width: 90%
+
+  img
+    min-width: 100%
+  div
+    position: absolute
+  .cost
+    top: 44%
+    left: 20%
+    font-size: 37px
+    font-weight: 100
+  .link
+    top: 66%
+    left: 17%
+    font-size: 13px
+
+
+@-webkit-keyframes myfirst
+  0%
+    opacity: 0
+    -webkit-transform: scale3d(.8, .8, .8)
+  100%
+    opacity: 1
+    -webkit-transform: scale3d(1, 1, 1)
+
+@keyframes myfirst
+  0%
+    opacity: 0
+    transform: scale3d(.8, .8, .8)
+  100%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
+@-webkit-keyframes mysecond
+  0%
+    -webkit-transform: scale3d(1, 1, 1)
+    opacity: 1
+  20%
+    -webkit-transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  80%
+    -webkit-transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  100%
+    -webkit-transform: scale3d(.8, .8, .8)
+    opacity: 0
+
+@keyframes mysecond
+  0%
+    transform: scale3d(1, 1, 1)
+    opacity: 1
+  20%
+    transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  80%
+    transform: scale3d(1, 1, 1)
+    opacity: 0.7
+  100%
+    transform: scale3d(.8, .8, .8)
+    opacity: 0
+
+label.error
+  font-weight: 100

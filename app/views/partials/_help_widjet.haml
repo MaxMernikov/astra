@@ -1,0 +1,39 @@
+.row
+  .help_widjet.uk-text-ultra-slim
+    .row
+      .col-xs-10
+        .help-text.js-default
+          Есть предложение или нужна помощь?
+          %br
+          Напишите нам кликнув по полю
+        .help-text.js-open
+          Нам важно каждое мнение или замечание
+          %br
+          Заполните форму и нажмите отправить
+        .help-text.js-success
+          Cпасибо за ваше сообщение
+          %br
+          Мы ответим вам в ближайшее время
+      .col-xs-2
+        .help-icon.icon-chat.js-default
+        .help-icon.icon-happy.sway.js-open
+        .help-icon.icon-heart.js-success
+        %br
+
+    .row.js-open
+      %br
+      .col-xs-12
+        = form_for(Feedback.new, html: { role: 'form', remote: true, class: 'form' }) do |f|
+          = f.hidden_field :referal, value: request.original_url
+          .form-group
+            = f.text_field :name, class: 'form-control text-slim-14', placeholder: 'Укажите ваше имя…'
+
+          .form-group
+            = f.text_field :email, class: 'form-control text-slim-14', placeholder: 'email адрес…'
+
+          .form-group
+            = f.text_area :body, class: 'form-control text-slim-14', placeholder: 'и текст сообщения'
+
+          .form-group
+            .tac
+              = f.submit 'отправить', class: 'btn btn-default uk-text-ultra-slim'

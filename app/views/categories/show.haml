@@ -1,18 +1,17 @@
-.uk-width-1-1.header_image{ style: "background-image: url(#{@category.image(:original)})" }
-  = image_tag(@category.image(:original), class: 'uk-responsive-width')
+.row
+  .col-xs-12.header_image{ style: "background-image: url(#{@category.image(:original)})" }
 
-.uk-grid
-  .uk-width-1-1
-    .uk-wrapper
-      %h1.uk-text-slim.tac.uk-margin-top.hyphens= @category.plural_title
+.row
+  .col-xs-12
+    %h1.slim.tac= @category.plural_title
 
-.uk-grid
-  .uk-width-1-1.uk-width-medium-3-5.uk-push-1-5
+.row
+  .col-xs-12.col-sm-8.col-sm-offset-2
     .uk-wrapper.tac
       = mark(@category.detail)
 
-.uk-grid
-  .uk-width-1-1.uk-width-medium-8-10.uk-push-1-10
+.row
+  .col-xs-12.col-sm-10.col-sm-offset-1
     = block_former(@category.products.by_pos.show)
 
 .uk-margin-large-bottom

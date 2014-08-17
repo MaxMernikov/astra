@@ -1,3 +1,4 @@
+@import 'variable.sass'
 $bgc: rgba(255, 255, 255, 0.65)
 
 .other_cloth
@@ -96,12 +97,14 @@ label.error
   font-weight: 100
   padding-bottom: 38px
   h4
-    margin-top: 44px
+    margin-top: 22px
     font-size: 36px
-    line-height: 17px
-    color: #39f
+    line-height: 1
+    +link_color
+
   p
     font-size: 16px
+    margin-bottom: 22px
   span
     font-weight: 300
     font-size: 13px
@@ -109,6 +112,7 @@ label.error
 .share_block
   display: inline-block
   margin-left: -40px
+  margin-top: 24px
   a:hover
     text-decoration: none
   &:hover
@@ -117,97 +121,38 @@ label.error
       -webkit-transition: all 0.8s
       transition: all 0.8s
 
+  .round-btn
+    font-size: 18px
+    width: 36px
+    +link_color
+
 .share_hint
   display: inline
   margin-right: 8px
-  // opacity: 0
-  // -webkit-transition: all 0.4s
-  // transition: all 0.4s
 
-.relative
-  &:hover
-    .price_list
-      opacity: 1
-      animation: myfirst .5s
-      -webkit-animation: myfirst .5s
-      transform: scale3d(1, 1, 1)
-      -webkit-transform: scale3d(1, 1, 1)
+.round-btn
+  border: 1px solid #dddddd
+  border-radius: 28px
+  padding: 8px
 
-.price_list
-  box-sizing: border-box
-  color: white
-  left: 0
-  padding-left: 25px
-  position: absolute
-  top: 0
-  width: 100%
+#buy_it_content
+  margin-top: 48px
+  margin-bottom: 48px
+  display: none
+  h2
+    margin-bottom: 28px
 
-  opacity: 0
-  -webkit-animation: mysecond 3s
-  animation: mysecond 3s
-  -webkit-transform: scale3d(.8, .8, .8)
-  transform: scale3d(.8, .8, .8)
+.about-product
+  margin-top: 48px
+  margin-bottom: 48px
 
-  img
-    width: 100%
-  div
-    position: absolute
-  .cost
-    top: 44%
-    left: 27%
-    font-size: 37px
-    font-weight: 100
-  .link
-    top: 66%
-    left: 24%
-    font-size: 13px
-    a
-      color: #FFFFFF
-      text-decoration: underline
-
-@-webkit-keyframes myfirst
-  0%
-    opacity: 0
-    -webkit-transform: scale3d(.8, .8, .8)
-  100%
-    opacity: 1
-    -webkit-transform: scale3d(1, 1, 1)
-
-@keyframes myfirst
-  0%
-    opacity: 0
-    transform: scale3d(.8, .8, .8)
-  100%
-    opacity: 1
-    transform: scale3d(1, 1, 1)
-
-@-webkit-keyframes mysecond
-  0%
-    -webkit-transform: scale3d(1, 1, 1)
-    opacity: 1
-  20%
-    -webkit-transform: scale3d(1, 1, 1)
-    opacity: 0.7
-  80%
-    -webkit-transform: scale3d(1, 1, 1)
-    opacity: 0.7
-  100%
-    -webkit-transform: scale3d(.8, .8, .8)
-    opacity: 0
-
-@keyframes mysecond
-  0%
-    transform: scale3d(1, 1, 1)
-    opacity: 1
-  20%
-    transform: scale3d(1, 1, 1)
-    opacity: 0.7
-  80%
-    transform: scale3d(1, 1, 1)
-    opacity: 0.7
-  100%
-    transform: scale3d(.8, .8, .8)
-    opacity: 0
-
-.relative
-  position: relative
+.product-details
+  h3
+    font-weight: 300
+    margin-top: 4px
+    margin-bottom: 24px
+  .markdown
+    margin-bottom: 24px
+    margin-top: 24px
+  .more-product
+    margin-bottom: 24px

@@ -73,17 +73,13 @@ $( function() {
   })
 } )
 
-function remove_cloth(){
-  $('.cloth_variants').hide(300);
-  $('.cloth_preview.active').removeClass('active');
-  $('#add_cloth').text('выбрать');
-}
-
 function success_order(){
-  var modal = new $.UIkit.modal.Modal("#success_order");
-  modal.show();
+  $('#success_order').modal('show')
   $('#new_order')[0].reset();
-  remove_cloth();
+
+  $('#buy_it_button').show();
+  $('#buy_it_content').hide();
+  $('#buy_it_content').removeClass('uk-animation-fade');
 }
 
 function popupwindow(url, w, h) {

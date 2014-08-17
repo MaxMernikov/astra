@@ -1,32 +1,34 @@
-.uk-width-1-1.header.uk-wrapper
-  .uk-grid
-    .uk-width-1-5
-      .slogan магазин аксессуаров
-    .uk-width-3-5.tac
-      = link_to 'ASTRA', root_path, class: 'logo'
-      .city - Minsk -
-    .uk-width-1-5
-      .contacts.uk-align-right
-        = link_to '#contacts', 'data-uk-offcanvas' => '' do
-          %i.uk-icon-button.uk-icon-phone
-          %span.uk-hidden-small контакты
+.row.header
+  .col-xs-3.header-row
+    .slogan.hidden-xs магазин аксессуаров
+  .col-xs-6.tac
+    = link_to 'ASTRA', root_path, class: 'logo'
+    .city - Minsk -
+  .col-xs-3.header-row
+    = link_to '#contacts', "data-target" => "#contacts", "data-toggle" => "modal", class: 'contacts pull-right' do
+      .btn.contact-btn
+        %i.icon-phone
+        %span.hidden-xs контакты
 
 
-#contacts.uk-offcanvas
-  .uk-offcanvas-bar.uk-offcanvas-bar-flip
-    .uk-panel
-      %h3.uk-panel-title
-        Наши контакты
+#contacts.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "contacts", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        %h4#contacts.modal-title Наши контакты
+      .modal-body
+        Все интересующие вас вопросы вы можете отправить нам на почту или задать по телефону в любое время на протяжении дня.
+        %br
+        %br
 
-      Все интересующие вас вопросы вы можете отправить нам на почту или задать по телефону в любое время на протяжении светового дня.
-      %br
-      %br
-
-      Телефон:
-      %br
-      = link_to '+ 375 29 769-78-87 (МТС)', 'tel://80297697887'
-      %br
-      %br
-      Email:
-      %br
-      = mail_to 'maxmernikov@gmail.com'
+        Телефон:
+        %br
+        = link_to '+ 375 29 769-78-87 (МТС)', 'tel://80297697887'
+        %br
+        %br
+        Email:
+        %br
+        = mail_to 'maxmernikov@gmail.com'

@@ -1,44 +1,29 @@
 .uk-wrapper
   %h2.uk-text-slim.tac
     Оформление покупки
-  = form_for Order.new, { html: { class: 'uk-form uk-form-horizontal' }, remote: true } do |f|
+  = form_for Order.new, { html: { class: 'uk-form form-horizontal', role: 'form' }, remote: true } do |f|
     = f.hidden_field :product_id, value: @product.id
     .uk-form-row
-      = f.label :name, class: 'uk-form-label'
-      .uk-form-controls
-        = f.text_field :name, class: 'uk-form-large uk-width-1-1'
+      = f.label :name, class: 'uk-form-label col-sm-5'
+      .uk-form-controls.col-sm-7
+        = f.text_field :name, class: 'uk-form-large'
 
     .uk-form-row
-      = f.label :phone, class: 'uk-form-label'
-      .uk-form-controls
-        = f.text_field :phone, class: 'uk-form-large uk-width-1-1'
+      = f.label :phone, class: 'uk-form-label col-sm-5'
+      .uk-form-controls.col-sm-7
+        = f.text_field :phone, class: 'uk-form-large'
         пример ввода: (029) 123-45-67
 
     .uk-form-row
-      = f.label :email, class: 'uk-form-label'
-      .uk-form-controls
-        = f.text_field :email, class: 'uk-form-large uk-width-1-1'
-
-    - if @product.category.cloths.present?
-      .uk-form-row
-        = f.label :cloth, class: 'uk-form-label'
-        .uk-form-controls
-          %span.pseudo_link#add_cloth выбрать
-          уникальную расцветку
-
-          .cloth_variants.hide
-            = f.hidden_field :cloth_id
-
-            = image_tag(@product.first_image, class: 'cloth_preview')
-
-            %span.pseudo_link#remove_cloth удалить
-            уникальную расцветку
+      = f.label :email, class: 'uk-form-label col-sm-5'
+      .uk-form-controls.col-sm-7
+        = f.text_field :email, class: 'uk-form-large'
 
     .uk-form-row
-      = f.label :details, class: 'uk-form-label'
-      .uk-form-controls
-        = f.text_area :details, class: 'uk-form-large uk-width-1-1', rows: 5
+      = f.label :details, class: 'uk-form-label col-sm-5'
+      .uk-form-controls.col-sm-7
+        = f.text_area :details, class: 'uk-form-large', rows: 4
 
     .uk-form-row
-      .uk-form-controls
+      .uk-form-controlss.col-sm-7.col-sm-offset-5
         = f.submit 'отправить', class: 'uk-button uk-button-large'

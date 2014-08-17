@@ -4,6 +4,8 @@ $( function() {
   $( window ).resize(function() {
     set_size( 500 / $('.price_list').width() );
   })
+
+  $('textarea').autosize();
 });
 
 function set_size(zoom_factor){

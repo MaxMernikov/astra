@@ -1,53 +1,49 @@
-.uk-grid.uk-margin-large
-  .uk-width-1-1.uk-width-medium-1-2.uk-push-1-4.uk-width-medium-1-2
-    .uk-wrapper
-      = @product.description
-      = @product.category.detail_product
+.row
+  .col-xs-12.col-sm-6.col-sm-offset-3.text-center.about-product
+    = @product.description
+    = @product.category.detail_product
 
-.uk-grid.uk-margin-remove.uk-padding-remove
+.row
   - if @product.images.count == 3
     - @product.images.each do |image|
-      .uk-width-1-1.uk-width-medium-1-3
-        = image_tag(image.image(:preview), class: 'uk-responsive-width' )
-  - elsif @product.images.count == 2
-    - @product.images.each do |image|
-      .uk-width-1-1.uk-width-medium-1-3.uk-push-1-6
-        = image_tag(image.image(:preview), class: 'uk-responsive-width' )
+      = image_tag(image.image(:preview), class: 'col-xs-12 col-sm-4')
 
-.uk-grid
-  .uk-width-1-1.tac
+  - elsif @product.images.count == 2
+    - @product.images.each_with_index do |image, index|
+      = image_tag(image.image(:preview), class: "col-xs-12 col-sm-4 #{ index == 0 ? 'col-sm-offset-2' : '' }")
+
+.row
+  .col-xs-12.tac
     .share_block
       .share_hint Share:
       = render 'share'
 
-#buy_it.uk-grid.uk-margin-large
-  #buy_it_button.uk-width-1-1.uk-width-medium-1-2.uk-push-1-4.uk-width-medium-1-2.uk-thumbnail.buy_it
-    %h4.buy.tac.uk-text-ultra-slim
-      Купить #{@product.category.dative}
-    %p.tac
-      за
-      %span= @product.cost
-      тысяч рублей
+#buy_it.row
+  #buy_it_button.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.buy_it
+    .thumbnail
+      %h4.buy.text-center.uk-text-ultra-slim
+        Купить #{@product.category.dative}
+      %p.tac
+        за
+        %span= @product.cost
+        тысяч рублей
 
-  #buy_it_content.hide.uk-width-1-1.uk-width-medium-1-2.uk-push-1-4.uk-width-medium-1-2
+  #buy_it_content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
     = render 'order_form'
 
 - if @product.about_product.present?
-  .uk-grid.uk-margin-remove.uk-padding-remove{ "data-uk-grid-match" => ''}
-    .uk-width-1-1.uk-width-medium-1-3.image_block
-      .backgr_image{ style: "background-image: url(#{@product.images.first.image(:preview)})" }
+  .row.product-details
+    = image_tag @product.images.first.image(:preview), class: 'col-sm-4 hidden-xs'
 
-    .uk-width-1-1.uk-width-medium-2-3
-      .uk-article
-        .uk-wrapper.uk-margin-large-bottom
-          .uk-article-title О товаре
-          %br
-          = mark(@product.about_product)
-          %br
-          = link_to category_path(@product.category.slug), class: 'uk-button uk-button-small' do
-            посмотреть все модели городских рюкзаков
+    .col-xs-12.col-sm-8
+      %h3 О товаре
+      = mark(@product.about_product)
 
-            -# = @product.category.title
+      %p.text-center.more-product
+        = link_to category_path(@product.category.slug), class: 'btn btn-default btn-sm' do
+          посмотреть все модели городских рюкзаков
+
+        -# = @product.category.title
 
 -#   .uk-width-1-1.uk-width-medium-1-3.cycle-slideshow{ 'data-cycle-pager-template' => '<span>{{slideNum}}</span>', 'data-cycle-pause-on-hover' => 'true', 'data-cycle-timeout' => '4240', 'data-cycle-speed' => '1000', 'data-cycle-manual-speed' => '300' }
 -#     - @product.images.each do |image|
@@ -64,13 +60,21 @@
 
   -#     = render 'cloths_select', cloths: @product.category.cloths
 
+#success_order.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "success_order", role: "dialog", tabindex: "-1"}
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        %h4#contacts.modal-title.text-center Спасибо за оформление заказа
+      .modal-body
+        %p
+          Ваш заказ принят.
+        %p
+          В ближайшее время наш менеджер свяжется с вами для уточнения деталей.
 
-#success_order.uk-modal
-  .uk-modal-dialog
-    %a.uk-modal-close.uk-close.uk-close-alt{href: ""}
-    %h1.uk-text-slim
-      Спасибо за оформление заказа
 
-    %p
-      Доставка товара осуществляется двумя способами: курьером по указанному Вами адресу либо РУП «Белпочта». Вы также можете забрать товар самостоятельно, подъехав по адресу улица Данилы Сердича, 78, кв 24. Детали доставки уточнит наш менеджер после оформления заказа.
+
+-# Доставка товара осуществляется двумя способами: курьером по указанному Вами адресу либо РУП «Белпочта». Вы также можете забрать товар самостоятельно, подъехав по адресу улица Данилы Сердича, 78, кв 24. Детали доставки уточнит наш менеджер после оформления заказа.
 

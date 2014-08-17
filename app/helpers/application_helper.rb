@@ -6,7 +6,7 @@ module ApplicationHelper
   def mark(text)
     if text
       @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options = {hard_wrap: true}) )
-      raw "<div class='mark'>" + @markdown.render(text) + '</div>'
+      raw "<div class='markdown'>" + @markdown.render(text) + '</div>'
     end
   end
 
@@ -30,14 +30,18 @@ module ApplicationHelper
     raw result
   end
 
-  def block_row_class(size)
-    case size
-    when 1
-      'uk-width-1-1 uk-width-medium-1-3 uk-push-1-3'
-    when 2
-      'uk-width-1-1 uk-width-medium-1-3 uk-push-1-6'
-    when 3
-      'uk-width-1-1 uk-width-medium-1-3'
+  def block_row_class(size, index)
+    if index != 0
+      'col-xs-12 col-sm-4'
+    else
+      case size
+      when 1
+        'col-xs-12 col-sm-4 col-sm-offset-4'
+      when 2
+        'col-xs-12 col-sm-4 col-sm-offset-2'
+      when 3
+        'col-xs-12 col-sm-4'
+      end
     end
   end
 

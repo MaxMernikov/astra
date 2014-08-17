@@ -1,11 +1,11 @@
-.uk-grid
-  - blocks.each do |block|
-    %div.relative{ class: block_row_class(blocks.size)}
-      = link_to block do
+.row
+  - blocks.each_with_index do |block, index|
+    %div.product_block{ class: block_row_class(blocks.size, index)}
+      = link_to block, class: 'product_image' do
         = image_tag(block.first_image)
-      .price_list
-        = image_tag('pricelist.png', usemap: "#imgmap#{block.id}" )
-        %map{name: "imgmap#{block.id}", id: "#imgmap#{block.id}" }
-          %area.area2{alt: "", coords: "138,70,468,356,500,356,500,0,138,0", href: product_path(block), shape: "poly"}
-        .cost #{block.cost} т.р.
-        .link= link_to 'подробности', block
+        .price_list
+          = image_tag('pricelist.png')
+          .cost #{block.cost} т.р.
+          .hidden-xs.link подробности
+.hidden-xs
+  %br

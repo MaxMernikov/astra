@@ -7,66 +7,8 @@ body
     font-weight: 300
   .uk-text-ultra-slim
     font-weight: 100
+    letter-spacing: 1.00pt
 
-i.uk-icon-button
-  color: #999
-  -webkit-transition: all 0.4s
-  transition: all 0.4s
-  &:active, &:hover
-    color: #444
-
-.header
-  height: 85px
-  border-bottom: 1px solid #ddd
-  font-size: 14px
-
-  .contacts
-    a
-      i
-      &:active, &:hover
-        text-decoration: none
-      span
-        margin-left: 4px
-        color: #999
-        position: relative
-        top: -2px
-
-  .logo
-    font-size: 50px
-    font-weight: 100
-    line-height: 1.3
-    position: relative
-    top: 5px
-    &:active, &:hover
-      text-decoration: none
-
-  .city
-    margin-top: -9px
-    color: #999
-    font-size: 13px
-
-  .slogan
-    color: #999999
-    display: inline-block
-    line-height: 1.1
-    margin-left: 11px
-    width: 120px
-
-  .uk-width-1-5 > div
-    margin-top: 25px
-
-@media (max-width:415px)
-
-  .slogan
-    margin-left: 0 !important
-    width: 73px !important
-    font-size: 11px
-  .header
-    .logo
-      top: 9px
-      font-size: 40px
-    .city
-      margin-top: -3px
 
 
 .tac
@@ -101,13 +43,6 @@ $bgc: rgba(73, 84, 52, 0.65) //background color
       text-shadow: 1px 0 1px $bgc, -1px 0 2px $bgc, 0 1px 2px $bgc, 0 -1px 2px $bgc, 1px 0 0px $bgc, 0 1px 0px $bgc
 
 
-
-.uk-responsive-width
-  min-width: 100%
-
-.uk-padding-remove.uk-grid>*
-  padding-left: inherit
-
 .image_block
   overflow: hidden
   position: relative
@@ -123,23 +58,6 @@ $bgc: rgba(73, 84, 52, 0.65) //background color
     width: 110%
     height: 100%
     position: absolute
-
-.header_image
-  background-repeat: no-repeat
-  background-position: center
-  -webkit-background-size: cover
-  -moz-background-size: cover
-  -o-background-size: cover
-  background-size: cover
-  background-attachment: fixed
-  max-height: 300px
-  img
-    opacity: 0
-    max-height: 900px
-
-  &.index
-    background-attachment: inherit
-    max-height: 900px
 
 .footer
   border-top: 1px solid #ddd
