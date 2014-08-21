@@ -1,16 +1,18 @@
 .row
   .col-xs-12.col-sm-6.col-sm-offset-3.text-center.about-product
-    = @product.description
-    = @product.category.detail_product
+    - if @product.description.present?
+      = @product.description
+    - else
+      = @product.category.detail_product
 
 .row
   - if @product.images.count == 3
     - @product.images.each do |image|
-      = image_tag(image.image(:preview), class: 'col-xs-12 col-sm-4')
+      = image_tag(image.image(:preview), class: 'col-xs-12 col-sm-4', title: astra_tag(@product.title), alt: astra_tag(@product.title))
 
   - elsif @product.images.count == 2
     - @product.images.each_with_index do |image, index|
-      = image_tag(image.image(:preview), class: "col-xs-12 col-sm-4 #{ index == 0 ? 'col-sm-offset-2' : '' }")
+      = image_tag(image.image(:preview), class: "col-xs-12 col-sm-4 #{ index == 0 ? 'col-sm-offset-2' : '' }", title: astra_tag(@product.title), alt: astra_tag(@product.title))
 
 .row
   .col-xs-12.tac
@@ -33,7 +35,7 @@
 
 - if @product.about_product.present?
   .row.product-details
-    = image_tag @product.images.first.image(:preview), class: 'col-sm-4 hidden-xs'
+    = image_tag @product.images.first.image(:preview), class: 'col-sm-4 hidden-xs', title: astra_tag(@product.title), alt: astra_tag(@product.title)
 
     .col-xs-12.col-sm-8
       %h3 О товаре

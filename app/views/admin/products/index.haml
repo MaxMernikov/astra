@@ -10,7 +10,7 @@
     - category.products.by_pos.each do |product|
       .uk-width-medium-1-2.uk-width-large-1-5.js_sort{ class: product.show ? '' : 'not_show', :'data-id' => product.id }
         = image_tag(product.images.first.image(:preview))
-        .uk-margin-small-top
+        .uk-margin-small-top.uk-alert{ class: product.trouble ? 'uk-alert-success' : 'uk-alert-warning'}
           %span.uk-article-lead
             = product.cost
             т.
