@@ -1,0 +1,26 @@
+.uk-grid
+  .uk-width-1-1
+    %h2
+      Обратная связь
+
+.uk-wrapper
+  %table.uk-table
+    %thead
+      %tr
+        %th name
+        %th email
+        %th body
+        %th referal
+        %th created_at
+        %th
+
+
+    %tbody
+      - @feedbacks.each do |feedback|
+        %tr
+          %td= feedback.name
+          %td= feedback.email
+          %td= feedback.body
+          %td= feedback.referal
+          %td= feedback.created_at
+          %td

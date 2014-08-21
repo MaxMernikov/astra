@@ -10,11 +10,14 @@
     %li{ class: active_menu('admin/products') }
       = link_to 'Продукты', admin_products_path
 
-    %li{ class: active_menu('admin/cloths') }
-      = link_to 'Ткани', admin_cloths_path
+    -# %li{ class: active_menu('admin/cloths') }
+    -#   = link_to 'Ткани', admin_cloths_path
 
-    %li{ class: active_menu('admin/categories_cloths')}
-      = link_to 'Таблица категорий и тканей', admin_categories_cloths_path
+    -# %li{ class: active_menu('admin/categories_cloths')}
+    -#   = link_to 'Таблица категорий и тканей', admin_categories_cloths_path
+
+    %li{ class: active_menu('admin/feedbacks') }
+      = link_to 'Обратная связь', admin_feedbacks_path
 
   %ul.uk-navbar-nav
     %li
