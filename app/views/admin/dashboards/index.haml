@@ -19,8 +19,7 @@
           %td{ style: 'width: 10%' }= image_tag order.product.first_image
           %td
             .id
-              %b Номер заказа:
-              = order.id
+              %b Заказ ##{order.id}
             - if order.details.present?
               .details
                 %b Детали заказа:
