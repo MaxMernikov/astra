@@ -18,6 +18,9 @@
         %tr.uk-alert{ class: order.complete ? 'uk-alert-success' : ''}
           %td{ style: 'width: 10%' }= image_tag order.product.first_image
           %td
+            .id
+              %b Номер заказа:
+              = order.id
             - if order.details.present?
               .details
                 %b Детали заказа:
