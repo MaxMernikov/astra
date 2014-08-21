@@ -1,11 +1,11 @@
 .row
   .col-xs-12
     .row
-      .col-xs-12.col-sm-4.footer_block
+      .col-xs-4.footer_block
         %ul.list-unstyled
           - @categories.each do |category|
             %li= link_to category.plural_title, category_path(category.slug)
-      .col-xs-12.col-sm-4.col-sm-offset-4.footer_block
+      .col-xs-4.col-xs-offset-4.footer_block
         %ul.list-unstyled.pull-right
           -# %li оформить заказ
           %li

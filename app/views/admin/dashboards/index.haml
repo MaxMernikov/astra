@@ -1,0 +1,40 @@
+.uk-grid
+  .uk-width-1-1
+    %h2
+      Заказы
+
+.uk-wrapper
+  %table.uk-table
+    %thead
+      %tr
+        %th Фото
+        %th Информация о заказе
+        %th Информация о заказчике
+        -# %th Статус
+        %th
+
+    %tbody
+      - @orders.each do |order|
+        %tr.uk-alert{ class: order.complete ? 'uk-alert-success' : ''}
+          %td{ style: 'width: 10%' }= image_tag order.product.first_image
+          %td
+            - if order.details.present?
+              .details
+                %b Детали заказа:
+                = order.details
+            - if order.mark.present?
+              .mark
+                %b Пометки:
+                = order.mark
+          %td
+            .name= order.name
+            .phone= order.phone
+            .email Email: #{order.email}
+          -# %td
+          -#   = order.complete
+          %td
+            = link_to edit_admin_order_path(order), class: 'uk-button uk-button-mini uk-button-success' do
+              .uk-icon-pencil
+            = link_to admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-mini uk-button-danger' do
+              .uk-icon-times
+

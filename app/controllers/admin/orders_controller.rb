@@ -14,7 +14,7 @@ class Admin::OrdersController < ApplicationController
     params[:order][:category_ids] ||= []
 
     if @order.update(order_params)
-      redirect_to admin_orders_path, notice: 'Order was successfully updated.'
+      redirect_to admin_dashboards_path, notice: 'Order was successfully updated.'
     else
       render action: 'edit'
     end
@@ -31,6 +31,6 @@ private
   end
 
   def order_params
-    params.require(:order).permit( )
+    params.require(:order).permit(:details, :mark, :complete)
   end
 end

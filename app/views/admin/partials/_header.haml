@@ -16,5 +16,6 @@
     %li{ class: active_menu('admin/categories_cloths')}
       = link_to 'Таблица категорий и тканей', admin_categories_cloths_path
 
-    %li{ class: active_menu('admin/orders') }
-      = link_to 'Заказы', admin_orders_path
+  %ul.uk-navbar-nav
+    %li
+      = link_to 'выйти', destroy_admin_session_path, method: :delete
