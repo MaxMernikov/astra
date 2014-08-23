@@ -28,6 +28,9 @@
               .mark
                 %b Пометки:
                 = order.mark
+            .created_at
+              %b Дата добавления:
+              = time_tag order.created_at
           %td
             .name= order.name
             .phone= order.phone
