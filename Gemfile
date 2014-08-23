@@ -37,6 +37,7 @@ gem 'devise'
 gem 'cancancan'
 
 gem 'cocoon'
+gem 'russian'
 
 gem 'paperclip', '~> 4.1'
 gem 'redcarpet'
