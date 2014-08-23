@@ -9,10 +9,10 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     = render 'partials/share'
+    = render 'partials/ga'
+
   %body.container-fluid
     = render 'partials/header'
     = yield
     = render 'partials/footer'
     = render 'partials/help_widjet'
-
-    = render 'partials/ga'
