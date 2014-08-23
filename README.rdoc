@@ -28,3 +28,5 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=JduluM49h1crddI9wLrQAMI8s*A6D7Z4ppz6UE10xIffZEBhTkjZlicU2ycfJGSSEvgRLZ6D*dt3N1lZWsYInKBGVq7sxT3gL9rvyZ3MXIfGng*94QVitCQ83jlR3JL2wUmJTFrk4FeiAASZ0PF5ZyAyEsfeK00KnGlRqfMCCGU-';</script>
