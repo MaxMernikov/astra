@@ -59,6 +59,11 @@
           = f.text_area :detail_product, class: 'uk-width-1-1 form-textarea', rows: 7
 
       .uk-form-row
+        = f.label :more_info, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :more_info, class: 'uk-width-1-2'
+
+      .uk-form-row
         = f.label :show, class: 'uk-form-label'
         .uk-form-controls
           = f.check_box :show, class: 'uk-width-1-2'

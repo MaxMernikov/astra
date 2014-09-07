@@ -6,6 +6,6 @@
         .price_list
           = image_tag('pricelist.png')
           .cost #{block.cost} т.р.
-          .hidden-xs.link подробности
+          .hidden-xs.link= block.category.more_info
 .hidden-xs
   %br

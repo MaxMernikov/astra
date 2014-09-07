@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802073650) do
+ActiveRecord::Schema.define(version: 20140907193806) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140802073650) do
     t.string   "prepositional"
     t.string   "description"
     t.string   "keywords"
+    t.string   "more_info"
   end
 
   create_table "categories_cloths", id: false, force: true do |t|
