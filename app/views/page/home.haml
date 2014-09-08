@@ -1,40 +1,19 @@
-.uk-width-1-1.header_image.index{ style: "background-image: url(#{asset_path 'bg.jpg'})" }
-  = image_tag('bg.jpg', class: 'uk-responsive-width')
+.row.home-banner
+  .col-xs-3.banner-info
+    .banner-title Hello Astra
+    %p производство рюкзаков и сумок под белорусской маркой Astra
+    %p в гармонии с тобой аксессуары Astra
 
-.index_promo.uk-width-large-2-5.uk-width-medium-1-2
-  .uk-wrapper.uk-margin-top.uk-margin-bottom
-    .uk-article-mmm
-      Эти ощущения комфорта и уверенности в надежности и целостности, когда все то что окружает тебя, по твоему вкусу, приятно на ощупь, имеет текстуру находящююся с тобой в гармонии, является продолжением тебя и элементом самовыражения.
+    .product-info
+      - product = Product.find(15)
+      = link_to product do
+        = image_tag product.first_image, class: 'product-photo'
 
-- @categories.each_slice(2) do |category|
-  - if category[0].present?
-    .uk-grid.uk-margin-remove.uk-padding-remove{ "data-uk-grid-match" => ''}
-      .uk-width-1-1.uk-width-medium-1-2.image_block
-        %a.backgr_image{ style: "background-image: url(#{ category[0].image(:original)})", href: category[0].slug }
+        .about
+          .text= truncate product.description, length: 84, separator: ' '
+          .cost #{product.cost} т.р.
 
-      .uk-width-medium-1-2
-        .uk-article.tac.fragment
-          .uk-article-title
-            = category[0].plural_title
-          %hr.uk-article-divider
-          .uk-wrapper.text
-            = mark(category[0].detail)
-            %br
-            %br
-            = link_to 'подробности', category[0].slug, class: 'uk-button'
+.row
+  .col-xs-12.col-sm-10.col-sm-offset-1
+    = block_former(@five_product)
 
-  - if category[1].present?
-    .uk-grid.uk-margin-remove.uk-padding-remove{ "data-uk-grid-match" => ''}
-      .uk-width-1-1.uk-width-medium-1-2.uk-push-1-2.image_block
-        %a.backgr_image{ style: "background-image: url(#{ category[1].image(:original)})", href: category[0].slug }
-
-      .uk-width-medium-1-2.uk-pull-1-2
-        .uk-article.tac.fragment
-          .uk-article-title
-            = category[1].plural_title
-          %hr.uk-article-divider
-          .uk-wrapper
-            = mark(category[1].detail)
-            %br
-            %br
-            = link_to 'подробности', category[1].slug, class: 'uk-button'
