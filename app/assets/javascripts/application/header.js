@@ -13,5 +13,5 @@ $(window).scrollStopped(function(){
 });
 
 $( window ).scroll(function( event ) {
-  $( ".header" ).css( "background-color", "rgba(255, 255, 255, 0.9)" );
+  $( ".header" ).css( "background-color", "rgba(255, 255, 255, 0.7)" );
 });

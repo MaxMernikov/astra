@@ -10,10 +10,13 @@
   border-bottom: 1px solid #ddd
   font-size: 14px
 
-  -webkit-transition: all .75s ease
-  transition: all .75s ease
+  -webkit-transition: all .75s linear
+  transition: all .75s linear
 
-  background-color: rgba(255, 255, 255, 0.9)
+  background-color: rgba(255, 255, 255, 1)
+
+  &:hover
+    background-color: rgba(255, 255, 255, 0.8) !important
 
   .header-row
     line-height: 84px
