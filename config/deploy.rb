@@ -5,7 +5,7 @@ set :ssh_options, { :forward_agent => true }
 set :keep_releases, 1
 
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml public/sitemap.xml.gz}
 
 set :bundle_gemfile, -> { release_path.join('Gemfile') }
 set :bundle_dir, -> { shared_path.join('bundle') }
