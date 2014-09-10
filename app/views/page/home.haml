@@ -13,8 +13,6 @@
           .text= truncate product.description, length: 84, separator: ' '
           .cost #{product.cost} т.р.
 
-= render 'partials/menu'
-
 .row
   .col-xs-12.col-sm-10.col-sm-offset-1
     = block_former(@five_product)
