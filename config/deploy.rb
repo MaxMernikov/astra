@@ -2,7 +2,7 @@ set :application, 'astra'
 set :repo_url, 'git@github.com:MaxMernikov/astra.git'
 set :scm, :git
 set :ssh_options, { :forward_agent => true }
-set :keep_releases, 1
+set :keep_releases, 2
 
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :linked_files, %w{config/database.yml public/sitemap.xml.gz}

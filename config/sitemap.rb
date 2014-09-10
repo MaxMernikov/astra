@@ -11,5 +11,4 @@ SitemapGenerator::Sitemap.create do
   end
 end
 
-
-# SitemapGenerator::Sitemap.ping_search_engines # Not needed if you use the rake tasks
+SitemapGenerator::Sitemap.ping_search_engines # Not needed if you use the rake tasks

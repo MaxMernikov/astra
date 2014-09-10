@@ -1,13 +1,13 @@
 .row.header
-  .col-xs-5.header-row
+  .col-xs-3.col-sm-5.header-row
     .left.hidden-xs
       - Category.show.by_pos.each do |category|
         = link_to category.plural_title, category_path(category.slug)
 
-  .col-xs-2.tac
+  .col-xs-6.col-sm-2.tac
     = link_to 'ASTRA', root_path, class: 'logo'
     .city - Minsk -
-  .col-xs-5.header-row
+  .col-xs-3.col-sm-5.header-row
     = link_to '#contacts', "data-target" => "#contacts", "data-toggle" => "modal", class: 'contacts pull-right' do
       .btn.contact-btn
         %i.icon-phone

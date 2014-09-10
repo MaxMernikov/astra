@@ -1,5 +1,6 @@
-.row
-  .col-xs-12.header_image{ style: "background-image: url(#{@category.image(:original)})" }
+- if @category.image_file_name.present?
+  .row
+    .col-xs-12.header_image{ style: "background-image: url(#{@category.image(:original)})" }
 
 .row
   .col-xs-12
