@@ -18,3 +18,4 @@
 /config/database.yml
 /app/assets/images/fish/*
 /public/assets/*
+/public/sitemap.xml.gz
