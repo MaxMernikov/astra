@@ -45,6 +45,8 @@ gem 'meta-tags'
 
 gem 'newrelic_rpm'
 
+gem 'sitemap_generator'
+
 group :development do
   gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rvm', '~> 0.1.0'
