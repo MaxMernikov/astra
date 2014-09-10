@@ -13,6 +13,7 @@
 
   %body.container-fluid
     = render 'partials/header'
-    = yield
+    .body
+      = yield
     = render 'partials/footer'
     = render 'partials/help_widjet'
