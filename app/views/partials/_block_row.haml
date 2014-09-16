@@ -1,11 +1,16 @@
 .row
   - blocks.each_with_index do |block, index|
-    %div.product_block{ class: block_row_class(blocks.size, index)}
+    %div{ class: block_row_class(blocks.size, index)}
       = link_to block, class: 'product_image' do
         = image_tag(block.first_image)
-        .price_list
-          = image_tag('pricelist.png')
-          .cost #{block.cost} т.р.
-          .hidden-xs.link= block.category.more_info
+        .text-center.product-info
+          .category-title= block.category.title
+          - if block.title.present?
+            .title "#{block.title}"
+          .cost #{block.cost}$
+          .visible-xs
+            %hr
+
 .hidden-xs
   %br
+
