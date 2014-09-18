@@ -25,13 +25,13 @@
 
   #buy_it.row
     #buy_it_button.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.buy_it
-      .thumbnail
-        %h4.buy.text-center.uk-text-ultra-slim
+      .thumbnail.text-center
+        %h4.buy.uk-text-ultra-slim
           Купить #{@product.category.dative}
-        %p.tac
+        %p
           за
-          %span= @product.cost
-          тысяч рублей
+          %span #{@product.cost}$
+        -# %p.buy-hint оплата принимается в белорусских рублях по курсу национального банка Республики Беларусь
 
     #buy_it_content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
       = render 'order_form'
