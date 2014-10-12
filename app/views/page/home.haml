@@ -13,7 +13,18 @@
           .text= truncate product.description, length: 84, separator: ' '
           .cost #{product.cost}$
 
+.row.category-row
+  .col-sm-6.col-sm-offset-1.left
+    %h2 Городские рюкзаки Astra
+    %p Рюкзаки средних размеров, достаточно емкие, чтобы взять с собой теплую вещь, плед, книгу, ноутбук или планшет. Вариантов много, цель одна - свобода и комфорт в движении.
+    = link_to 'показать все модели городских рюкзаков', '/backpacks', class: 'btn btn-default btn-sm'
+
+  .col-sm-5.right
+    = image_tag product.first_image
+
 .row
+  .col-sm-6.col-sm-offset-1
+    %h3 Популярные модели рюкзаков
   .col-xs-12.col-sm-10.col-sm-offset-1
     = block_former(@five_product)
 
