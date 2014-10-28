@@ -1,30 +1,40 @@
-.row.home-banner
-  .col-xs-3.banner-info
-    .banner-title Hello Astra
-    %p мы белорусский производитель рюкзаков и сумок под маркой Astra
-    -# %p в гармонии с тобой аксессуары Astra
+.row#pagepiling
+  .section#root-section
+    .col-xs-12.col-sm-4.banner-info
+      .banner-title Hello Astra
+      %p Мы белорусский производитель рюкзаков и сумок под маркой Astra
+      %p За несколько меняцев нашего существования было разработано 30 моделей продукции, выполненно более 200 заказов.
+      %p Результаты нашей работы стали элементом гардероба и помошником в дороге для сотен людей. И мы готовы сделать это и для оставшихся семи миллиардов.
 
-    .product-info
-      - product = Product.find(21)
-      = link_to product do
-        = image_tag product.first_image, class: 'product-photo'
+    .slide-down
+      %i.icon-angle-down
 
-        .about
-          .text= truncate product.description, length: 84, separator: ' '
-          .cost #{product.cost}$
 
-.row.category-row
-  .col-sm-6.col-sm-offset-1.left
-    %h2 Городские рюкзаки Astra
-    %p Рюкзаки средних размеров, достаточно емкие, чтобы взять с собой теплую вещь, плед, книгу, ноутбук или планшет. Вариантов много, цель одна - свобода и комфорт в движении.
-    = link_to 'показать все модели городских рюкзаков', '/backpacks', class: 'btn btn-default btn-sm'
+  .section.category-row.background-section#backpacks
+    .col-sm-6.col-sm-offset-1.left
+      %h2 Городские рюкзаки Astra
+      %br
+      %br
+      %p Рюкзаки средних размеров, достаточно емкие, чтобы взять с собой теплую вещь, плед, книгу, ноутбук или планшет. Вариантов много, цель одна - свобода и комфорт в движении.
+      %br
+      %br
+      = link_to 'показать все модели городских рюкзаков', '/backpacks', class: 'btn btn-default btn-sm'
 
-  .col-sm-5.right
-    = image_tag Product.find(15).first_image
 
-.row
-  .col-sm-6.col-sm-offset-1
-    %h3 Популярные модели рюкзаков
-  .col-xs-12.col-sm-10.col-sm-offset-1
-    = block_former(@five_product)
+  .section.category-row.background-section#pouches
+    .col-sm-6.col-sm-offset-5.left
+      %h2 Городские рюкзаки Astra
+      %br
+      %br
+      %p Рюкзаки средних размеров, достаточно емкие, чтобы взять с собой теплую вещь, плед, книгу, ноутбук или планшет. Вариантов много, цель одна - свобода и комфорт в движении.
+      %br
+      %br
+      = link_to 'показать все модели городских рюкзаков', '/backpacks', class: 'btn btn-default btn-sm'
+
+
+  .section
+    .col-sm-6.col-sm-offset-1
+      %h3 Популярные модели рюкзаков
+    .col-xs-12.col-sm-10.col-sm-offset-1
+      = block_former(@five_product)
 
