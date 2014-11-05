@@ -8,4 +8,8 @@ $(function() {
       $.post( url, { positions: array })
     }
   });
+
+  $('.gridster li').each(function() {
+    console.log($(this).width())
+  })
 });

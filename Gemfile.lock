@@ -66,8 +66,14 @@ GEM
     execjs (2.0.2)
     haml (4.0.5)
       tilt
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hike (1.2.3)
     i18n (0.6.9)
+    inherited_resources (1.5.0)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -117,6 +123,8 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     redcarpet (3.1.1)
+    responders (1.1.1)
+      railties (>= 3.2, < 4.2)
     russian (0.6.0)
       i18n (>= 0.5.0)
     sass (3.2.19)
@@ -173,6 +181,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   haml
+  inherited_resources
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails

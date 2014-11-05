@@ -3,11 +3,13 @@
     .col-xs-12.col-sm-4.banner-info
       .banner-title Hello Astra
       %p Мы белорусский производитель рюкзаков и сумок под маркой Astra
-      %p За несколько меняцев нашего существования было разработано 30 моделей продукции, выполненно более 200 заказов.
-      %p Результаты нашей работы стали элементом гардероба и помошником в дороге для сотен людей. И мы готовы сделать это и для оставшихся семи миллиардов.
+      %p За несколько меcяцев нашего существования было разработано 30 моделей продукции, выполненно более 200 заказов.
+      %p.hidden-xs Результаты нашей работы стали элементом гардероба и помошником в дороге для сотен людей. И мы готовы сделать это и для оставшихся семи миллиардов.
 
     .slide-down
-      %i.icon-angle-down
+      %span Наша продукция
+      .slide-down-button
+        %i.icon-angle-down
 
 
   .section.category-row.background-section#backpacks
@@ -23,18 +25,24 @@
 
   .section.category-row.background-section#pouches
     .col-sm-6.col-sm-offset-5.left
-      %h2 Городские рюкзаки Astra
+      %h2 Сумки Astra
       %br
       %br
-      %p Рюкзаки средних размеров, достаточно емкие, чтобы взять с собой теплую вещь, плед, книгу, ноутбук или планшет. Вариантов много, цель одна - свобода и комфорт в движении.
+      %p Создавая модели сумок мы сосредаточились на их практичности и удобство использования. Сейчас у нас 7 моделей сумок. Сумка на каждый день. Каждый день по сумке.
       %br
       %br
       = link_to 'показать все модели городских рюкзаков', '/backpacks', class: 'btn btn-default btn-sm'
 
 
-  .section
-    .col-sm-6.col-sm-offset-1
-      %h3 Популярные модели рюкзаков
-    .col-xs-12.col-sm-10.col-sm-offset-1
-      = block_former(@five_product)
+  .section#galery
+    .gridster.responsive
+      %ul
+        - @lookbook.each do |item|
+          - if item.position.present?
+            %li{'data-id' => "#{item.id}", "data-col" => "#{item.position[:col]}", "data-row" => "#{item.position[:row]}", "data-sizex" => "#{item.position[:size_x]}", "data-sizey" => "#{item.position[:size_y]}", style: "background-image: url(#{item.image(:preview)})"}
+          - else
+            %li{'data-id' => "#{item.id}", "data-col" => "1", "data-row" => "1", "data-sizex" => "1", "data-sizey" => "1", style: "background-image: url(#{item.image(:preview)})"}
+
+    %h2
+      = link_to 'Галерея', '#'
 

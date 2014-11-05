@@ -7,6 +7,10 @@
   };
 })(jQuery);
 
+var resize_gridster = function(){
+  $('.gridster.responsive ul').height( $('.gridster ul').width() / 3 * 2 );
+}
+
 $(document).ready(function() {
   if ($('#pagepiling').length){
     $('#pagepiling').pagepiling({
@@ -22,6 +26,19 @@ $(document).ready(function() {
 
     $('.slide-down').click(function(){ $('#pagepiling').pagepiling.moveSectionDown() });
   }
+
+  gridster = $(".gridster.responsive ul").gridster({
+    widget_base_dimensions: [300, 200],
+    widget_margins: [0, 7],
+    helper: 'clone',
+    max_cols: 3,
+  }).data('gridster')
+  resize_gridster();
+  console.log(gridster.disable());
+
+  $(window).resize(function(){
+    resize_gridster();
+  });
 
 
 });

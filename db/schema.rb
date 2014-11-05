@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907193806) do
+ActiveRecord::Schema.define(version: 20141028221057) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -101,6 +101,23 @@ ActiveRecord::Schema.define(version: 20140907193806) do
   end
 
   add_index "images", ["product_id"], name: "index_images_on_product_id", using: :btree
+
+  create_table "lookbook_items", force: true do |t|
+    t.string   "image_file_name"
+    t.integer  "image_file_size"
+    t.string   "image_content_type"
+    t.integer  "row"
+    t.text     "position"
+    t.text     "background_position"
+    t.integer  "product_id"
+    t.string   "url"
+    t.text     "comment"
+    t.boolean  "show"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lookbook_items", ["product_id"], name: "index_lookbook_items_on_product_id", using: :btree
 
   create_table "orders", force: true do |t|
     t.integer  "product_id"

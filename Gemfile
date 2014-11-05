@@ -46,11 +46,12 @@ gem 'meta-tags'
 gem 'newrelic_rpm'
 
 gem 'sitemap_generator'
+gem 'inherited_resources'
+gem 'awesome_print'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rvm', '~> 0.1.0'
   gem 'capistrano-bundler', '~> 1.0.0'
   gem 'capistrano-rails', '~> 1.1.0'
-  gem 'awesome_print'
 end

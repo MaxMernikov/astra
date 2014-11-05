@@ -11,9 +11,9 @@ body
     letter-spacing: 1.00pt
 
 .body
-  -webkit-transition: all .3s linear
-  transition: all .3s linear
-  margin-top: 76px
+  // -webkit-transition: all .3s linear
+  // transition: all .3s linear
+  // margin-top: 65px
 
 .tac
   text-align: center
@@ -25,10 +25,6 @@ body
     margin-top: 0
 
   .slide-down
-    border-radius: 24px
-    border: 2px solid #fff
-    height: 42px
-    width: 42px
     cursor: pointer
     background: rgba(255, 255, 255, 0)
     -webkit-transition: all .3s linear
@@ -38,16 +34,38 @@ body
     left: 0
     right: 0
     margin: 0 auto
+    text-align: center
+    span
+      text-transform: uppercase
+      color: #fff
+      font-size: 20px
+      font-weight: 100
+      line-height: 44px
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.85), -1px -1px 5px rgba(0, 0, 0, 0.85)
+
+  .slide-down-button
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.35), inset 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+    margin-top: 12px
+    display: block
+    margin: auto
+    border-radius: 24px
+    border: 2px solid #fff
+    height: 42px
+    width: 42px
+
+
     i
       font-size: 24px
       color: #fff
-      margin-left: 12px
       line-height: 38px
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35), -1px -1px 5px rgba(0, 0, 0, 0.35)
 
     &:hover
       background: rgba(255, 255, 255, 1)
+      box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
       i
         color: #000
+        text-shadow: none
 
   #pp-nav span, .pp-slidesNav span
     border: 1px solid #fff
@@ -71,6 +89,7 @@ $bgc: rgba(73, 84, 52, 0.65) //background color
 
 
 .banner-info
+  padding: 0 24px
   color: #fff
   font-weight: 100
   height: 100%
@@ -95,6 +114,7 @@ p
   border-top: 1px solid #eee
   border-bottom: 1px solid #eee
   overflow: hidden
+  font-weight: 100
 
   h2
     font-size: 36px
@@ -123,6 +143,7 @@ h3
 
 .section
   background: #fff
+  margin-top: 32px
 
 #root-section
   background: image-url('new_home_page_background.jpg')
@@ -130,6 +151,7 @@ h3
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
+  margin-top: 0px
 
 .background-section
   background-repeat: no-repeat
@@ -144,3 +166,37 @@ h3
   background-position-x: -10%
   background-size: auto 90%
   background-image: image-url('pouche.jpg')
+
+#galery
+  .gridster.responsive
+    opacity: 0.8
+    ul
+      position: absolute
+      left: -1%
+      right: 0%
+      bottom: 0
+      margin-bottom: 0%
+
+  h2
+    margin-top: -6%
+    text-align: center
+    z-index: 2
+    font-size: 32px
+    line-height: 43px
+    font-weight: 100
+    position: relative
+    a
+      border-radius: 4px
+      padding: 12px 54px 13px
+      text-decoration: none
+      color: #333
+      background-color: rgba(255, 255, 255, 0.95)
+
+      -webkit-transition: all .15s linear
+      transition: all .15s linear
+      &:hover
+        background-color: rgba(238, 238, 238, 1)
+
+.home
+  .header
+    background-color: #fff !important

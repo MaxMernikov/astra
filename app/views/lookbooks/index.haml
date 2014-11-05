@@ -1,0 +1,22 @@
+- @lookbook_items.each do |item|
+  %li= item.position
+
+- row_sort = {}
+-# Hash.new(0)
+
+- @lookbook_items.map do |i|
+  - unless row_sort[i.position[:row]].present?
+    - row_sort[i.position[:row]] = []
+  - row_sort[i.position[:row]] << i
+
+-# = row_sort
+
+- row_sort.sort_by{|i| i}.each do |key, value|
+  .row
+    - col = 1
+    - value.sort_by{|i| i.position[:col]}.each do |item|
+      - position = item.position
+      %div.test-block{ class: "col-md-#{position[:size_x].to_i*4} offset_class(col, position[:size_x])" }
+        %b #{position[:row]} #{position[:size_x]}
+        = position
+

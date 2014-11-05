@@ -1,0 +1,16 @@
+.uk-grid
+  .uk-width-1-1
+    %h2
+      LookBook
+    = link_to 'save position', '#', id: 'js-seralize'
+    %br
+    = link_to 'new item', new_admin_lookbook_item_path
+
+.uk-wrapper
+  .gridster
+    %ul
+      - collection.each do |item|
+        - if item.position.present?
+          %li{'data-id' => "#{item.id}", "data-col" => "#{item.position[:col]}", "data-row" => "#{item.position[:row]}", "data-sizex" => "#{item.position[:size_x]}", "data-sizey" => "#{item.position[:size_y]}", style: "background-image: url(#{item.image(:preview)})"}
+        - else
+          %li{'data-id' => "#{item.id}", "data-col" => "1", "data-row" => "1", "data-sizex" => "1", "data-sizey" => "1", style: "background-image: url(#{item.image(:preview)})"}
