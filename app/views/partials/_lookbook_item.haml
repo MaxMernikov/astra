@@ -11,7 +11,7 @@
       = link_to 'удалить', admin_lookbook_item_path(item), confirm: 'Are you sure?', method: 'delete'
 
 - else
-  %li{'data-id' => "#{item.id}", "data-col" => "99", "data-row" => "99", "data-sizex" => "1", "data-sizey" => "1", style: "background-image: url(#{item.image(:preview)})"}
+  %li{'data-id' => "#{item.id}", "data-col" => '6', "data-row" => "1", "data-sizex" => "1", "data-sizey" => "1", style: "background-image: url(#{item.image(:preview)})"}
 
     - if admin
       = link_to 'edit', edit_admin_lookbook_item_path(item)
