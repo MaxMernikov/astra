@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def lookbook_background_size(item)
-    return item.image(:original) if (item.position[:size_x].to_i > 1 || item.position[:size_y].to_i > 1)
-    item.image(:preview)
+    return item.image.url(:original) if (item.position[:size_x].to_i > 1 || item.position[:size_y].to_i > 1)
+    item.image.url(:preview)
   end
 end
