@@ -1,5 +1,5 @@
 class LookbooksController < ApplicationController
   def index
-    @lookbook_items = LookbookItem.all
+    @lookbook = LookbookItem.visible
   end
 end

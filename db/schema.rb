@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20141028221057) do
     t.integer  "product_id"
     t.string   "url"
     t.text     "comment"
-    t.boolean  "show"
+    t.boolean  "show",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

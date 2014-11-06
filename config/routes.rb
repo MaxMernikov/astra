@@ -14,16 +14,16 @@ Astra::Application.routes.draw do
     resources :feedbacks, only: [:index]
     resources :lookbook_items, except: [:show] do
       post :save_position, on: :collection
+      get :show_hide
     end
   end
-
-
 
   resources :lookbooks, only: [:index], path: 'lookbook'
   resources :categories, only: [:show], path: ''
   resources :products, only: [:show]
   resources :orders, only: [:create]
   resources :feedbacks, only: [:create]
+
 
   root 'page#home'
 end

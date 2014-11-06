@@ -28,21 +28,18 @@
       %h2 Сумки Astra
       %br
       %br
-      %p Создавая модели сумок мы сосредаточились на их практичности и удобство использования. Сейчас у нас 7 моделей сумок. Сумка на каждый день. Каждый день по сумке.
+      %p Создавая модели сумок мы сосредоточились на их практичности и удобстве использования. Для нас важно, что бы вы испытывали комфорт и хотели носить нашу продукцию снова и снова.
       %br
       %br
-      = link_to 'показать все модели городских рюкзаков', '/backpacks', class: 'btn btn-default btn-sm'
+      = link_to 'показать все модели сумок', '/backpacks', class: 'btn btn-default btn-sm'
 
 
   .section#galery
     .gridster.responsive
       %ul
         - @lookbook.each do |item|
-          - if item.position.present?
-            %li{'data-id' => "#{item.id}", "data-col" => "#{item.position[:col]}", "data-row" => "#{item.position[:row]}", "data-sizex" => "#{item.position[:size_x]}", "data-sizey" => "#{item.position[:size_y]}", style: "background-image: url(#{item.image(:preview)})"}
-          - else
-            %li{'data-id' => "#{item.id}", "data-col" => "1", "data-row" => "1", "data-sizex" => "1", "data-sizey" => "1", style: "background-image: url(#{item.image(:preview)})"}
+          = render 'partials/lookbook_item', item: item
 
     %h2
-      = link_to 'Галерея', '#'
+      = link_to 'Галерея', lookbooks_path
 

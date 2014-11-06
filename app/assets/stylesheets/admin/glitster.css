@@ -7,6 +7,10 @@ ul {
   list-style-type: none;
 }
 
+.gridster li {
+  background-size: cover !important;
+}
+
 
 /*/
 /* demo

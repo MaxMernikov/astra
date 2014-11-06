@@ -52,4 +52,9 @@ module ApplicationHelper
   def astra_tag(text)
     text + ' | Astra'
   end
+
+  def lookbook_background_position(positions)
+    position = positions.split(', ')
+    "#{ position.try(:[], 0).present? ? position[0] : 0 }% #{ position.try(:[], 1).present? ? position[1] : 0 }%"
+  end
 end

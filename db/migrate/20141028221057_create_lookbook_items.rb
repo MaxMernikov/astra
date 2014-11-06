@@ -10,7 +10,7 @@ class CreateLookbookItems < ActiveRecord::Migration
       t.references :product, index: true
       t.string :url
       t.text :comment
-      t.boolean :show
+      t.boolean :show, default: false
 
       t.timestamps
     end
