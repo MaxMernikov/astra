@@ -57,4 +57,9 @@ module ApplicationHelper
     position = positions.split(', ')
     "#{ position.try(:[], 0).present? ? position[0] : 0 }% #{ position.try(:[], 1).present? ? position[1] : 0 }%"
   end
+
+  def lookbook_background_size(item)
+    return item.image(:original) if (item.position[:size_x].to_i > 1 || item.position[:size_y].to_i > 1)
+    item.image(:preview)
+  end
 end

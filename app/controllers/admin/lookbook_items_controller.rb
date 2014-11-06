@@ -7,6 +7,10 @@ class Admin::LookbookItemsController < Admin::BaseController
     update!{ collection_url }
   end
 
+  def destroy
+    destroy!{ collection_url }
+  end
+
   def show_hide
     lookbook_item = LookbookItem.find(params[:lookbook_item_id])
     lookbook_item.update_column(:show, !lookbook_item.show)
@@ -31,6 +35,6 @@ class Admin::LookbookItemsController < Admin::BaseController
   end
 
   def permitted_params
-    params.permit(:lookbook_item => [:image, :position, :background_position, :product_id, :url, :comment, :show])
+    params.permit(:lookbook_item => [:image, :position, :background_position, :product_id, :url, :comment, :show, :y_orient])
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028221057) do
+ActiveRecord::Schema.define(version: 20141106114449) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20141028221057) do
     t.boolean  "show",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "y_orient",            default: false
   end
 
   add_index "lookbook_items", ["product_id"], name: "index_lookbook_items_on_product_id", using: :btree

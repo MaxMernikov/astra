@@ -22,6 +22,11 @@
           = f.select :product_id, Product.by_pos.map{|c| [c.title, c.id] }, class: 'uk-width-1-2'
 
       .uk-form-row
+        = f.label :y_orient, class: 'uk-form-label'
+        .uk-form-controls
+          = f.check_box :y_orient, class: 'uk-width-1-2'
+
+      .uk-form-row
         = f.label :show, class: 'uk-form-label'
         .uk-form-controls
           = f.check_box :show, class: 'uk-width-1-2'

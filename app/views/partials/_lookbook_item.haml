@@ -1,12 +1,16 @@
 - admin ||= false
 
 - if item.position.present?
-  %li{'data-id' => "#{item.id}", "data-col" => "#{item.position[:col]}", "data-row" => "#{item.position[:row]}", "data-sizex" => "#{item.position[:size_x]}", "data-sizey" => "#{item.position[:size_y]}", style: "background-image: url(#{item.image(:preview)}); background-position: #{lookbook_background_position(item.background_position)};"}
+  -# %li{'data-id' => "#{item.id}", "data-col" => "#{item.position[:col]}", "data-row" => "#{item.position[:row]}", "data-sizex" => "#{item.position[:size_x]}", "data-sizey" => "#{item.position[:size_y]}", style: "background-image: url(#{item.image(:preview)}); background-position: #{lookbook_background_position(item.background_position)};"}
+
+  %li{'data-id' => "#{item.id}", "data-col" => "#{item.position[:col]}", "data-row" => "#{item.position[:row]}", "data-sizex" => "#{item.position[:size_x]}", "data-sizey" => "#{item.position[:size_y]}", style: "background-image: url(#{lookbook_background_size(item)}); background-position: #{lookbook_background_position(item.background_position)};"}
+
     - if admin
       = link_to 'edit', edit_admin_lookbook_item_path(item)
       = link_to admin_lookbook_item_show_hide_path(item), remote: true do
         = item.show ? 'show' : 'hide'
       = lookbook_background_position(item.background_position)
+      = link_to 'удалить', admin_lookbook_item_path(item), confirm: 'Are you sure?', method: 'delete'
 
 - else
   %li{'data-id' => "#{item.id}", "data-col" => "1", "data-row" => "1", "data-sizex" => "1", "data-sizey" => "1", style: "background-image: url(#{item.image(:preview)})"}
