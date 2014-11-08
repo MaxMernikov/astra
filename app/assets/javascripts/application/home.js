@@ -27,18 +27,20 @@ $(document).ready(function() {
     $('.slide-down').click(function(){ $('#pagepiling').pagepiling.moveSectionDown() });
   }
 
-  gridster = $(".gridster.responsive ul").gridster({
-    widget_base_dimensions: [300, 200],
-    widget_margins: [0, 7],
-    helper: 'clone',
-    max_cols: 3,
-  }).data('gridster')
-  resize_gridster();
-  console.log(gridster.disable());
-
-  $(window).resize(function(){
+  if ($('.gridster.responsive ul').length){
+    gridster = $(".gridster.responsive ul").gridster({
+      widget_base_dimensions: [300, 200],
+      widget_margins: [0, 7],
+      helper: 'clone',
+      max_cols: 3,
+    }).data('gridster')
     resize_gridster();
-  });
+    console.log(gridster.disable());
+
+    $(window).resize(function(){
+      resize_gridster();
+    });
+  }
 
 
 });
