@@ -1,0 +1,134 @@
+.product
+  .row
+    .col-xs-12.col-sm-4.product-title.text-right
+      %h1.slim= @product.title
+      %h3= @product.category.dative
+
+    .col-xs-12.col-sm-4
+      = image_tag(@product.images.first.image(:preview), title: astra_tag(@product.title), alt: astra_tag(@product.title), class: 'img-responsive')
+
+    .col-xs-12.col-sm-4.product-buy
+      #buy_it
+        %a#buy_it_button
+          Купить
+        %span за #{@product.cost}$
+
+      #buy_it_content
+        = render 'order_form3'
+
+  %hr
+  .row.abount_product
+    .col-xs-12.col-sm-3
+      - if @product.description.present?
+        = @product.description
+      - else
+        = @product.category.detail_product
+
+    .col-xs-12.col-sm-3
+      = render 'params'
+
+    .col-xs-12.col-sm-3
+      %h3 Покупка и условия доставки
+      %p
+
+    .col-xs-12.col-sm-3
+      %h3 Рекомендации по уходу за рюкзаком
+
+      %p
+        Дно и шлейки обработаны специальным особо прочным швом, однако рекомендуется не перегружать рюкзак предметами общим весом более 7-ми килограмм.
+
+      #buy_it_content
+        = render 'order_form'
+
+
+
+  .row
+    .col-xs-12
+      %h3 Галерея
+
+  .row#galery
+    - images = []
+    - @product.images.offset(1).each do |image|
+      - images << image_tag(image.image(:preview), class: 'img-responsive')
+    - LookbookItem.limit(3).each do |image|
+      - images << image_tag(image.image(:preview), class: 'img-responsive')
+    - images.shuffle.each do |image|
+      .col-xs-12.col-sm-4.item
+        = image
+
+  .row
+    .col-xs-3.col-xs-offset-6
+      << вернуться к городским рюкзакам
+
+
+
+    -# - if @product.images.count == 3
+    -#   - @product.images.each do |image|
+    -#     = image_tag(image.image(:preview), class: 'col-xs-12 col-sm-4', title: astra_tag(@product.title), alt: astra_tag(@product.title))
+
+    -# - elsif @product.images.count == 2
+    -#   - @product.images.each_with_index do |image, index|
+    -#     = image_tag(image.image(:preview), class: "col-xs-12 col-sm-4 #{ index == 0 ? 'col-sm-offset-2' : '' }", title: astra_tag(@product.title), alt: astra_tag(@product.title))
+
+  -# .row
+  -#   .col-xs-12.col-sm-6.col-sm-offset-3.text-center.about-product
+  -#     %h1.slim.tac= @product.title
+
+  -#     - if @product.description.present?
+  -#       = @product.description
+  -#     - else
+  -#       = @product.category.detail_product
+
+
+
+
+
+  -# #buy_it.row
+  -#   #buy_it_button.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.buy_it
+  -#     .thumbnail.text-center
+  -#       %h4.buy.uk-text-ultra-slim
+  -#         Купить #{@product.category.dative}
+  -#       %p
+  -#         за
+  -#         %span #{@product.cost}$
+
+  -#   #buy_it_content.col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
+  -#     = render 'order_form'
+
+  -# - if @product.about_product.present?
+  -#   .row.product-details
+  -#     = image_tag @product.images.first.image(:preview), class: 'col-sm-4 hidden-xs', title: astra_tag(@product.title), alt: astra_tag(@product.title)
+
+  -#     .col-xs-12.col-sm-8
+  -#       %h3 О товаре
+  -#       = mark(@product.about_product)
+
+  -#       %p.text-center.more-product
+  -#         = link_to category_path(@product.category.slug), class: 'btn btn-default btn-sm' do
+  -#           посмотреть все модели городских рюкзаков
+
+
+  -# #success_order.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "success_order", role: "dialog", tabindex: "-1"}
+  -#   .modal-dialog.modal-sm
+  -#     .modal-content
+  -#       .modal-header
+  -#         %button.close{"data-dismiss" => "modal", type: "button"}
+  -#           %span{"aria-hidden" => "true"} ×
+  -#           %span.sr-only Close
+  -#         %h4#contacts.modal-title.text-center Спасибо за оформление заказа
+  -#       .modal-body
+  -#         %p
+  -#           Ваш заказ принят.
+  -#         %p
+  -#           В ближайшее время наш менеджер свяжется с вами для уточнения деталей.
+
+
+
+  -# Доставка товара осуществляется двумя способами: курьером по указанному Вами адресу либо РУП «Белпочта». Вы также можете забрать товар самостоятельно, подъехав по адресу улица Данилы Сердича, 78, кв 24. Детали доставки уточнит наш менеджер после оформления заказа.
+
+
+  -# .row
+  -#   .col-xs-12.tac
+  -#     .share_block
+  -#       .share_hint Share:
+  -#       = render 'share'

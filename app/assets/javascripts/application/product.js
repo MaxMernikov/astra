@@ -66,7 +66,7 @@ $( function() {
 
   // кнопка купить
   $('#buy_it_button').click(function(){
-    $('#buy_it_button').hide();
+    $('#buy_it').hide();
     $('#buy_it_content').show();
     $('#buy_it_content').addClass('uk-animation-fade');
     $('#order_name').focus();
@@ -77,7 +77,7 @@ function success_order(){
   $('#success_order').modal('show')
   $('#new_order')[0].reset();
 
-  $('#buy_it_button').show();
+  $('#buy_it').show();
   $('#buy_it_content').hide();
   $('#buy_it_content').removeClass('uk-animation-fade');
 }
@@ -87,3 +87,7 @@ function popupwindow(url, w, h) {
   var top = (screen.height/2)-(h/2);
   return open(url, "displayWindow", 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
 }
+
+$( window ).load( function(){
+  $( '#galery' ).masonry( { itemSelector: '.item' } );
+});
