@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106203428) do
+ActiveRecord::Schema.define(version: 20141111191530) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20141106203428) do
     t.string   "slug"
     t.integer  "pos"
     t.text     "detail"
-    t.boolean  "show",               default: false
+    t.boolean  "show",                  default: false
     t.string   "image_file_name"
     t.integer  "image_file_size"
     t.string   "image_content_type"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 20141106203428) do
     t.string   "description"
     t.string   "keywords"
     t.string   "more_info"
+    t.string   "recommendations_title"
+    t.text     "recommendations"
   end
 
   create_table "categories_cloths", id: false, force: true do |t|
@@ -148,8 +150,20 @@ ActiveRecord::Schema.define(version: 20141106203428) do
     t.integer  "pos",           default: 0
     t.text     "about_product"
     t.string   "description"
+    t.boolean  "v3",            default: false
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+
+  create_table "settings", force: true do |t|
+    t.string   "var",         null: false
+    t.text     "value"
+    t.integer  "target_id",   null: false
+    t.string   "target_type", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
 
 end

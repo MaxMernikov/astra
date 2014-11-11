@@ -8,3 +8,10 @@ ru:
         phone: Телефон для связи
         details: Дополнительная информация о заказе
         cloth: Вариант расцветки
+      product:
+        size: Размеры
+        zipper: Вид застежки
+        material: Материал
+        lining: Подкладка
+        compartments: Количество отсеков
+        pockets: Карманы

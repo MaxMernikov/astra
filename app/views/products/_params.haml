@@ -1,20 +1,7 @@
 %table.table.params
   %tbody
-    %tr
-      %td Размеры
-      %td 35 x 25 x 12 см
-    %tr
-      %td Вид застежки
-      %td Молния
-    %tr
-      %td Материал
-      %td Хлопок 100%
-    %tr
-      %td Подкладка
-      %td шгяша
-    %tr
-      %td Количество отсеков
-      %td 2
-    %tr
-      %td Карманы
-      %td Наружный спереди, внутренний на замке и 2 открытых
+    - Product::PARAMS.each do |param|
+      - if (value = @product.send(param)).present?
+        %tr
+          %td= I18n.t("activerecord.attributes.product.#{param.to_s}")
+          %td= value

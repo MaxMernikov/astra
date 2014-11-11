@@ -35,6 +35,7 @@ end
 gem 'haml'
 gem 'devise'
 gem 'cancancan'
+gem 'ledermann-rails-settings'
 
 gem 'cocoon'
 gem 'russian'

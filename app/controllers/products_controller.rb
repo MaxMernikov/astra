@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
                     url:      request.original_url,
                     image:    (root_url + @product.images.first.image(:preview)).gsub('//', '/')
                   }
+    return render 'show3' if @product.v3
     render 'show2'
   end
 end

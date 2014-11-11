@@ -41,6 +41,16 @@
         .uk-form-controls
           = f.text_area :detail, class: 'uk-width-1-1 form-textarea', rows: 7
 
+      .uk-form-row
+        = f.label :recommendations_title, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :recommendations_title, class: 'uk-width-1-2'
+
+      .uk-form-row
+        = f.label :recommendations, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_area :recommendations, class: 'uk-width-1-1 form-textarea', rows: 7
+
       #about_product_images.uk-margin
         %hr
         = f.fields_for :about_product_images do |about_product_image|
