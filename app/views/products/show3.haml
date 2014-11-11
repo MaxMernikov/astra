@@ -22,22 +22,21 @@
 
   %hr
   .row.about-product
-    .col-xs-12.col-sm-5.col-sm-offset-1.col-md-3.col-md-offset-0
-      - if @product.description.present?
+    - desc_present = @product.description.present?
+    - if desc_present
+      .col-xs-12.col-sm-5.col-sm-offset-1.col-md-3.col-md-offset-0
         = @product.description
-      - else
-        = @product.category.detail_product
 
-    .col-xs-12.col-sm-5.col-md-3
+    .col-xs-12{ class: info_class1(desc_present) }
       = render 'params'
 
-    .col-xs-12.col-sm-5.col-sm-offset-1.col-md-3.col-md-offset-0
+    .col-xs-12{ class: info_class2(desc_present) }
       %h3= @product.category.recommendations_title
       %p= @product.category.recommendations
       -# %h3 Рекомендации по уходу за рюкзаком
       -# %p Дно и шлейки обработаны специальным особо прочным швом, однако рекомендуется не перегружать рюкзак предметами общим весом более 7-ми килограмм.
 
-    .col-xs-12.col-sm-5.col-md-3
+    .col-xs-12{ class: info_class3(desc_present) }
       %h3 Покупка и условия доставки
       %p.more{ 'data-show-char' => 344 }
         После оформления заявки с вами свяжется менеджер для подтверждения заказа. В этот момент мы начнем изготовление рюкзака или сумки. Как правило на это требуется около 3-х дней.
