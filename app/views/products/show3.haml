@@ -47,8 +47,8 @@
     - images = []
     - @product.images.offset(1).each do |image|
       - images << image_tag(image.image(:preview), class: 'img-responsive')
-    -# - LookbookItem.limit(3).each do |image|
-    -#   - images << image_tag(image.image(:preview), class: 'img-responsive')
+    - @product.lookbook_items.each do |image|
+      - images << image_tag(image.image(:preview), class: 'img-responsive')
     - images.shuffle.each do |image|
       .col-xs-12.col-sm-4.item
         = image

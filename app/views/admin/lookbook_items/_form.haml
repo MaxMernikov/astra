@@ -1,5 +1,5 @@
-= form_for([:admin, resource], html: { class: 'uk-form uk-form-horizontal' }) do |f|
-  - if resource.errors.any?
+= form_for([:admin, @lookbook_item], html: { class: 'uk-form uk-form-horizontal' }) do |f|
+  - if @lookbook_item.errors.any?
     = render '/admin/partials/form_errors', f: f
 
   %fieldset
@@ -32,6 +32,11 @@
           = f.check_box :show, class: 'uk-width-1-2'
 
       .uk-form-row
+        = f.label :book, class: 'uk-form-label'
+        .uk-form-controls
+          = f.check_box :book, class: 'uk-width-1-2'
+
+      .uk-form-row
         = f.label :url, class: 'uk-form-label'
         .uk-form-controls
           = f.text_field :url, class: 'uk-width-1-6'
@@ -40,6 +45,15 @@
         = f.label :comment, class: 'uk-form-label'
         .uk-form-controls
           = f.text_area :comment, class: 'uk-width-1-2'
+
+      %hr
+
+      #products.uk-margin
+        %hr
+        = f.fields_for :galeries do |galery|
+          = render 'galery_fields', f: galery
+        .links
+          = link_to_add_association 'add product', f, :galeries
 
 
       .uk-form-row

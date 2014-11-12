@@ -4,6 +4,11 @@ class Product < ActiveRecord::Base
   has_settings :params
 
   has_many :images
+
+  has_many :galeries
+  has_many :lookbook_items, through: :galeries
+
+
   accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
   has_many :orders
 

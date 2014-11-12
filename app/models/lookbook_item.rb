@@ -3,6 +3,10 @@ class LookbookItem < ActiveRecord::Base
   serialize :position, Hash
   serialize :background_position
 
+  has_many :galeries
+  has_many :products, through: :galeries
+  accepts_nested_attributes_for :galeries, :reject_if => :all_blank, :allow_destroy => true
+
   scope :by_rows, -> { order(:row) }
   scope :visible, -> { where(show: true) }
 

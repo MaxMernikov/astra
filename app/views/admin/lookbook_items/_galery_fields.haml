@@ -1,0 +1,8 @@
+.nested-fields
+  .uk-form-row
+    = f.label :product_id, class: 'uk-form-label'
+    .uk-form-controls
+      = f.select :product_id, Product.all.map{ |i| [i.title, i.id] }, class: 'uk-width-1-4'
+
+      = link_to_remove_association "remove product", f, class: 'uk-width-1-4'
+  %hr

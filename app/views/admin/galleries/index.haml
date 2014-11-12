@@ -1,0 +1,17 @@
+.uk-grid
+  .uk-width-1-1
+    %h2
+      Galleries
+    = link_to 'new item', new_admin_lookbook_item_path
+
+.uk-grid
+  %table.uk-table
+    %tbody
+      - collection.each do |item|
+        %tr
+          %td= image_tag(item.image(:preview), width: 150)
+          %td
+            = link_to 'edit', edit_admin_lookbook_item_path(item)
+            = link_to admin_lookbook_item_show_hide_path(item), remote: true do
+              = item.show ? 'show' : 'hide'
+            = link_to 'удалить', admin_lookbook_item_path(item), confirm: 'Are you sure?', method: 'delete'

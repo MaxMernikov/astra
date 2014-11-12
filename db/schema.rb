@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111191530) do
+ActiveRecord::Schema.define(version: 20141112064852) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(version: 20141111191530) do
     t.datetime "updated_at"
   end
 
+  create_table "galeries", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "lookbook_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "galeries", ["lookbook_item_id"], name: "index_galeries_on_lookbook_item_id", using: :btree
+  add_index "galeries", ["product_id"], name: "index_galeries_on_product_id", using: :btree
+
   create_table "images", force: true do |t|
     t.string   "image_file_name"
     t.integer  "image_file_size"
@@ -120,6 +130,7 @@ ActiveRecord::Schema.define(version: 20141111191530) do
     t.datetime "updated_at"
     t.boolean  "y_orient",            default: false
     t.datetime "image_updated_at"
+    t.boolean  "book",                default: false
   end
 
   add_index "lookbook_items", ["product_id"], name: "index_lookbook_items_on_product_id", using: :btree

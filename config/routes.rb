@@ -16,6 +16,7 @@ Astra::Application.routes.draw do
       post :save_position, on: :collection
       get :show_hide
     end
+    resources :galleries
   end
 
   resources :lookbooks, only: [:index], path: 'lookbook'

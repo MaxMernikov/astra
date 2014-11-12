@@ -1,14 +1,24 @@
 class Admin::LookbookItemsController < Admin::BaseController
+  def new
+    @lookbook_item = LookbookItem.new
+  end
+
+  def edit
+    resource.galeries.build if resource.galeries.blank?
+  end
+
   def create
-    create!{ collection_url }
+    create!{ resource.book ? admin_galleries_url : collection_url }
   end
 
   def update
-    update!{ collection_url }
+    resource.update_attributes(lookbook_item_params)
+    redirect_to resource.book ? admin_galleries_url : collection_url
+    # update!{ resource.book ? admin_galleries_url : collection_url }
   end
 
   def destroy
-    destroy!{ collection_url }
+    destroy!{ resource.book ? admin_galleries_url : collection_url }
   end
 
   def show_hide
@@ -34,7 +44,12 @@ class Admin::LookbookItemsController < Admin::BaseController
     render text: 'ok'
   end
 
-  def permitted_params
-    params.permit(:lookbook_item => [:image, :position, :background_position, :product_id, :url, :comment, :show, :y_orient])
+  def lookbook_item_params
+    params.require(:lookbook_item).permit(:image, :position, :background_position, :product_id, :url, :comment, :show, :y_orient, :book, galeries_attributes: [:id, :delete, :product_id, :lookbook_item_id])
   end
+
+  protected
+    def collection
+      LookbookItem.where(book: false)
+    end
 end
