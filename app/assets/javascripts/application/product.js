@@ -89,5 +89,5 @@ function popupwindow(url, w, h) {
 }
 
 $( window ).load( function(){
-  $( '#galery' ).masonry( { itemSelector: '.item' } );
+  $('.products.show #galery').masonry( { itemSelector: '.item' } );
 });
