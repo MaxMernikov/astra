@@ -45,13 +45,17 @@
 
   .row#galery
     - images = []
-    - @product.images.offset(1).each do |image|
-      - images << image_tag(image.image(:preview), class: 'img-responsive')
+    - @product.images.each do |image|
+      - images << image_tag(image.image(:preview), class: 'sp-image')
     - @product.lookbook_items.each do |image|
-      - images << image_tag(image.image(:preview), class: 'img-responsive')
-    - images.shuffle.each do |image|
-      .col-xs-12.col-sm-4.item
-        = image
+      - images << image_tag(image.image(:preview), class: 'sp-image')
+    #my-slider.slider-pro
+      .sp-slides
+        -# - images.shuffle.each do |image|
+        - images.each do |image|
+          .sp-slide
+            = image
+      -# .sp-buttons
 
 
 #success_order.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "success_order", role: "dialog", tabindex: "-1"}

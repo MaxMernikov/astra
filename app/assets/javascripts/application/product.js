@@ -89,5 +89,13 @@ function popupwindow(url, w, h) {
 }
 
 $( window ).load( function(){
-  $('.products.show #galery').masonry( { itemSelector: '.item' } );
+  $( '#my-slider' ).sliderPro({
+    width: '50%',
+    height: 500,
+    imageScaleMode: 'contain',
+    visibleSize: '100%',
+    forceSize: 'fullWidth',
+    autoplay: true,
+    fadeOutPreviousSlide: false
+  });
 });
