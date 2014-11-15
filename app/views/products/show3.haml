@@ -44,6 +44,7 @@
         Заказ можно забрать самостоятельно (адрес можно уточнить у менеджера), а так же воспользоваться услугами нашего курьера. Доставка производится по городу Минску, стоимость 50 тысяч белорусских рублей. Возможна отправка наложенным платежем в пределах республики Беларусь.
 
   .row#galery
+    %hr
     - images = []
     - @product.images.each do |image|
       - images << image_tag(image.image(:preview), class: 'sp-image')
@@ -55,7 +56,7 @@
         - images.each do |image|
           .sp-slide
             = image
-      -# .sp-buttons
+
 
 
 #success_order.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "success_order", role: "dialog", tabindex: "-1"}
