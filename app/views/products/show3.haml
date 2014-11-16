@@ -1,8 +1,9 @@
 .product
   .row.product-head
     .col-xs-12.col-sm-4.product-title.text-right.hidden-xs
-      %h1.slim= @product.title
-      %h3= @product.category.dative
+      %h1
+        %span= @product.category.dative
+        = @product.title
 
     .col-xs-12.col-sm-4
       = image_tag(@product.images.first.image(:preview), title: astra_tag(@product.title), alt: astra_tag(@product.title), class: 'img-responsive')
