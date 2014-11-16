@@ -2,7 +2,7 @@
   - blocks.each_with_index do |block, index|
     %div{ class: block_row_class(blocks.size, index)}
       = link_to block, class: 'product_image' do
-        = image_tag(block.first_image)
+        = image_tag(block.first_image, title: astra_tag("#{block.category.dative} #{block.title}"), alt: astra_tag("#{block.category.dative} #{block.title}"))
         .text-center.product-info
           .category-title= block.category.title
           - if block.title.present?

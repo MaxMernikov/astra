@@ -6,7 +6,7 @@
         = @product.title
 
     .col-xs-12.col-sm-4
-      = image_tag(@product.images.first.image(:preview), title: astra_tag(@product.title), alt: astra_tag(@product.title), class: 'img-responsive')
+      = image_tag(@product.images.first.image(:preview), title: astra_tag("#{@product.category.dative} #{@product.title}"), alt: astra_tag("#{@product.category.dative} #{@product.title}"), class: 'img-responsive')
 
     .col-xs-12.visible-xs.text-center
       %h1.slim= @product.title
