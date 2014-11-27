@@ -1,30 +1,43 @@
-.row.footer
-  .col-xs-12
-    .row
-      .col-xs-4.footer_block
-        %ul.list-unstyled
-          - @categories.each do |category|
-            %li= link_to category.plural_title, category_path(category.slug)
-      .col-xs-4.col-xs-offset-4.footer_block
-        %ul.list-unstyled.pull-right
-          -# %li оформить заказ
-          %li
-            = link_to 'наши контакты', '#contacts', "data-target" => "#contacts", "data-toggle" => "modal"
-          -# %li задать вопрос
-        .uk-width-medium-1-3.uk-width-1-2.tac.icon_set.uk-margin
-          = link_to '', 'http://vk.com/astra.minsk', class: 'uk-icon-button uk-icon-vk', target: '_blank'
-          = link_to '', 'https://www.facebook.com/astra.minsk', class: 'uk-icon-button uk-icon-facebook-square', target: '_blank'
-          -# = link_to '', '#', class: 'uk-icon-button uk-icon-twitter'
-          -# = link_to '', '#', class: 'uk-icon-button uk-icon-instagram'
-          = link_to '', 'https://plus.google.com/+AstraStoreByMinsk', class: 'uk-icon-button uk-icon-google-plus', rel: 'publisher', target: '_blank'
+%hr
 
-  .footer_bg
+.footer_
+  .col-sm-4.short-about
+    .title Hello Astra
+    %p
+      Мы - белорусский производитель рюкзаков и сумок. Объемы производства у нас небольшие и нас скорее можно отнести к категории HandMade. В компании у нас ни много ни мало, а 2 человека: я Максим, web-разработчик и Оксана, детский психолог. Для нас Astra очень важна и каждый прилагает максимум усилий и все свободное время для развития проекта.
+  .col-sm-4
+    = image_tag 'footer_img_.png'
+  .col-sm-4
+    / .title Share us
 
-.row.visible-xs.help_widjet_footer
-  .help_widjet.uk-text-ultra-slim.fake
-    .row
-      .col-xs-10
-        .help-text.js-default
-          Есть предложение или нужна помощь?
-          %br
-          Напишите нам кликнув по полю
+
+/ .row.footer
+/   .col-xs-12
+/     .row
+/       .col-xs-4.footer_block
+/         %ul.list-unstyled
+/           - @categories.each do |category|
+/             %li= link_to category.plural_title, category_path(category.slug)
+/       .col-xs-4.col-xs-offset-4.footer_block
+/         %ul.list-unstyled.pull-right
+/           -# %li оформить заказ
+/           %li
+/             = link_to 'наши контакты', '#contacts', "data-target" => "#contacts", "data-toggle" => "modal"
+/           -# %li задать вопрос
+/         .uk-width-medium-1-3.uk-width-1-2.tac.icon_set.uk-margin
+/           = link_to '', 'http://vk.com/astra.minsk', class: 'uk-icon-button uk-icon-vk', target: '_blank'
+/           = link_to '', 'https://www.facebook.com/astra.minsk', class: 'uk-icon-button uk-icon-facebook-square', target: '_blank'
+/           -# = link_to '', '#', class: 'uk-icon-button uk-icon-twitter'
+/           -# = link_to '', '#', class: 'uk-icon-button uk-icon-instagram'
+/           = link_to '', 'https://plus.google.com/+AstraStoreByMinsk', class: 'uk-icon-button uk-icon-google-plus', rel: 'publisher', target: '_blank'
+
+/   .footer_bg
+
+/ .row.visible-xs.help_widjet_footer
+/   .help_widjet.uk-text-ultra-slim.fake
+/     .row
+/       .col-xs-10
+/         .help-text.js-default
+/           Есть предложение или нужна помощь?
+/           %br
+/           Напишите нам кликнув по полю

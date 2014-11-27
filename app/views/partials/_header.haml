@@ -1,37 +1,54 @@
-.row.header
-  .col-xs-3.col-sm-5.header-row
-    .left.hidden-xs
-      - Category.show.by_pos.each do |category|
-        = link_to category.plural_title, category_path(category.slug)
+.row.header-
+  .menu-fragment.col-sm-3.col-sm-offset-1.text-right
+    / = link_to 'продукция', root_path, class: 'first'
+    = link_to 'продукция', root_path
 
-  .col-xs-6.col-sm-2.tac
-    = link_to 'ASTRA', root_path, class: 'logo'
-    .city - Minsk -
-  .col-xs-3.col-sm-5.header-row
-    = link_to '#contacts', "data-target" => "#contacts", "data-toggle" => "modal", class: 'contacts pull-right' do
-      .btn.contact-btn
-        %i.icon-phone
-        %span.hidden-xs контакты
+  .col-sm-4
+    .logo.text-center
+      = link_to 'astra', root_path
+      .slogan производство аксессуаров
+      = image_tag 'logo.png', title: 'ASTRA', alt: 'logo'
+  .menu-fragment.col-sm-3
+    = link_to 'галерея', lookbooks_path
+    / = link_to 'о нас', root_path
+    / = link_to 'контакты', lookbooks_path, class: 'last'
+
+%hr
+
+/ .row.header
+/   .col-xs-3.col-sm-5.header-row
+/     .left.hidden-xs
+/       - Category.show.by_pos.each do |category|
+/         = link_to category.plural_title, category_path(category.slug)
+
+/   .col-xs-6.col-sm-2.tac
+/     = link_to 'ASTRA', root_path, class: 'logo'
+/     .city - Minsk -
+/   .col-xs-3.col-sm-5.header-row
+/     = link_to '#contacts', "data-target" => "#contacts", "data-toggle" => "modal", class: 'contacts pull-right' do
+/       .btn.contact-btn
+/         %i.icon-phone
+/         %span.hidden-xs контакты
 
 
-#contacts.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "contacts", role: "dialog", tabindex: "-1"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"data-dismiss" => "modal", type: "button"}
-          %span{"aria-hidden" => "true"} ×
-          %span.sr-only Close
-        %h4#contacts.modal-title Наши контакты
-      .modal-body
-        Все интересующие вас вопросы вы можете отправить нам на почту или задать по телефону в любое время на протяжении дня.
-        %br
-        %br
+/ #contacts.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "contacts", role: "dialog", tabindex: "-1"}
+/   .modal-dialog
+/     .modal-content
+/       .modal-header
+/         %button.close{"data-dismiss" => "modal", type: "button"}
+/           %span{"aria-hidden" => "true"} ×
+/           %span.sr-only Close
+/         %h4#contacts.modal-title Наши контакты
+/       .modal-body
+/         Все интересующие вас вопросы вы можете отправить нам на почту или задать по телефону в любое время на протяжении дня.
+/         %br
+/         %br
 
-        Телефон:
-        %br
-        = link_to '+ 375 29 769-78-87 (МТС)', 'tel://80297697887', rel: 'nofollow'
-        %br
-        %br
-        Email:
-        %br
-        = mail_to 'maxmernikov@gmail.com'
+/         Телефон:
+/         %br
+/         = link_to '+ 375 29 769-78-87 (МТС)', 'tel://80297697887', rel: 'nofollow'
+/         %br
+/         %br
+/         Email:
+/         %br
+/         = mail_to 'maxmernikov@gmail.com'

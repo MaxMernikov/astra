@@ -1,0 +1,14 @@
+.row.products
+  - @products.each do |product|
+    .col-xs-12.col-sm-4
+      = link_to product, class: 'product_image' do
+        = image_tag(product.first_image, title: astra_tag("#{product.category.dative} #{product.title}"), alt: astra_tag("#{product.category.dative} #{product.title}"))
+        .text-center.product-info
+          .category-title= product.category.title
+          - if product.title.present?
+            .title "#{product.title}"
+          .cost #{product.cost}$
+          .visible-xs
+            %hr
+          .hidden-xs.space
+

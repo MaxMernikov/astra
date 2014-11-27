@@ -11,10 +11,10 @@
     = render 'partials/share'
     = render 'partials/ga'
 
-  %body.container-fluid{ class: params[:action] + ' slide-1 ' + params[:controller] }
+  %body.container-fluid{ class: params[:action] + ' ' + params[:controller] }
     = render 'partials/header'
     .body
       = yield
-    = render 'partials/footer' unless params[:action] == 'home'
+    = render 'partials/footer'
     = render 'partials/help_widjet'
     = render 'partials/analitycs'
