@@ -3,17 +3,18 @@
     / = link_to 'продукция', root_path, class: 'first'
     = link_to 'продукция', root_path
 
-  .col-sm-4
-    .logo.text-center
-      = link_to 'astra', root_path
-      .slogan производство аксессуаров
+  .col-sm-4.logo
+    .text-center.full
       = image_tag 'logo.png', title: 'ASTRA', alt: 'logo'
+    .text-center.small
+      .slogan производство аксессуаров
+      .city - Minsk -
+      = link_to 'astra', root_path
+
   .menu-fragment.col-sm-3
     = link_to 'галерея', lookbooks_path
     / = link_to 'о нас', root_path
     / = link_to 'контакты', lookbooks_path, class: 'last'
-
-%hr
 
 / .row.header
 /   .col-xs-3.col-sm-5.header-row
