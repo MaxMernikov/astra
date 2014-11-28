@@ -1,4 +1,4 @@
-.row.header-
+.row.header-{ class: (params[:action] == 'home' && params[:controller] == 'page') ? '' : 'small-fix'}
   .menu-fragment.col-sm-3.col-sm-offset-1.text-right
     / = link_to 'продукция', root_path, class: 'first'
     = link_to 'продукция', root_path

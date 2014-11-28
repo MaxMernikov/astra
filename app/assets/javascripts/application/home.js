@@ -42,8 +42,9 @@ function scrolium(){
 }
 
 $(document).ready(function() {
-
-  $win.scroll(function() {
-    scrolium();
-  })
+  if (!$('.header-').hasClass('small-fix')){
+    $win.scroll(function() {
+      scrolium();
+    })
+  }
 });
