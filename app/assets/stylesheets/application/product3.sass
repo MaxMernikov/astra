@@ -1,3 +1,105 @@
+= mb
+  margin-bottom: 36px
+
+= mt
+  margin-top: 36px
+
+.product-.row
+  font-size: 14px
+
+  h1
+    font-size: 35px
+    font-weight: 300
+    margin-bottom: 4px
+    span
+      font-weight: 100
+      display: block
+
+  .cost
+    color: #8d8d8d
+    font-weight: 100
+    font-size: 24px
+    +mb
+  p
+    font-size: 16px
+    +mb
+    +mt
+
+  #buy-it
+    background-color: #fff
+    cursor: pointer
+    display: inline-block
+    -webkit-transition: all 0.35s
+    transition: all 0.35s
+    border: 1px solid #0071d1
+    padding: 18px 22px
+    letter-spacing: 1px
+    font-size: 20px
+    font-weight: 100
+    color: #0071d1
+    font-weight: 300
+    +mb
+
+    &:hover
+      background-color: #0071d1
+      text-decoration: none
+      color: #fff
+
+
+  .params
+    +mb
+    b
+      font-size: 14px
+      margin-bottom: 8px
+      display: inline-block
+    p
+      font-size: 14px
+      margin: 0 0 20px 0
+
+  .share
+    +mt
+    b
+      padding-bottom: 8px
+      display: inline-block
+
+    .uptl_toolbar.uptl_toolbar_share
+      margin-left: -4px
+      ul.horizontal
+        li
+          border: 1px solid #ccc
+          padding: 8px !important
+          border-radius: 25px !important
+          margin-right: 16px !important
+        [data-snid="vk"]
+          border-color: #55759a
+        [data-snid="fb"]
+          border-color: #47679c
+        [data-snid="tw"]
+          border-color: #4eb8e8
+        [data-snid="gp"]
+          border-color: #cf5d46
+
+
+
+
+
+  #cycle-2
+    .cycle-slide
+      cursor: pointer
+    .cycle-slide-active
+      &:before
+        content: ""
+        height: 100%
+        width: 20%
+        display: inline-block
+        background-color: rgba(0,0,0,0.04)
+        position: absolute
+
+  .cycle-slideshow img
+    width: 100%
+    height: auto
+    display: block
+
 .products.show
   .body
     margin-top: 78px
@@ -25,7 +127,7 @@
         font-size: 16px
         position: absolute
         right: 0
-        margin-top: 32px
+        +mt
 
   .product-buy
     #buy_it
@@ -79,7 +181,6 @@
 
   .params
     margin-bottom: 0px
-    margin-top: -2px
     font-size: 12px
     td
       padding: 6px 8px
@@ -87,6 +188,10 @@
       tr:first-child
         td
           border-top: 0px
+      tr
+        td:first-child
+          padding-left: 0px
+
 
 
   #galery

@@ -1,0 +1,60 @@
+%nav#menu-2.st-menu.st-effect-2-right
+  - if @product.present?
+    .total-cart
+      %h2 Корзина
+    .success-cart
+      %h2 Успех
+
+    - product = @product
+    .cart
+      .cart-value
+        .image
+          = image_tag(product.first_image, class: 'img-responsive')
+        .info
+          .text-center.product-info
+            .category-title= product.category.title
+            .title= product.title
+            = product_cost(product.cost)
+
+      %hr.m36
+
+      .total-cart
+        = form_for Order.new, { html: { class: '', role: 'form' }, remote: true } do |f|
+          = f.hidden_field :product_id, value: @product.id
+          .form-group.form-group-sm
+            = f.text_field :name, class: 'form-control', placeholder: 'Имя'
+
+          .form-group.form-group-sm
+            = f.text_field :phone, class: 'form-control', placeholder: 'Номер телефона'
+            / %p.help-block пример ввода: (029) 123-45-67
+
+          .form-group
+            = f.text_area :details, class: 'form-control', rows: 4, placeholder: 'Дополнительная информация'
+          .form-group.text-center
+            = f.submit 'готово!', class: 'button -blue -small'
+            = link_to 'отмена', '#', class: 'button -grey -small', onclick: 'closeCart(); return false'
+
+        / .info-links
+        /   = link_to 'информация о доставке', '#'
+
+      .success-cart
+        
+        %p Заявка принята. Считай, что рюкзак уже за спиной.
+        %p В ближайшее время на указанный номер позвонит наш менеджер и задаст пару вопросов о заказе.
+
+        = link_to 'понятно', '#', class: 'button -grey -small', onclick: 'closeCart(); return false'
+        / для уточнения кое-каких деталей.
+        / %p А пока можешь подписаться
+
+    %hr.m36
+
+
+  - else
+    %h2 Ваша корзина пуста
+    %p Что бы исправить ситуацию нужно:
+    %p 1. Добавить рюкзак в корзину
+    %p 2. Ввести информацию о себе и нажать готово!
+    %p 3. Усмехнуться, ведь через пару дней ты станешь обладателем крутой штуки.
+
+
+    

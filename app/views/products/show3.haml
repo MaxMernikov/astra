@@ -1,86 +1,50 @@
-.product
-  .row.product-head
-    .col-xs-12.col-sm-4.product-title.text-right.hidden-xs
-      %h1
-        %span= @product.category.dative
-        = @product.title
+.product-.row
+  .col-xs-12.col-sm-7
+    .cycle-slideshow#cycle-1{ 'data-cycle-timeout' => 0 }
+      - @product.images.each do |image|
+        = image_tag(image.image(:preview), title: astra_tag("#{@product.category.dative} #{@product.title}"), alt: astra_tag("#{@product.category.dative} #{@product.title}"), class: 'img-responsive')
 
-    .col-xs-12.col-sm-4
-      = image_tag(@product.images.first.image(:preview), title: astra_tag("#{@product.category.dative} #{@product.title}"), alt: astra_tag("#{@product.category.dative} #{@product.title}"), class: 'img-responsive')
-
-    .col-xs-12.visible-xs.text-center
-      %h1.slim= @product.title
-      %h3= @product.category.dative
-
-    .col-xs-12.col-sm-4.product-buy
-      #buy_it
-        %a#buy_it_button
-          Купить
-        %span за #{@product.cost}$
-
-      #buy_it_content
-        = render 'order_form3'
-
-  %hr
-  .row.about-product
-    - desc_present = @product.description.present?
-    - if desc_present
-      .col-xs-12.col-sm-5.col-sm-offset-1.col-md-3.col-md-offset-0
-        = @product.description
-
-    .col-xs-12{ class: info_class1(desc_present) }
-      = render 'params'
-
-    .col-xs-12{ class: info_class2(desc_present) }
-      %h3= @product.category.recommendations_title
-      %p= @product.category.recommendations
-      -# %h3 Рекомендации по уходу за рюкзаком
-      -# %p Дно и шлейки обработаны специальным особо прочным швом, однако рекомендуется не перегружать рюкзак предметами общим весом более 7-ми килограмм.
-
-    .col-xs-12{ class: info_class3(desc_present) }
-      %h3 Покупка и условия доставки
-      %p.more{ 'data-show-char' => 344 }
-        После оформления заявки с вами свяжется менеджер для подтверждения заказа. В этот момент мы начнем изготовление рюкзака или сумки. Как правило на это требуется около 3-х дней.
-        %br
-        Заказ можно забрать самостоятельно (адрес можно уточнить у менеджера), а так же воспользоваться услугами нашего курьера. Доставка производится по городу Минску, стоимость 50 тысяч белорусских рублей. Возможна отправка наложенным платежем в пределах республики Беларусь.
-
-  .row#galery
-    %hr
-    - images = []
-    - @product.images.each do |image|
-      - images << image_tag(image.image(:preview), class: 'sp-image')
-    - @product.lookbook_items.each do |image|
-      - images << image_tag(image.image(:preview), class: 'sp-image')
-    #my-slider.slider-pro
-      .sp-slides
-        -# - images.shuffle.each do |image|
-        - images.each do |image|
-          .sp-slide
-            = image
+    .row
+      #slideshow-2
+        #cycle-2.cycle-slideshow{"data-allow-wrap" => "false", "data-cycle-caption" => "#slideshow-2 .custom-caption", "data-cycle-caption-template" => "Slide  of ", "data-cycle-carousel-fluid" => "true", "data-cycle-carousel-visible" => "5", "data-cycle-fx" => "carousel", "data-cycle-next" => "#slideshow-2 .cycle-next", "data-cycle-prev" => "#slideshow-2 .cycle-prev", "data-cycle-slides" => "> div", "data-cycle-timeout" => "0"}
+          - @product.images.each do |image|
+            %div
+              = image_tag(image.image(:preview), height: 100, width: 100)
+          - (5 - @product.images.size).times do
+            %div
 
 
+  .col-xs-12.col-sm-5
+    %h1
+      %span= @product.category.dative
+      = @product.title
+    .cost
+      = product_cost(@product.cost)
+    
+    %p
+      = @product.description
 
-#success_order.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "success_order", role: "dialog", tabindex: "-1"}
-  .modal-dialog.modal-sm
-    .modal-content
-      .modal-header
-        %button.close{"data-dismiss" => "modal", type: "button"}
-          %span{"aria-hidden" => "true"} ×
-          %span.sr-only Close
-        %h4#contacts.modal-title.text-center Спасибо за оформление заказа
-      .modal-body
-        %p
-          Ваш заказ принят.
-        %p
-          В ближайшее время наш менеджер свяжется с вами для уточнения деталей.
+    / %a Добавить в корзину
+    #st-trigger-effects
+      %button#buy-it{"data-effect" => "st-effect-2-right"} Добавить в корзину
+
+    = render 'params'
+    / = render 'test'
+    
+    .share
+      %b 
+        Покажи 
+        - if @product.category.title == 'Городской рюкзак'
+          рюкзак
+        - else
+          сумку
+        друзьям:
+
+      = render 'share'
 
 
+.row
+  %hr.m36
+  - @random_three.each do |product|
+    = render 'partials/product_preview', product: product
 
-  -# Доставка товара осуществляется двумя способами: курьером по указанному Вами адресу либо РУП «Белпочта». Вы также можете забрать товар самостоятельно, подъехав по адресу улица Данилы Сердича, 78, кв 24. Детали доставки уточнит наш менеджер после оформления заказа.
-
-
-  -# .row
-  -#   .col-xs-12.tac
-  -#     .share_block
-  -#       .share_hint Share:
-  -#       = render 'share'

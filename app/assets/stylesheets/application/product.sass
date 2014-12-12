@@ -164,22 +164,38 @@ label.error
 
 
 .product_image
+  display: block
   color: #333
   padding-bottom: 32px
+  &:before
+    background-color: rgba(0,0,0,0)
+    -webkit-transition: background-color 0.5s
+    transition: background-color 0.5s
+    content: ''
+    height: 100%
+    width: 100%
+    display: inline-block
+    position: absolute
+    margin-left: -15px
+
+  &:hover
+    text-decoration: none
+
+    &:before
+      background-color: rgba(0,0,0,0.04)
+
   .product-info
     margin-top: -12px
+    font-size: 30px
+    margin-bottom: 36px
   .category-title
-    font-size: 12px
+    font-size: 14px
+    color: #8d8d8d
   .cost
-    font-size: 28px
+    font-size: 16px
     font-weight: 100
   .title
-    font-weight: 400
-  // .hidden-xs
-  //   padding: 24px 0
-
+    font-weight: 300
+  
   img
     width: 100%
-  &:hover
-    // color: #999
-    text-decoration: none

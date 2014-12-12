@@ -44,6 +44,7 @@ function scrolium(){
 $(document).ready(function() {
   if (!$('.header-').hasClass('small-fix')){
     $win.scroll(function() {
+      console.log('sd');
       scrolium();
     })
   }

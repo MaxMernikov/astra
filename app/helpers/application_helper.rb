@@ -62,4 +62,8 @@ module ApplicationHelper
     return item.image.url(:original) if (item.position[:size_x].to_i > 1 || item.position[:size_y].to_i > 1)
     item.image.url(:preview)
   end
+
+  def product_cost(cost)
+    raw "#{cost} 000 руб.".gsub(' ', '&nbsp;')
+  end
 end

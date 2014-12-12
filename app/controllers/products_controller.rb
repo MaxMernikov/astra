@@ -11,6 +11,9 @@ class ProductsController < ApplicationController
                     url:      request.original_url,
                     image:    (root_url + @product.images.first.image(:preview)).gsub('//', '/')
                   }
+    
+
+    @random_three = Product.where(id: Product.ids.shuffle.take(3))
     return render 'show3' if @product.v3
     render 'show2'
   end

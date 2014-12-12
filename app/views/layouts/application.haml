@@ -11,10 +11,18 @@
     = render 'partials/share'
     = render 'partials/ga'
 
-  %body.container-fluid{ class: params[:action] + ' ' + params[:controller] }
-    = render 'partials/header'
-    .body
-      = yield
-    = render 'partials/footer'
-    = render 'partials/help_widjet'
-    = render 'partials/analitycs'
+  / %body#st-container.st-container.st-effect-2-right.st-menu-open
+  %body#st-container.st-container
+
+    = render 'partials/nav'
+    = render 'partials/cart'
+
+    .st-pusher
+      .st-content
+        .st-content-inner.container{ class: params[:action] + ' ' + params[:controller] }
+          = render 'partials/header'
+          .body
+            = yield
+          = render 'partials/footer'
+          = render 'partials/help_widjet'
+          = render 'partials/analitycs'

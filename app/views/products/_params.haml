@@ -1,3 +1,15 @@
+/ .params
+/   - Product::PARAMS.each do |param|
+/     - if (value = @product.send(param)).present?
+/       %b= I18n.t("activerecord.attributes.product.#{param.to_s}")
+/       %p= value
+
+
+/ %hr
+
+.params
+  %b Характеристики:
+
 %table.table.params
   %tbody
     - Product::PARAMS.each do |param|
