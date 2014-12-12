@@ -64,6 +64,6 @@ module ApplicationHelper
   end
 
   def product_cost(cost)
-    raw "#{cost} 000 руб.".gsub(' ', '&nbsp;')
+    raw "#{cost}0 000 руб.".gsub(' ', '&nbsp;')
   end
 end
