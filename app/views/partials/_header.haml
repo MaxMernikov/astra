@@ -1,7 +1,7 @@
 .row.header-{ class: (params[:action] == 'home' && params[:controller] == 'page') ? '' : 'small-fix'}
   .menu-fragment.col-sm-3.col-sm-offset-1.text-right
-    / = link_to 'продукция', root_path, class: 'first'
-    = link_to 'продукция', root_path
+    = link_to 'продукция', root_path, class: 'first'
+    = link_to 'галерея', lookbooks_path
 
   .col-sm-4.logo
     .text-center.full
@@ -12,19 +12,5 @@
       = link_to 'astra', root_path
 
   .menu-fragment.col-sm-3
-    = link_to 'галерея', lookbooks_path
-    / = link_to 'о нас', root_path
-    / = link_to 'контакты', lookbooks_path, class: 'last'
-  / .col-sm-12
-  /   %hr
-
-
-
-/ Телефон:
-/ %br
-/ = link_to '+ 375 29 769-78-87 (МТС)', 'tel://80297697887', rel: 'nofollow'
-/ %br
-/ %br
-/ Email:
-/ %br
-/ = mail_to 'maxmernikov@gmail.com'
+    = link_to 'о нас', about_path
+    = link_to 'контакты', contacts_path, class: 'last'

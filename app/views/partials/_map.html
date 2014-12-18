@@ -1,0 +1,31 @@
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=ru">
+</script>
+
+<script type="text/javascript">
+  function initialize() {
+    // var oz = new google.maps.LatLng(55.805044,38.976746);
+    // var oz = new google.maps.LatLng(55.75399400, 37.62209300);
+
+    var myLatlng = new google.maps.LatLng(53.92156828, 27.48994750);
+
+    var styles = [{"stylers":[{"saturation":-100},{"gamma":0.8},{"lightness":4},{"visibility":"on"}]},{"featureType":"landscape.natural","stylers":[{"visibility":"on"},{"color":"#5dff00"},{"gamma":4.97},{"lightness":-5},{"saturation":100}]}]
+
+    var mapOptions = {
+      center: { lat: 53.92156828, lng: 27.48994750 },
+      zoom: 17,
+      // center: oz,
+      styles: styles
+    };
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Astra here!'
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>

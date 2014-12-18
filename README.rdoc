@@ -1,32 +1,9 @@
-== README
-
-scp config/database.yml root@82.196.1.8:/root/www/astra/shared/config/database.yml 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=JduluM49h1crddI9wLrQAMI8s*A6D7Z4ppz6UE10xIffZEBhTkjZlicU2ycfJGSSEvgRLZ6D*dt3N1lZWsYInKBGVq7sxT3gL9rvyZ3MXIfGng*94QVitCQ83jlR3JL2wUmJTFrk4FeiAASZ0PF5ZyAyEsfeK00KnGlRqfMCCGU-';</script>
+  / %p
+  /   В своем деле мы ставим перед собой задачу соответствовать ряду критериев
+  / %ul
+  /   %li
+  /     внешний вид вызывающий желание стать обладателем рюкзака или сумки.
+  /   %li
+  /     качество и надежность. Для этого используются плотные ткани прошитые специальными швами, равномерное распределение нагрузки
+  /   %li
+  /     удобство использования. Приятная на ощупь ткань, удобная фурнитура и дополнительные плюшки ввиде карманов, отсеков.

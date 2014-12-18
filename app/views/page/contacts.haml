@@ -1,0 +1,25 @@
+.row
+  .col-xs-12
+    .abount
+      %h1 Контакты
+
+.row
+  .col-xs-9
+    #map-canvas{ style: "width: 100%; height: 480px;" }
+
+  .col-xs-3.info
+    %p
+      Вы можете связаться с&nbsp;нами
+      %br
+      по&nbsp;почте maxmernikov@gmail.com
+      %br
+      или по&nbsp;телефону 
+      = link_to 'tel://80297697887', rel: 'nofollow' do
+        = raw '+375&nbsp;29&nbsp;769-78-87'
+
+    %p 
+      Наша мастерская находится в&nbsp;Минске
+      %br
+      по&nbsp;адресу&nbsp;Д.&nbsp;Сердича,&nbsp;78
+
+= render 'partials/map'

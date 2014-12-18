@@ -19,11 +19,16 @@ Astra::Application.routes.draw do
     resources :galleries
   end
 
+  get '/about', to: 'page#about'
+  get '/contacts', to: 'page#contacts'
+  
+
   resources :lookbooks, only: [:index], path: 'lookbook'
   resources :categories, only: [:show], path: ''
   resources :products, only: [:show]
   resources :orders, only: [:create]
   resources :feedbacks, only: [:create]
+
 
 
   root 'page#home'

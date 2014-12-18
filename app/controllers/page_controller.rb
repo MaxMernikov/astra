@@ -4,4 +4,10 @@ class PageController < ApplicationController
     @products = Product.by_pos.show
     render 'home_2'
   end
+
+  def about
+  end
+
+  def contacts
+  end
 end
