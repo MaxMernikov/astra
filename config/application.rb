@@ -20,5 +20,18 @@ module Astra
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
     I18n.enforce_available_locales = false
+
+    config.action_mailer.default_url_options = { :host => 'ecommerce.huggies.projects.digitalizm.com' }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.mandrillapp.com",
+      :port                 => 587,
+      :user_name            => 'maxmernikov@gmail.com',
+      :password             => 'hyoLvJSTJB8ZmJ2CcDXLew',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true,
+      :openssl_verify_mode  => 'none'
+    }
+
   end
 end
