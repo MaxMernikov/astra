@@ -7,6 +7,7 @@
   %table.uk-table
     %thead
       %tr
+        %th id
         %th name
         %th email
         %th body
@@ -18,6 +19,9 @@
     %tbody
       - @feedbacks.each do |feedback|
         %tr
+          %td
+            = feedback.id
+            = link_to 'X', admin_feedback_path(feedback), :confirm => "Are you sure you want to delete feed?", :method => :delete  
           %td= feedback.name
           %td= feedback.email
           %td= feedback.body

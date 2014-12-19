@@ -11,7 +11,7 @@ Astra::Application.routes.draw do
     resources :cloths
     resources :categories_cloths
     resources :orders, except: [:show, :new, :create]
-    resources :feedbacks, only: [:index]
+    resources :feedbacks, only: [:index, :destroy]
     resources :lookbook_items, except: [:show] do
       post :save_position, on: :collection
       get :show_hide
