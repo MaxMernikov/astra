@@ -23,6 +23,6 @@
           = render 'partials/header'
           .body
             = yield
-          = render 'partials/footer'
+          = render 'partials/footer' unless params[:controller] == 'lookbooks'
           = render 'partials/help_widjet'
           = render 'partials/analitycs'
