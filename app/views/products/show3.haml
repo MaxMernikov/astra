@@ -22,7 +22,11 @@
       = product_cost(@product.cost)
     
     %p
-      = @product.description
+      - if @product.about_product.present?
+        = raw @product.about_product.gsub("\r\n", '<br>')
+      - else
+        = @product.description
+
 
     / %a Добавить в корзину
     #st-trigger-effects
