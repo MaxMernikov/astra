@@ -38,8 +38,10 @@
     .share
       %b 
         Покажи 
-        - if @product.category.title == 'Городской рюкзак'
+        - if @product.category.slug == 'bagpacks'
           рюкзак
+        - elsif @product.category.slug == 'covers'
+          чехол
         - else
           сумку
         друзьям:

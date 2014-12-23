@@ -10,6 +10,11 @@
           = f.text_field :title, class: 'uk-width-1-2'
 
       .uk-form-row
+        = f.label :slug, class: 'uk-form-label'
+        .uk-form-controls
+          = f.text_field :slug, class: 'uk-width-1-2'
+
+      .uk-form-row
         = f.label :show, class: 'uk-form-label'
         .uk-form-controls
           = f.check_box :show, class: 'uk-width-1-2'
