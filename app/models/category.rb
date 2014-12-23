@@ -6,7 +6,8 @@ class Category < ActiveRecord::Base
   has_and_belongs_to_many :cloths
 
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
-  validates :title, :plural_title, :more_info, presence: true
+
+  validates :title, presence: true
 
   scope :show, -> { where(show: true) }
   scope :by_pos, -> { order(:pos) }

@@ -14,15 +14,8 @@
     %tbody
       - @categories.each do |category|
         %tr{ class: category.show ? '' : 'not_show' }
-          %td= category.pos
           %td
-            .uk-grid
-              .uk-width-large-3-5
-                .uk-article-lead= category.plural_title
-                %br
-                = mark(category.detail)
-              .uk-width-large-2-5
-                = image_tag(category.image(:preview), class: 'uk-responsive-width')
+            .uk-article-lead= category.title
           %td
             .uk-button-group
               -# = link_to 'Show', category_place_path(place.category, place), target: '_blank'
