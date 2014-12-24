@@ -12,14 +12,14 @@
     = render 'partials/ga'
 
   / %body#st-container.st-container.st-effect-2-right.st-menu-open
-  %body#st-container.st-container
+  %body#st-container.st-container{ class: params[:action] + ' ' + params[:controller] }
 
     = render 'partials/nav'
     = render 'partials/cart'
 
     .st-pusher
       .st-content
-        .st-content-inner.container{ class: params[:action] + ' ' + params[:controller] }
+        .st-content-inner.container
           = render 'partials/header'
           .body
             = yield
