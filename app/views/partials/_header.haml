@@ -19,18 +19,19 @@
 
 
 
-  %button.navbar-toggle{"data-target" => "#miller-navbar", "data-toggle" => "collapse", :type => "button"}
-    %span.icon-bar
-    %span.icon-bar
-    %span.icon-bar
-  = link_to '8 (029) 769-78-87', 'tel://8(029)769-78-87', class: 'visible-xs phone-navbar'
-  #miller-navbar.collapse.navbar-collapse.visible-xs-block.visible-xs
-    %ul.nav.navbar-nav
-      %li
-        = link_to 'продукция', root_path
-      %li
-        = link_to 'галерея', lookbooks_path
-      %li
-        = link_to 'о нас', about_path
-      %li
-        = link_to 'контакты', contacts_path
+  %noindex
+    %button.navbar-toggle{"data-target" => "#miller-navbar", "data-toggle" => "collapse", :type => "button"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to '8 (029) 769-78-87', 'tel://8(029)769-78-87', class: 'visible-xs phone-navbar'
+    #miller-navbar.collapse.navbar-collapse.visible-xs-block.visible-xs
+      %ul.nav.navbar-nav
+        %li
+          = link_to 'продукция', root_path
+        %li
+          = link_to 'галерея', lookbooks_path
+        %li
+          = link_to 'о нас', about_path
+        %li
+          = link_to 'контакты', contacts_path
