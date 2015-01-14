@@ -1,5 +1,5 @@
 .row.header-{ class: (params[:action] == 'home' && params[:controller] == 'page') ? '' : 'small-fix'}
-  .menu-fragment.col-sm-3.col-sm-offset-1.text-right
+  .menu-fragment.col-sm-4.col-lg-3.col-lg-offset-1.text-right.hidden-xs
     = link_to 'продукция', root_path, class: 'first'
     = link_to 'галерея', lookbooks_path
 
@@ -11,6 +11,23 @@
       .city - Minsk -
       = link_to 'astra', root_path
 
-  .menu-fragment.col-sm-3
+  .menu-fragment.col-sm-4.col-lg-3.hidden-xs
     = link_to 'о нас', about_path
     = link_to 'контакты', contacts_path, class: 'last'
+
+
+
+  %button.navbar-toggle{"data-target" => "#miller-navbar", "data-toggle" => "collapse", :type => "button"}
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  #miller-navbar.collapse.navbar-collapse.visible-xs-block.visible-xs
+    %ul.nav.navbar-nav
+      %li
+        = link_to 'продукция', root_path
+      %li
+        = link_to 'галерея', lookbooks_path
+      %li
+        = link_to 'о нас', about_path
+      %li
+        = link_to 'контакты', contacts_path
