@@ -1,0 +1,17 @@
+.product-.row.text-center
+  .col-xs-12
+    .p-404 404
+  .col-xs-12
+    %h1 страница не найдена
+    %p
+      Запрашиваемая вами страница не существует.
+      %br
+      Нажмите 
+      = link_to 'здесь', root_path
+      чтобы продолжить покупки.
+
+.row
+  %hr.m36
+  - Product.show.where(id: Product.ids.shuffle.take(3)).each do |product|
+    = render 'partials/product_preview', product: product
+

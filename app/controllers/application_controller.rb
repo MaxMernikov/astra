@@ -16,4 +16,12 @@ class ApplicationController < ActionController::Base
   def load_categories
     @categories = Category.show.by_pos
   end
+
+  # unless Rails.application.config.consider_all_requests_local
+    rescue_from CanCan::AccessDenied, ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownController, AbstractController::ActionNotFound, with: :render_404
+  # end
+
+  def render_404
+    render 'page/page_404', formats: 'html', status: '404'
+  end
 end
