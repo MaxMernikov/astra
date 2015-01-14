@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def render_404
+    set_meta_tags title: '404 Страница не найдена'
     render 'page/page_404', formats: 'html', status: '404'
   end
 end
