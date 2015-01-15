@@ -1,9 +1,9 @@
 %nav#menu-2.st-menu.st-effect-2-right
   - if @product.present?
     .total-cart
-      %h2 Корзина
+      .cart-title Корзина
     .success-cart
-      %h2 Успех
+      .cart-title Успех
 
     - product = @product
     .cart
@@ -50,7 +50,7 @@
 
 
   - else
-    %h2 Ваша корзина пуста
+    .cart-title Ваша корзина пуста
     %p Что бы исправить ситуацию нужно:
     %p 1. Добавить рюкзак в корзину
     %p 2. Ввести информацию о себе и нажать готово!
