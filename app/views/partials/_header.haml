@@ -8,11 +8,12 @@
       = image_tag 'logo.png', title: 'ASTRA', alt: 'logo'
     .text-center.small
       - if params[:action] == 'home' && params[:controller] == 'page'
-        %h1.slogan городские рюкзаки и сумки
+        %h1
+          .slogan городские рюкзаки и сумки
+          = link_to 'astra', root_path, class: 'logo-text'
       - else
-        .slogan производство аксессуаров
+        = link_to 'astra', root_path
       .city - Minsk -
-      = link_to 'astra', root_path
 
   .menu-fragment.col-sm-4.col-lg-3.hidden-xs
     = link_to 'о нас', about_path
