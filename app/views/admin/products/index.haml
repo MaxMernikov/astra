@@ -4,24 +4,22 @@
       Список продукции
       %small= link_to 'Добавить продукт', new_admin_product_path
 
--# .uk-grid
-- @categories.by_pos.each do |category|
-  .uk-grid.sortable_grid{ :'data-id' => category.id }
-    - category.products.by_pos.each do |product|
-      .uk-width-medium-1-2.uk-width-large-1-5.js_sort{ class: product.show ? '' : 'not_show', :'data-id' => product.id }
-        = link_to product do
-          = image_tag(product.images.first.image(:preview))
-        .uk-margin-small-top.uk-alert{ class: product.trouble ? 'uk-alert-success' : 'uk-alert-warning'}
-          %span.uk-article-lead
-            = product.cost
-            $
-          .uk-button-group.uk-align-right
-            -# = link_to 'Show', category_place_path(place.category, place), target: '_blank'
-            = link_to edit_admin_product_path(product), class: 'uk-button uk-button-small uk-button-success' do
-              .uk-icon-pencil
-            = link_to admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger' do
-              .uk-icon-times
+.uk-grid.sortable_grid
+  - @products.each do |product|
+    .uk-width-medium-1-2.uk-width-large-1-5.js_sort{ class: product.show ? '' : 'not_show', :'data-id' => product.id }
+      = link_to product do
+        = image_tag(product.images.first.image(:preview))
+      .uk-margin-small-top.uk-alert{ class: product.trouble ? 'uk-alert-success' : 'uk-alert-warning'}
+        %span.uk-article-lead
+          = product.cost
+          $
+        .uk-button-group.uk-align-right
+          -# = link_to 'Show', category_place_path(place.category, place), target: '_blank'
+          = link_to edit_admin_product_path(product), class: 'uk-button uk-button-small uk-button-success' do
+            .uk-icon-pencil
+          = link_to admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger' do
+            .uk-icon-times
 
 
-        -# = link_to 'Edit', edit_admin_product_path(product), class: 'uk-button uk-button-small uk-button-success'
-        -# = link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small'
+      -# = link_to 'Edit', edit_admin_product_path(product), class: 'uk-button uk-button-small uk-button-success'
+      -# = link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small'

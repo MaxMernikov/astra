@@ -41,7 +41,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def change_position
-    category = Category.find(params[:category_id])
     params[:positions].each_with_index do |product_id, index|
       Product.find(product_id).update_column(:pos, index)
     end
