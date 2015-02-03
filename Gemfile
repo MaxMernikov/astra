@@ -37,6 +37,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'ledermann-rails-settings'
 
+gem 'twitter-bootstrap-rails'
+
 gem 'cocoon'
 gem 'russian'
 
@@ -49,6 +51,9 @@ gem 'newrelic_rpm'
 gem 'sitemap_generator'
 gem 'inherited_resources'
 gem 'awesome_print'
+
+
+gem 'instagram'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'

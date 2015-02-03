@@ -17,6 +17,13 @@ Astra::Application.routes.draw do
       get :show_hide
     end
     resources :galleries
+    namespace :public_relations do
+      get :index
+    end
+    namespace :insta do
+      get :index
+    end
+
   end
 
   get '/about', to: 'page#about'

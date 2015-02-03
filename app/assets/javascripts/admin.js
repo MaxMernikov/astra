@@ -4,6 +4,7 @@
 //= require jquery-ui/sortable
 // require jquery.ui.sortable
 
+//= require twitter/bootstrap
 //= require_tree ./core
 //= require_tree ./admin
 //= require cocoon
