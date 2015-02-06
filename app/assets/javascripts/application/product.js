@@ -62,7 +62,7 @@ $( function() {
     // }
   });
 
-  $('#order_phone').mask("(999) 999-99-99");
+  $('#order_phone').mask("+375 99 999-99-99");
 
   // кнопка купить
   $('#buy_it_button').click(function(){
