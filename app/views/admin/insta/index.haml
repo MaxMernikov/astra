@@ -1,32 +1,40 @@
-%p
-  Подписчиков
-  %b= InstaFollows.count
-
-%p
-  Подписан на
-  %b= InstaFollowedTo.count
-
-.row
-  .col-xs-12
-    .media
-      .media-left
-        %a{:href => "#"}
-          %img.media-object{:alt => "...", :src => "..."}/
-      .media-body
-        %h4.media-heading Media heading
-        \...
-
 .container
+  - if @current_insta_user.try(:token).blank?
+    = link_to 'нужно авторизоваться', Instagram.authorize_url(:redirect_uri => admin_insta_callback_url), target: :blank
+
+  
+
+  - if @current_insta_user.try(:token).present?
+    .jumbotron
+      - if @current_insta_user.info_response.present?
+        %h2
+          Hello,
+          = @current_insta_user.info_response.full_name
+        %p
+          %p
+            Подписчиков
+            %b= @current_insta_user.info_response.counts.followed_by
+            %br
+            Подписан на
+            %b= @current_insta_user.info_response.counts.follows
+
+      %p
+        = link_to 'update info', admin_insta_user_path, class: 'btn btn-primary btn-lg'
+
+
+  %p
+    Загружено подписчиков
+    = @followed_by.count
+
   .row
-    .col-xs-6.col-md-3
-      %a.thumbnail{:href => "#"}
-        %img{:alt => "100%x180", "data-holder-rendered" => "true", "data-src" => "holder.js/100%x180", :src => "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzMyAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQwLjU2MjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTMzeDE4MDwvdGV4dD48L2c+PC9zdmc+", :style => "height: 180px; width: 100%; display: block;"}/
-    .col-xs-6.col-md-3
-      %a.thumbnail{:href => "#"}
-        %img{:alt => "100%x180", "data-holder-rendered" => "true", "data-src" => "holder.js/100%x180", :src => "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzMyAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQwLjU2MjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTMzeDE4MDwvdGV4dD48L2c+PC9zdmc+", :style => "height: 180px; width: 100%; display: block;"}/
-    .col-xs-6.col-md-3
-      %a.thumbnail{:href => "#"}
-        %img{:alt => "100%x180", "data-holder-rendered" => "true", "data-src" => "holder.js/100%x180", :src => "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzMyAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQwLjU2MjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTMzeDE4MDwvdGV4dD48L2c+PC9zdmc+", :style => "height: 180px; width: 100%; display: block;"}/
-    .col-xs-6.col-md-3
-      %a.thumbnail{:href => "#"}
-        %img{:alt => "100%x180", "data-holder-rendered" => "true", "data-src" => "holder.js/100%x180", :src => "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzMyAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQwLjU2MjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTMzeDE4MDwvdGV4dD48L2c+PC9zdmc+", :style => "height: 180px; width: 100%; display: block;"}/
+    .col-xs-4
+      = link_to 'Загрузить подписчиков', admin_insta_user_followed_by_path
+      .row
+        - @followed_by.each do |followed_by|
+          = render 'insta_user', insta_user: followed_by
+    .col-xs-4 
+      не подписанные пользователи
+      .row
+        - @not_followed_by.each do |not_followed_by|
+          = render 'insta_user', insta_user: not_followed_by
+

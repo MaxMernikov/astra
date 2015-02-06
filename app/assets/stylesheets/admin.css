@@ -1,7 +1,9 @@
 /*
- *= require_self
+ * require_self
+ *= require_tree ./core
  *= require_tree ./admin
- * require admin/bootstrap_and_overrides
+
+ *= require admin/bootstrap_and_overrides
 
  *= require jquery-ui
  * require jquery.ui.all

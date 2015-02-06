@@ -52,6 +52,11 @@ gem 'sitemap_generator'
 gem 'inherited_resources'
 gem 'awesome_print'
 
+gem 'hashie'
+
+gem 'sidekiq'
+gem 'sinatra', require: false
+# gem 'slim'
 
 gem 'instagram'
 

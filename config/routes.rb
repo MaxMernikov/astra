@@ -1,4 +1,6 @@
-Astra::Application.routes.draw do
+require 'sidekiq/web'
+
+Astra::Application.routes.draw do  
   devise_for :admins, skip: [:registrations, :passwords],
     controllers: { :sessions => 'admin/sessions' }
 
@@ -22,6 +24,11 @@ Astra::Application.routes.draw do
     end
     namespace :insta do
       get :index
+      get :callback
+
+      get :user
+      get :user_followed_by
+
     end
 
   end
@@ -37,6 +44,6 @@ Astra::Application.routes.draw do
   resources :feedbacks, only: [:create]
 
 
-
+  mount Sidekiq::Web, at: 'admin/sidekiq'
   root 'page#home'
 end
