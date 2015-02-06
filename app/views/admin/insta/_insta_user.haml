@@ -1,0 +1,33 @@
+.col-xs-12
+  .thumbnail
+    .row
+      .col-xs-3
+        = image_tag insta_user.info_hash.profile_picture
+      .col-xs-9
+        %b
+          = link_to_if insta_user.info_hash.website.present?, insta_user.info_hash.full_name, insta_user.info_hash.website, target: :blank
+          = "@#{insta_user.info_hash.username}"
+        %br
+        .small= insta_user.info_hash.bio
+        %p
+        - if insta_user.info_hash.counts.present?
+          .row.text-center.small
+            .col-xs-4
+              Публикации
+              %br
+              = insta_user.info_hash.counts.media
+
+            .col-xs-4
+              Подписчиков
+              %br
+              = link_to insta_user.info_hash.counts.followed_by, admin_insta_user_followed_by_path(insta_id: insta_user.insta_id), title: 'загрузить потенциальных пользователей'
+
+            .col-xs-4
+              Подписки
+              %br
+              = insta_user.info_hash.counts.follows
+        - else
+          %p данные скрыты
+
+
+          / = insta_user.info_hash.inspect
