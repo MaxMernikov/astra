@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205150342) do
+ActiveRecord::Schema.define(version: 20150209065456) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -143,6 +143,18 @@ ActiveRecord::Schema.define(version: 20150205150342) do
 
   add_index "insta_logs", ["insta_user_id"], name: "index_insta_logs_on_insta_user_id", using: :btree
 
+  create_table "insta_schedules", force: true do |t|
+    t.datetime "run_at"
+    t.integer  "insta_user_id"
+    t.string   "work_type"
+    t.string   "status"
+    t.text     "params"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "insta_schedules", ["insta_user_id"], name: "index_insta_schedules_on_insta_user_id", using: :btree
+
   create_table "insta_users", force: true do |t|
     t.integer  "insta_id"
     t.datetime "followed_at"
@@ -158,7 +170,7 @@ ActiveRecord::Schema.define(version: 20150205150342) do
     t.datetime "start_monitoring"
     t.datetime "start_follow"
     t.boolean  "not_resultative",   default: false
-    t.integer  "bot_step"
+    t.integer  "bot_step",          default: 0
     t.integer  "insta_likes_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -17,7 +17,7 @@ class CreateInstaUsers < ActiveRecord::Migration
       t.datetime :start_monitoring
       t.datetime :start_follow
       t.boolean :not_resultative, default: false
-      t.integer :bot_step
+      t.integer :bot_step, default: 0
 
 
       t.integer :insta_likes_count, default: 0
