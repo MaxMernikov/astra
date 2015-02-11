@@ -3,6 +3,7 @@
     .row
       .col-xs-3
         = image_tag insta_user.info_hash.profile_picture
+        .small{style: 'font-size: 11px'}= insta_user.insta_id
       .col-xs-9
         %b
           = link_to_if insta_user.info_hash.website.present?, insta_user.info_hash.full_name, insta_user.info_hash.website, target: :blank
@@ -10,7 +11,12 @@
         %br
         .small= insta_user.info_hash.bio
         %p
-        - if insta_user.info_hash.counts.present?
+        / - if insta_user.info_hash.counts.present?
+        - if insta_user.private
+          %p данные скрыты
+        - elsif insta_user.private == nil
+          = link_to 'получить информацию', admin_insta_user_info_path(insta_user_id: insta_user.id)
+        - else
           .row.text-center.small
             .col-xs-4
               Публикации
@@ -26,8 +32,7 @@
               Подписки
               %br
               = insta_user.info_hash.counts.follows
-        - else
-          %p данные скрыты
+          
 
 
           / = insta_user.info_hash.inspect

@@ -1,6 +1,6 @@
 class Admin::InstaController < Admin::AdminController
   before_filter :init_current_user, except: :callback
-  before_filter :init_insta, only: [:user, :user_followed_by]
+  before_filter :init_insta, only: [:user, :user_followed_by, :user_info]
 
 
   def index
@@ -23,16 +23,29 @@ class Admin::InstaController < Admin::AdminController
       response = @client.user_followed_by(@current_insta_user.insta_id)
     end
 
-    response.take(2).each do |followed|
+    response.each do |followed|
       if InstaUser.find_by(insta_id: followed.id).blank?
-        ap 'sd'
-        begin
-          followed_response = @client.user(followed.id)
-          InstaUser.create(insta_id: followed.id, info_hash: followed_response, followed_by: params[:insta_id].blank?, followed_by_count: followed_response.counts.followed_by)
-        rescue Instagram::BadRequest
-          InstaUser.create(insta_id: followed.id, info_hash: followed, private: true, followed_by: params[:insta_id].blank?)
-        end
+        # ap 'sd'
+        # begin
+          # followed_response = @client.user(followed.id)
+          # InstaUser.create(insta_id: followed.id, info_hash: followed_response, followed_by: params[:insta_id].blank?, followed_by_count: followed_response.counts.followed_by)
+        # rescue Instagram::BadRequest
+          InstaUser.create(insta_id: followed.id, info_hash: followed, private: nil, followed_by: params[:insta_id].blank?)
+        # end
       end
+    end
+
+    redirect_to admin_insta_index_path
+  end
+
+  def user_info
+    insta_user = InstaUser.find(params[:insta_user_id])
+
+    begin
+      followed_response = @client.user(insta_user.insta_id)
+      insta_user.update_attributes(info_hash: followed_response, followed_by_count: followed_response.counts.followed_by, private: false)
+    rescue Instagram::BadRequest
+      insta_user.update_attribute(:private, true)
     end
 
     redirect_to admin_insta_index_path

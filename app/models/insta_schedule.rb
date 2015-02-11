@@ -3,6 +3,8 @@ class InstaSchedule < ActiveRecord::Base
   validates :run_at, :insta_user_id, :work_type, presence: true
   serialize :params
 
+  after_create :create_worker
+
   def self.last_today_at
     datetime_today = Date.today.to_time
 
@@ -13,5 +15,10 @@ class InstaSchedule < ActiveRecord::Base
     else
       last_today = [datetime_today + 10.hours, Time.now].max + rand(180).minutes
     end
+  end
+
+  def create_worker
+    # raise 'TODO'
+    # $redis 
   end
 end

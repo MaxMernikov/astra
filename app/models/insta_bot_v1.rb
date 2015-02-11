@@ -12,10 +12,10 @@ class InstaBotV1
       insta_user.update_column(:bot_step, 1)
 
     when 1
-      # return false if InstaSchedule.where(insta_user_id: insta_user.id).last.run_at > Date.today.to_time - 1.day
+      return false if InstaSchedule.where(insta_user_id: insta_user.id).last.run_at > Date.today.to_time - 1.day
 
       (rand(2) + 1).times do
-        InstaSchedule.create(run_at: InstaSchedule.last_today_at, insta_user_id: insta_id, work_type: 'like', params: {type: 'second_page'})
+        InstaSchedule.create(run_at: InstaSchedule.last_today_at, insta_user_id: insta_user.id, work_type: 'like', params: {type: 'second_page'})
       end
 
       InstaSchedule.create(run_at: InstaSchedule.last_today_at, insta_user_id: insta_id, work_type: 'follow')
@@ -24,7 +24,10 @@ class InstaBotV1
 
     when 2
       if insta_user.followed_by
+        InstaSchedule.create(run_at: InstaSchedule.last_today_at, insta_user_id: insta_user.id, work_type: 'show_feed')
+
         return false if InstaLog.where(insta_user_id: insta_user.id, log_type: 'like').count > 60 + rand(20)
+
       else
         return false if InstaLog.where(insta_user_id: insta_user.id, log_type: 'like').count > 30 + rand(20)
       end

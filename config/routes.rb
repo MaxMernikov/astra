@@ -27,6 +27,7 @@ Astra::Application.routes.draw do
       get :callback
 
       get :user
+      get :user_info
       get :user_followed_by
 
     end

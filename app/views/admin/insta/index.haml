@@ -38,7 +38,7 @@
         - @not_followed_by.each do |not_followed_by|
           = render 'insta_user', insta_user: not_followed_by
 
-
-- InstaUser.last.insta_schedules.each do |schedule|
-  = schedule.inspect
-  %br
+- if InstaUser.last.present?
+  - InstaUser.last.insta_schedules.each do |schedule|
+    = schedule.inspect
+    %br
