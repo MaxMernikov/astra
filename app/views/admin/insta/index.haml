@@ -38,7 +38,17 @@
         - @not_followed_by.each do |not_followed_by|
           = render 'insta_user', insta_user: not_followed_by
 
-- if InstaUser.last.present?
-  - InstaUser.last.insta_schedules.each do |schedule|
-    = schedule.inspect
-    %br
+    .col-xs-4 
+      расписание
+      = link_to 'создать расписание', create_schedule_admin_insta_insta_schedules_path
+      .row
+        %table.table
+          %thead
+          %tbody
+            - @schedules.each do |schedule|
+              %tr
+                %td= schedule.insta_user.insta_id
+                %td= schedule.work_type
+                %td= time_tag schedule.run_at, format: '%d.%m %H:%M:%S'
+                %td= link_to 'X', admin_insta_insta_schedule_path(schedule), method: :delete
+

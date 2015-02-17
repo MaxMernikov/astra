@@ -10,3 +10,13 @@
 
 
   mysql -uroot -hlocalhost -p astra_development  < 07.02.15.astra_production.sql
+
+
+  ins = 'http://localhost:3000/admin/insta/callback'
+  Instagram.authorize_url(:redirect_uri => ins, scope: 'likes')
+  Instagram.get_access_token('813d11a97df84de9a6ac144c262bf82a', redirect_uri: ins)
+
+
+
+https://api.instagram.com/v1/users/self/feed - проверка ленты
+https://api.instagram.com/v1/users/239000873/relationship - чекнуть статус подписки

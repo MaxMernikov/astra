@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210215637) do
+ActiveRecord::Schema.define(version: 20150214112613) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -118,7 +118,8 @@ ActiveRecord::Schema.define(version: 20150210215637) do
   create_table "insta_caches", force: true do |t|
     t.integer  "insta_user_id"
     t.string   "cache_type"
-    t.string   "info_hash"
+    t.text     "info_hash"
+    t.string   "params"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,9 +150,11 @@ ActiveRecord::Schema.define(version: 20150210215637) do
     t.text     "params"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "point"
   end
 
   add_index "insta_logs", ["insta_user_id"], name: "index_insta_logs_on_insta_user_id", using: :btree
+  add_index "insta_logs", ["point", "log_type"], name: "index_insta_logs_on_point_and_log_type", using: :btree
 
   create_table "insta_schedules", force: true do |t|
     t.datetime "run_at"

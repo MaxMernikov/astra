@@ -6,8 +6,8 @@ class Admin::InstaController < Admin::AdminController
   def index
     @followed_by = InstaUser.followed_by
     @not_followed_by = InstaUser.not_followed_by
+    @schedules = InstaSchedule.where('run_at > ?', Date.today).order(:run_at)
   end
-
 
   def user
     response = @client.user(@current_insta_user.insta_id)
@@ -63,6 +63,13 @@ class Admin::InstaController < Admin::AdminController
     else
       raise params.inspect
     end
+  end
+
+  def init_bot
+    insta_user = InstaUser.find(params[:insta_user_id])
+    insta_user.update_attributes(bot_version: 1, start_monitoring: Time.now)
+
+    redirect_to admin_insta_index_path
   end
 
   private

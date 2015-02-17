@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
     @categories = Category.show.by_pos
   end
 
-  # unless Rails.application.config.consider_all_requests_local
+  unless Rails.application.config.consider_all_requests_local
     rescue_from CanCan::AccessDenied, ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownController, AbstractController::ActionNotFound, with: :render_404
-  # end
+  end
 
   def render_404
     set_meta_tags title: '404 Страница не найдена'

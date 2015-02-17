@@ -22,6 +22,7 @@ Astra::Application.routes.draw do
     namespace :public_relations do
       get :index
     end
+
     namespace :insta do
       get :index
       get :callback
@@ -29,6 +30,20 @@ Astra::Application.routes.draw do
       get :user
       get :user_info
       get :user_followed_by
+
+      get :init_bot
+
+      resources :insta_schedules, only: [:destroy] do
+        collection do
+          get :create_schedule
+        end
+      end
+
+      resources :insta_user, only: [] do
+        get :reset_spud
+        collection do
+        end
+      end
 
     end
 

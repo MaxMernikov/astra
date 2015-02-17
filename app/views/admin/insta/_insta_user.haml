@@ -14,9 +14,8 @@
         / - if insta_user.info_hash.counts.present?
         - if insta_user.private
           %p данные скрыты
-        - elsif insta_user.private == nil
-          = link_to 'получить информацию', admin_insta_user_info_path(insta_user_id: insta_user.id)
-        - else
+        / - unless insta_user.private
+        - if insta_user.info_hash.try(:counts).present?
           .row.text-center.small
             .col-xs-4
               Публикации
@@ -32,7 +31,15 @@
               Подписки
               %br
               = insta_user.info_hash.counts.follows
+
+        = link_to 'обновить информацию', admin_insta_user_info_path(insta_user_id: insta_user.id)
+        %br
+
+        - if insta_user.bot_version.present?
+          bot: #{insta_user.bot_version}, step: #{insta_user.bot_step}
+          = link_to 'сброс окучивания',admin_insta_insta_user_reset_spud_path(insta_user.id)
+        - else
+          = link_to 'начать окучивать', admin_insta_init_bot_path(insta_user_id: insta_user.id)
+
+
           
-
-
-          / = insta_user.info_hash.inspect

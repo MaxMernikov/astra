@@ -3,7 +3,9 @@ class CreateInstaCaches < ActiveRecord::Migration
     create_table :insta_caches do |t|
       t.references :insta_user, index: true
       t.string :cache_type
-      t.string :info_hash
+      t.text :info_hash
+      t.string :params
+
 
       t.timestamps
     end
