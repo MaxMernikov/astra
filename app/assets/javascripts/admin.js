@@ -8,3 +8,6 @@
 //= require_tree ./core
 //= require_tree ./admin
 //= require cocoon
+
+//= require angular
+//= require angular-animate

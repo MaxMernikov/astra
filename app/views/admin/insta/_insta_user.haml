@@ -4,6 +4,15 @@
       .col-xs-3
         = image_tag insta_user.info_hash.profile_picture
         .small{style: 'font-size: 11px'}= insta_user.insta_id
+
+        = link_to admin_insta_insta_user_relationship_path(insta_user) do
+          - if insta_user.followed_by
+            %i.glyphicon.glyphicon-chevron-left
+          - if insta_user.follows
+            %i.glyphicon.glyphicon-chevron-right
+          - unless insta_user.followed_by || insta_user.follows
+            %i.glyphicon.glyphicon-remove-circle 
+
       .col-xs-9
         %b
           = link_to_if insta_user.info_hash.website.present?, insta_user.info_hash.full_name, insta_user.info_hash.website, target: :blank
@@ -32,14 +41,15 @@
               %br
               = insta_user.info_hash.counts.follows
 
-        = link_to 'обновить информацию', admin_insta_user_info_path(insta_user_id: insta_user.id)
-        %br
+        - if insta_user.followed_by
+          = link_to 'обновить информацию', admin_insta_user_info_path(insta_user_id: insta_user.id), class: 'btn btn-default btn-xs'
 
-        - if insta_user.bot_version.present?
-          bot: #{insta_user.bot_version}, step: #{insta_user.bot_step}
-          = link_to 'сброс окучивания',admin_insta_insta_user_reset_spud_path(insta_user.id)
         - else
-          = link_to 'начать окучивать', admin_insta_init_bot_path(insta_user_id: insta_user.id)
+          - if insta_user.bot_version.present?
+            bot: #{insta_user.bot_version}, step: #{insta_user.bot_step}
+            = link_to 'сброс окучивания',admin_insta_insta_user_reset_spud_path(insta_user.id), class: 'btn btn-default btn-xs'
+          - else
+            = link_to 'начать окучивать', admin_insta_init_bot_path(insta_user_id: insta_user.id), class: 'btn btn-default btn-xs'
 
 
           

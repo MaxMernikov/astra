@@ -8,13 +8,17 @@ class InstaSchedule < ActiveRecord::Base
   def self.last_today_at
     datetime_today = Date.today.to_time
 
-    last_today = InstaSchedule.where('run_at > ? && run_at < ?', [datetime_today + 10.hours, Time.now + 2.minutes].max, datetime_today + 1.day - 3.hours).last.try(:run_at)
+    # last_today = InstaSchedule.where('run_at > ? && run_at < ?', [datetime_today + 10.hours, Time.now + 2.minutes].max, datetime_today + 1.day - 3.hours).last.try(:run_at)
+    last_today = InstaSchedule.where( run_at: datetime_today..(datetime_today + 1.day - 3.hours) ).last.try(:run_at)
 
-    if last_today.present?
-      ap [last_today, Time.now + 2.minutes].max
-      [last_today, Time.now + 2.minutes].max + 2.seconds + rand(15).seconds
+    return [last_today, Time.now + 2.minutes].max + 2.seconds + rand(15).seconds if last_today.present?
+
+    raise 'todo: add task tomorrow morning' if Time.now > datetime_today + 1.day - 3.hours
+        
+    if datetime_today + 10.hours > Time.now + 2.minutes
+      datetime_today + 10.hours + rand(180).minutes
     else
-      last_today = [datetime_today + 10.hours, Time.now + 2.minutes].max + rand(180).minutes
+      Time.now + 3.minutes
     end
   end
 

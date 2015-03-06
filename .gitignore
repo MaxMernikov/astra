@@ -14,8 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/public/system/*
 /config/database.yml
 /app/assets/images/fish/*
 /public/assets/*
 /public/sitemap.xml.gz
+/public/system/*

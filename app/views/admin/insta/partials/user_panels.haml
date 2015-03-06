@@ -1,0 +1,54 @@
+.user-panels{'ng-init' => "resource = {}; resource.user = user"}
+  %a.point.panel-update{:href => "", 'ng-click' => 'users.infoUpdate(resource)'}
+  %a.point.user-relative-update{:href => "", 'ng-click' => 'users.relationshipUpdate(resource)'}
+
+  %a.spud{href: "", 'ng-if' => '!resource.user.followed_by', 'ng-click' => 'users.spud(resource, $index)'}+
+  %a.spud{href: "", 'ng-if' => 'resource.user.bot_version != null', 'ng-click' => 'users.reset_spud(resource, $index)'}-
+
+  .w-clearfix.panel-header{'ng-click' => 'users.body_toddle()'}
+    %img.user-pic{ 'ng-src' => '{{resource.user.info_hash.profile_picture}}', :height => "50", :width => "50"}/
+    .subtitle{'ng-if' => 'resource.user.info_hash.website'}
+      %a.text-success{'ng-href' => '{{resource.user.info_hash.website}}', target: :blank} 
+        {{resource.user.info_hash.full_name}}
+      %span{'ng-if' => '!resource.user.info_hash.full_name'}{{resource.user.info_hash.username}}
+
+    .user-username{'ng-if' => '!resource.user.info_hash.website'}
+      {{resource.user.info_hash.full_name}}
+      {{resource.user.info_hash.username}}
+    .user-relative
+      .span.semi-bold{'ng-if' => 'resource.user.followed_by'} Подписан
+      .span.semi-bold{'ng-if' => 'resource.user.follows'} Друг
+    .span.semi-bold
+      {{resource.user.insta_id}}
+
+  .panel-body{'ng-class' => '{active: users.body_active}'}
+    .w-row.user-public-statistics{'ng-if' => 'resource.user.info_hash.counts' }
+      .w-col.w-col-4
+        Публикации
+        .semi-bold
+          {{resource.user.info_hash.counts.media}}
+
+      .w-col.w-col-4
+        Подписчики
+        .semi-bold
+          %a.text-success{href: '', 'ng-click' => 'users.get_followed_by(resource)'}{{resource.user.info_hash.counts.followed_by}}
+
+      .w-col.w-col-4
+        Подписок
+        .semi-bold
+          {{resource.user.info_hash.counts.follows}}
+
+    .w-row.user-public-statistics{'ng-if' => 'resource.user.private === null' }
+      .w-col.w-col-12
+        Информация отсутствует
+
+    .w-row.user-public-statistics{'ng-if' => 'resource.user.private' }
+      .w-col.w-col-12
+        Информация скрыта
+
+    %p.panel-body-text {{resource.user.info_hash.bio}}
+
+    %p.panel-body-text{'ng-if' => 'resource.user.start_monitoring.length'}  Старт {{resource.user.start_monitoring | date : 'dd.MM.yy HH:mm'}}
+    %p.panel-body-text{'ng-if' => 'resource.user.bot_version'}  Статус окучивания: bot {{resource.user.bot_version}}, step {{resource.user.bot_step}}
+
+

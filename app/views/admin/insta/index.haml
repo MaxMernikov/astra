@@ -32,6 +32,7 @@
       .row
         - @followed_by.each do |followed_by|
           = render 'insta_user', insta_user: followed_by
+
     .col-xs-4 
       не подписанные пользователи
       .row
@@ -40,7 +41,9 @@
 
     .col-xs-4 
       расписание
-      = link_to 'создать расписание', create_schedule_admin_insta_insta_schedules_path
+      = link_to 'создать расписание', create_schedule_admin_insta_insta_schedules_path, class: 'btn btn-default btn-xs'
+      = link_to 'запустить работничков', run_workers_admin_insta_insta_schedules_path, class: 'btn btn-default btn-xs'
+
       .row
         %table.table
           %thead
@@ -50,5 +53,6 @@
                 %td= schedule.insta_user.insta_id
                 %td= schedule.work_type
                 %td= time_tag schedule.run_at, format: '%d.%m %H:%M:%S'
+                %td= schedule.status
                 %td= link_to 'X', admin_insta_insta_schedule_path(schedule), method: :delete
 

@@ -1,12 +1,16 @@
 class Admin::InstaController < Admin::AdminController
   before_filter :init_current_user, except: :callback
-  before_filter :init_insta, only: [:user, :user_followed_by, :user_info]
+  before_filter :init_insta, only: [:user, :user_followed_by, :user_info, :user_relationship]
 
 
   def index
     @followed_by = InstaUser.followed_by
     @not_followed_by = InstaUser.not_followed_by
     @schedules = InstaSchedule.where('run_at > ?', Date.today).order(:run_at)
+  end
+
+  def index_2
+    render 'index_2', layout: 'pages_revox'
   end
 
   def user
@@ -40,6 +44,7 @@ class Admin::InstaController < Admin::AdminController
 
   def user_info
     insta_user = InstaUser.find(params[:insta_user_id])
+    insta_user.relationship
 
     begin
       followed_response = @client.user(insta_user.insta_id)
@@ -58,6 +63,7 @@ class Admin::InstaController < Admin::AdminController
       conf = InstaConf.first
       conf = InstaConf.create if conf.blank?
 
+      raise 'set insta id'
       conf.update_attributes(insta_id: response.id, settings_response: response.to_hash, token: response.access_token)
       redirect_to admin_insta_index_path
     else
@@ -67,9 +73,13 @@ class Admin::InstaController < Admin::AdminController
 
   def init_bot
     insta_user = InstaUser.find(params[:insta_user_id])
-    insta_user.update_attributes(bot_version: 1, start_monitoring: Time.now)
+    insta_user.update_attributes(bot_version: 1)
 
     redirect_to admin_insta_index_path
+  end
+
+  def partial
+    render "admin/insta/partials/#{params[:type]}", layout: false
   end
 
   private

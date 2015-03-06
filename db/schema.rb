@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214112613) do
+ActiveRecord::Schema.define(version: 20150218163714) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20150214112613) do
   create_table "insta_caches", force: true do |t|
     t.integer  "insta_user_id"
     t.string   "cache_type"
-    t.text     "info_hash"
+    t.text     "info_hash",     limit: 16777215
     t.string   "params"
     t.datetime "created_at"
     t.datetime "updated_at"
