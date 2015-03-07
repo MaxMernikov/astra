@@ -24,6 +24,7 @@ Astra::Application.routes.draw do
     end
 
     namespace :insta do
+      get :statistics
       get :partial
       get :index
       get :index_2

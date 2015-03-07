@@ -2,6 +2,16 @@ class Admin::InstaController < Admin::AdminController
   before_filter :init_current_user, except: :callback
   before_filter :init_insta, only: [:user, :user_followed_by, :user_info, :user_relationship]
 
+  def statistics
+    ap 'sdffdsfdakjfjksadklfjklasdf;dsj'
+    render json: [
+      { color: '#ff7f0e',
+        key: "Подписались",
+        values: [{x: 25.04, y: 12}, {x: 26.04, y: 13}, {x: 27.04, y: 14}, {x: 28.04, y: 15}, {x: 29.04, y: 16}, {x: 30.04, y: 16}]
+      }
+    ].to_json
+  end
+
 
   def index
     @followed_by = InstaUser.followed_by

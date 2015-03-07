@@ -24,7 +24,7 @@ class Admin::Insta::InstaUsersController < Admin::BaseController
 
       pre_collection[:dates] = pre_collection[:dates].uniq.sort.reverse
 
-      ap pre_collection
+      pre_collection
     else
       InstaUser.where(followed_by: true)
     end

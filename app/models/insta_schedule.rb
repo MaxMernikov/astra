@@ -13,7 +13,7 @@ class InstaSchedule < ActiveRecord::Base
 
     return [last_today, Time.now + 2.minutes].max + 2.seconds + rand(15).seconds if last_today.present?
 
-    raise 'todo: add task tomorrow morning' if Time.now > datetime_today + 1.day - 3.hours
+    # raise 'todo: add task tomorrow morning' if Time.now > datetime_today + 1.day - 3.hours
         
     if datetime_today + 10.hours > Time.now + 2.minutes
       datetime_today + 10.hours + rand(180).minutes

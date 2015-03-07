@@ -1,11 +1,9 @@
 %body.body
   .w-row
     .w-col.w-col-6
-      .nvd3-line.line-chart
-        %svg#statistics1
+      %statistics_graph
 
     .w-col.w-col-6
-      %svg#statistics2
 
   .w-row{'ng-controller' => 'UsersController as users'}
     .w-col.w-col-4{'ng-controller' => 'PanelController as panel'}
