@@ -11,6 +11,7 @@ class PageController < ApplicationController
 
   def about
     set_meta_tags title: 'О нас'
+    render 'about', layout: 'webflow'
   end
 
   def contacts

@@ -1,0 +1,14 @@
+.w-section.header
+  %header.w-container
+    .w-nav.navbar{"data-animation" => "default", "data-collapse" => "small", "data-contain" => "1", "data-duration" => "400"}
+      .w-container
+        %a.w-nav-brand.brand{:href => "#"}
+          %img{:alt => "54de5cae8a7a2f951de15aa2_text-logo-2.png", :src => "http://uploads.webflow.com/54de0d5c1db7daaf1eb37e44/54de5cae8a7a2f951de15aa2_text-logo-2.png", :width => "136"}/
+          .logo-subtitle -minsk-
+        %nav.w-nav-menu.nav-menu{:role => "navigation"}
+          %a.w-nav-link.nav-link.first{:href => root_path} продукция
+          %a.w-nav-link.nav-link{:href => lookbooks_path} галерея
+          %a.w-nav-link.left.nav-link.last{:href => contacts_path} контакты
+          %a.w-nav-link.nav-link.left{:href => about_path} о нас
+        .w-nav-button.menu-button
+          .w-icon-nav-menu.menu-button-icon
