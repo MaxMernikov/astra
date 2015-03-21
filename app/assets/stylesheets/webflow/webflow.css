@@ -202,12 +202,6 @@ p {
   margin-top: 0%;
   margin-bottom: 2%;
 }
-.about-row.ps {
-  height: 600px;
-  background-image: url(http://uploads.webflow.com/54de0d5c1db7daaf1eb37e44/55069cf26429e1233057f87a_depositphotos_22168597-Silhouette-of-trees-against-night-sky-with-stars.jpg);
-  background-position: 50% -303px;
-  background-size: cover;
-}
 .about-row.about-header {
   min-height: 300px;
 }

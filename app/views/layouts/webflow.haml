@@ -13,7 +13,7 @@
   %body
     = render 'header'
     = yield
-    = render 'partials/footer' unless params[:controller] == 'lookbooks'
-    = render 'partials/help_widjet'
+    / = render 'partials/footer' unless params[:controller] == 'lookbooks'
+    / = render 'partials/help_widjet'
     = render 'partials/analitycs'
     = javascript_include_tag "webflow"
