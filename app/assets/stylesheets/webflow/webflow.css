@@ -1,4 +1,4 @@
-/* Generated on: Thu Mar 19 2015 18:38:08 GMT+0000 (UTC) */
+/* Generated on: Tue Mar 24 2015 11:26:07 GMT+0000 (UTC) */
 /* ==========================================================================
    normalize.css v2.0.1, along with Webflow base CSS | MIT License | git.io/normalize
    ========================================================================== */
@@ -180,7 +180,7 @@ p {
 }
 .about-cover {
   position: relative;
-  display: inline-block;
+  display: block;
   overflow-x: hidden;
   overflow-y: hidden;
   width: auto;
@@ -201,6 +201,12 @@ p {
   height: 300px;
   margin-top: 0%;
   margin-bottom: 2%;
+}
+.about-row.ps {
+  height: 600px;
+  background-image: url(http://uploads.webflow.com/54de0d5c1db7daaf1eb37e44/55069cf26429e1233057f87a_depositphotos_22168597-Silhouette-of-trees-against-night-sky-with-stars.jpg);
+  background-position: 50% -303px;
+  background-size: cover;
 }
 .about-row.about-header {
   min-height: 300px;
