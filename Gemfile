@@ -60,6 +60,7 @@ gem 'sinatra', require: false
 # gem 'slim'
 
 gem 'instagram'
+gem 'vkontakte_api', '~> 1.4.3'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'
