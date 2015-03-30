@@ -22,6 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'angularjs-rails'
 
 gem 'jbuilder', '~> 1.2'
 
@@ -52,6 +53,11 @@ gem 'sitemap_generator'
 gem 'inherited_resources'
 gem 'awesome_print'
 
+gem 'hashie'
+
+gem 'sidekiq'
+gem 'sinatra', require: false
+# gem 'slim'
 
 gem 'instagram'
 

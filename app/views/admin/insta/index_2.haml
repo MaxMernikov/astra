@@ -1,0 +1,60 @@
+%body.body
+  .w-row
+    .w-col.w-col-6
+      %statistics_graph
+
+    .w-col.w-col-6
+
+  .w-row{'ng-controller' => 'UsersController as users'}
+    .w-col.w-col-4{'ng-controller' => 'PanelController as panel'}
+      .nav-tabs
+        %a.tab{href: '', 'ng-click' => 'panel.selectTab(1)', 'ng-class' => '{ active: panel.isSelected(1)}'}
+          .box-label Подписчики
+          .bubble {{users.collection.length}}
+
+        %a.tab{href: '', 'ng-click' => 'panel.selectTab(2)', 'ng-class' => '{ active: panel.isSelected(2)}'}
+          .box-label В раскрутке
+          .bubble {{in_spudding.counts}}
+
+      .tab-content{'ng-show' => 'panel.isSelected(1)'}
+        %user_panels{'ng-repeat' => 'user in users.collection'}
+
+      .tab-content{'ng-show' => 'panel.isSelected(2)'}
+        .subtitle
+          Не запущено 
+          .bubble {{in_spudding.without_date.length}}
+        %user_panels{'ng-repeat' => 'user in in_spudding.without_date'}
+
+        %div{'ng-repeat' => 'date in in_spudding.dates' }
+          .subtitle
+            {{date}}
+            .bubble {{in_spudding.with_date[date].length}}
+          %user_panels{'ng-repeat' => 'user in in_spudding.with_date[date]' }
+
+      
+    .w-col.w-col-4.followers
+      %user_panels{'ng-repeat' => 'user in followers'}
+
+    .w-col.w-col-4{'ng-controller' => 'SchedulesController as schedules'}
+      .schedule-header
+        %a.button.btn-sm{href: '', 'ng-click'=>'schedules.setSchedule()'} Создать расписание
+        %a.button.btn-sm{href: ''} Запустить работников
+
+      .user-panels{'ng-if' => 'schedules.collection.length'}
+        %a.point.panel-update{:href => "", 'ng-click' => 'schedules.setSchedule()'}
+        .user-panels-header{'ng-repeat' => 'scheduleScope in schedules.collection'}
+          .subtitle
+            {{scheduleScope.date | date : 'dd.MM.yy'}}
+            .bubble {{scheduleScope.schedules.length}} 
+          %ul.w-list-unstyled.list
+            %li.list-item{'ng-repeat' => 'schedule in scheduleScope.schedules'}
+              %span.schedule-element
+                %a.no-link.text-success.icony-info{href: '', 'ng-click' => 'schedules.getInfo(schedule)'}
+                {{schedule.insta_user_id}}
+              %span.schedule-element
+                %i.icony-heart{'ng-if' => 'schedule.work_type == "like"'}
+
+              %span.schedule-element {{schedule.run_at | date : 'HH:mm:ss'}}
+
+              %span.schedule-element
+                %a.no-link.text-success.icony-trashcan{href: '', 'ng-click' => 'schedules.destroy(schedule, $index)'}

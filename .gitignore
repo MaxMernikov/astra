@@ -3,9 +3,12 @@
 /db/*.sqlite3-journal
 /log/*.log
 /tmp
-/public/system/*
 /config/database.yml
 /app/assets/images/fish/*
 /public/assets/*
 /public/sitemap.xml.gz
+<<<<<<< HEAD
 db/migrate/20150204112903_create_insta_users.rb
+=======
+/public/system/*
+>>>>>>> 1e1f094441dad83a91bdc1444587f16e123c0835

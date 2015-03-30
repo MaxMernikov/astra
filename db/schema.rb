@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150210215637) do
+=======
+ActiveRecord::Schema.define(version: 20150218163714) do
+>>>>>>> 1e1f094441dad83a91bdc1444587f16e123c0835
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -118,7 +122,12 @@ ActiveRecord::Schema.define(version: 20150210215637) do
   create_table "insta_caches", force: true do |t|
     t.integer  "insta_user_id"
     t.string   "cache_type"
+<<<<<<< HEAD
     t.string   "info_hash"
+=======
+    t.text     "info_hash",     limit: 16777215
+    t.string   "params"
+>>>>>>> 1e1f094441dad83a91bdc1444587f16e123c0835
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,9 +158,17 @@ ActiveRecord::Schema.define(version: 20150210215637) do
     t.text     "params"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
   end
 
   add_index "insta_logs", ["insta_user_id"], name: "index_insta_logs_on_insta_user_id", using: :btree
+=======
+    t.string   "point"
+  end
+
+  add_index "insta_logs", ["insta_user_id"], name: "index_insta_logs_on_insta_user_id", using: :btree
+  add_index "insta_logs", ["point", "log_type"], name: "index_insta_logs_on_point_and_log_type", using: :btree
+>>>>>>> 1e1f094441dad83a91bdc1444587f16e123c0835
 
   create_table "insta_schedules", force: true do |t|
     t.datetime "run_at"
