@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     if order.save
-      OrderMailer.order_create.deliver
+      NotificationMailer.order_created.deliver
       render js: 'successOrder()'
     else
       render js: 'console.log("' + order.errors.full_messages.join(', ') + '")'
