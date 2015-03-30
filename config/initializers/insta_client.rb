@@ -1,1 +1,1 @@
-$insta_client = Instagram.client(:access_token => InstaConf.first.token)
+$insta_client = Instagram.client(:access_token => 'd')
