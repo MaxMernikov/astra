@@ -1,19 +1,20 @@
-.about-row.center
-  .w-row
-    display: table
-
-  .w-col
-    vertical-align: middle
-    display: table-cell
-    float: none
-
-@media screen and (max-width:767px)
+.page.about
   .about-row.center
+    .w-row
+      display: table
+
     .w-col
-      float: left
+      vertical-align: middle
+      display: table-cell
+      float: none
+
+  @media screen and (max-width:767px)
+    .about-row.center
+      .w-col
+        float: left
 
 
-.about-row.ps
-  height: 600px
-  background-image: url(#{asset_path('about/space.jpg')})
-  background-size: cover
+  .about-row.ps
+    // height: 600px
+    background: url(#{asset_path('about/space.jpg')}) no-repeat center center fixed
+    background-size: cover
