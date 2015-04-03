@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330204814) do
+ActiveRecord::Schema.define(version: 20150330220513) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150330204814) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "vk_token"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree

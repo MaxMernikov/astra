@@ -24,8 +24,8 @@ class Product < ActiveRecord::Base
 
   # vk variables
   # ! set ids !
-  VK_GROUP_ID = nil # group id integer
-  VK_ALBUM_ID = nil # albumn id integer
+  VK_GROUP_ID = 73282144 # group id integer
+  VK_ALBUM_ID = 204862394 # albumn id integer
 
   def self.settings_attr_accessor(*args)
     args.each do |method_name|
@@ -51,7 +51,7 @@ class Product < ActiveRecord::Base
   end
 
   def set_vk
-    @vk = VkontakteApi::Client.new(ENV['VK_ACCESS_TOKEN'])
+    @vk = VkontakteApi::Client.new(Admin.first.vk_token)
   end
 
   private
