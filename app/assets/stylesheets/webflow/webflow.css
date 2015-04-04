@@ -1,4 +1,4 @@
-/* Generated on: Tue Mar 24 2015 11:26:07 GMT+0000 (UTC) */
+/* Generated on: Fri Apr 03 2015 21:44:02 GMT+0000 (UTC) */
 /* ==========================================================================
    normalize.css v2.0.1, along with Webflow base CSS | MIT License | git.io/normalize
    ========================================================================== */
@@ -14,7 +14,7 @@
    ========================================================================== */
 body {
   padding-top: 6px;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   font-family:'Open Sans', sans-serif;
   color: #333;
   font-size: 20px;
@@ -117,10 +117,6 @@ p {
   position: static;
   float: none;
 }
-.navbar-container {
-  position: relative;
-  padding-top: 0px;
-}
 .brand {
   position: absolute;
   left: 0px;
@@ -183,7 +179,6 @@ p {
   display: block;
   overflow-x: hidden;
   overflow-y: hidden;
-  width: auto;
   height: 450px;
   text-align: center;
 }
@@ -270,8 +265,111 @@ p {
 .test_1 {
   height: 349px;
 }
-.test_2 {
-  height: 347px;
+.contact-block {
+  padding: 12px;
+  font-size: 20px;
+  line-height: 27px;
+}
+.contact-block.contact-title {
+  font-weight: 300;
+  text-align: right;
+}
+.contact-block.left-line {
+  border-left: 1px solid #eee;
+}
+.contact-block.top-line {
+  border-top: 1px solid #eee;
+}
+.contacts-header {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+}
+.text {
+  line-height: 28px;
+}
+.link {
+  display: inline-block;
+  color: #333;
+  line-height: 20px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.link:hover {
+  border-bottom: 1px solid #333;
+  text-decoration: none;
+}
+.test_3 {
+  min-height: 221px;
+  margin-top: 60px;
+}
+.instagram-image {
+  padding-right: 8px;
+}
+.astra-hr {
+  margin-top: 40px;
+  margin-bottom: 16px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+.astra-hr-image {
+  position: relative;
+  bottom: 15px;
+  width: 30px;
+  padding-right: 8px;
+  padding-left: 8px;
+  background-color: white;
+}
+.mt-60 {
+  margin-top: 60px;
+}
+.mt-12 {
+  margin-top: 12px;
+}
+.footer-text {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 19px;
+}
+.footer-info {
+  text-align: center;
+}
+.footer-cover {
+  position: relative;
+  right: 7px;
+  bottom: 21px;
+}
+.footer-phone {
+  position: relative;
+  top: -14px;
+  z-index: 1;
+  display: inline-block;
+  padding-bottom: 1px;
+  color: #333;
+  font-size: 23px;
+  line-height: 23px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.footer-phone:hover {
+  display: inline-block;
+  padding-bottom: 0px;
+  border-bottom: 1px solid #333;
+  text-decoration: none;
+}
+.footer-list-item {
+  font-size: 14px;
+}
+.footer-link {
+  color: #ccc;
+  line-height: 17px;
+  font-weight: 200;
+  text-decoration: none;
+}
+.footer-link:hover {
+  text-decoration: underline;
 }
 @media (max-width: 991px) {
 }
@@ -313,5 +411,16 @@ p {
   }
   .about-text.hint.timing-hint {
     min-width: 500px;
+  }
+  .contact-block {
+    padding-top: 0px;
+    padding-bottom: 4px;
+  }
+  .contact-block.contact-title {
+    margin-top: 16px;
+    text-align: left;
+  }
+  .contact-block.top-line {
+    border-top-style: none;
   }
 }

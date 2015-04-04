@@ -16,5 +16,6 @@ class PageController < ApplicationController
 
   def contacts
     set_meta_tags title: 'Контакты'
+    render 'contacts', layout: 'webflow'
   end
 end

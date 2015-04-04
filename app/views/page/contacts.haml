@@ -1,26 +1,65 @@
-.row
-  .col-xs-12
-    .abount
-      %h1 Контакты
+.w-section.section-content
+  .w-container
+    .about-row.test_3
+      .about-title Наши контакты
+      .contacts-header
+        Мы открыты для общения и рады выслушать отзыв или предложение,
+        %br
+        благодарность или конструктивную критику.
+        %br
+        %br
+        Напишите нам, а так же подписывайтесь в социальных сетях.
+    .astra-hr
+      %img.astra-hr-image{:alt => "551535839400b0fb747738e2_logo-4d1e53890edc6bbc010703c68a1aa8aa.png", :src => "http://uploads.webflow.com/54de0d5c1db7daaf1eb37e44/551535839400b0fb747738e2_logo-4d1e53890edc6bbc010703c68a1aa8aa.png", :width => "18"}/
+    .w-row.mt-60
+      .w-col.w-col-5.w-col-small-5.contact-block.contact-title
+        %div Телефон
+      .w-col.w-col-7.w-col-small-7.contact-block.left-line
+        %div
+          %a.link{:href => "tel:+375297697887", :target => "_blank"} + 375 29 769 78 87
+    .w-row
+      .w-col.w-col-5.w-col-small-5.contact-block.contact-title.top-line
+        %div e – mail
+      .w-col.w-col-7.w-col-small-7.contact-block.left-line.top-line
+        %div
+          %a.link{:href => "tel:+375297697887", :target => "_blank"} maxmernikov@gmail.com
+    .w-row
+      .w-col.w-col-5.w-col-small-5.contact-block.contact-title.top-line
+        %div Адрес мастерской
+      .w-col.w-col-7.w-col-small-7.contact-block.left-line.top-line
+        %div улица Данилы Сердича 78
+        .mt-12
+          #map-canvas
+          = render 'page/contacts/map'
 
-.row
-  .col-sm-3.col-xs-12.info
-    %p
-      Вы можете связаться с&nbsp;нами
-      %br.hidden-xs
-      по&nbsp;почте maxmernikov@gmail.com
-      %br.hidden-xs
-      или по&nbsp;телефону 
-      = link_to 'tel://80297697887', rel: 'nofollow' do
-        = raw '+375&nbsp;29&nbsp;769-78-87'
+    .w-row
+      .w-col.w-col-5.w-col-small-5.contact-block.contact-title.top-line
+        %div Instagram
+      .w-col.w-col-7.w-col-small-7.contact-block.left-line.top-line
+        %div
+          = link_to '@astra_minsk', 'https://instagram.com/astra_minsk/', target: '_blank', class: 'link'
 
-    %p 
-      Наша мастерская находится в&nbsp;Минске
-      %br.hidden-xs
-      по&nbsp;адресу&nbsp;Д.&nbsp;Сердича,&nbsp;78
+        .w-row.mt-12
+          .w-col.w-col-4.w-col-small-4.w-col-tiny-4
+            = link_to 'https://instagram.com/astra_minsk/', target: '_blank', class: 'w-inline-block' do
+              = image_tag('https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11078808_749504715148408_50717721_n.jpg', class: 'instagram-image')
+          .w-col.w-col-4.w-col-small-4.w-col-tiny-4
+            = link_to 'https://instagram.com/astra_minsk/', target: '_blank', class: 'w-inline-block' do
+              = image_tag('https://igcdn-photos-d-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11085017_1618528531717835_1927027145_n.jpg', class: 'instagram-image')
+          .w-col.w-col-4.w-col-small-4.w-col-tiny-4
+            = link_to 'https://instagram.com/astra_minsk/', target: '_blank', class: 'w-inline-block' do
+              = image_tag('https://igcdn-photos-c-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11049158_787115058031162_957470114_n.jpg', class: 'instagram-image')
+    .w-row
+      .w-col.w-col-5.w-col-small-5.contact-block.contact-title.top-line
+        %div Группа в ВКонтакте
+      .w-col.w-col-7.w-col-small-7.contact-block.left-line.top-line
+        %div
+          = link_to 'astra.minsk', 'https://vk.com/astra.minsk', target: '_blank', class: 'link'
 
-  .col-sm-9.col-xs-12
-    #map-canvas{ style: "width: 100%; height: 480px;" }
+        .mt-12
+          = render 'page/contacts/vk_post'
+    .contact-block
+.astra-hr
+  %img.astra-hr-image{:alt => "551535839400b0fb747738e2_logo-4d1e53890edc6bbc010703c68a1aa8aa.png", :src => "http://uploads.webflow.com/54de0d5c1db7daaf1eb37e44/551535839400b0fb747738e2_logo-4d1e53890edc6bbc010703c68a1aa8aa.png", :width => "18"}/
 
 
-= render 'partials/map'

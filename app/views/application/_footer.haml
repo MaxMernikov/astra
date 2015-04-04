@@ -1,0 +1,35 @@
+%footer.w-section
+  .w-container
+    .w-row
+      .w-col.w-col-4
+        .w-row
+          .w-col.w-col-6
+            %ul.w-list-unstyled
+              %li.footer-list-item
+                = link_to 'Главная', root_path, class: 'footer-link'
+              %li.footer-list-item
+                = link_to 'Галерея', lookbooks_path, class: 'footer-link'
+              %li.footer-list-item
+                = link_to 'О нас', about_path, class: 'footer-link'
+              %li.footer-list-item
+                = link_to 'Контакты', contacts_path, class: 'footer-link'
+ 
+          / .w-col.w-col-6
+          /   %ul.w-list-unstyled
+          /     %li.footer-list-item
+          /       %a.footer-link{:href => "#"} Как получить уникальную сумку?
+          /     %li.footer-list-item
+          /       %a.footer-link{:href => "#"} Оплата и доставка
+      .w-col.w-col-4.footer-info
+        %span.footer-phone +
+        = link_to '375 29 769 78 87', 'tel://8(029)769-78-87', class: 'footer-phone'
+
+          
+        = image_tag('webflow/footer_img.png', width: 141, class: 'footer-cover')
+      .w-col.w-col-4
+        %p.footer-text 
+          Все изделия представленные на&nbsp;сайте изготавливаются на&nbsp;заказ по&nbsp;готовым образцам
+        %p.footer-text
+          ИП&nbsp;Мерников, УНП&nbsp;192309098
+          %br>/
+          Минск. 2015.
