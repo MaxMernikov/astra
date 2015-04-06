@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150406180214) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "vk_token"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
