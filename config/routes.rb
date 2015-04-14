@@ -61,14 +61,21 @@ Astra::Application.routes.draw do
 
   end
 
-  get '/about', to: 'page#about'
-  get '/contacts', to: 'page#contacts'
+  namespace :page, path: '' do
+    get :about
+    get :contacts
+    get :cart
+  end
   
 
   resources :lookbooks, only: [:index], path: 'lookbook'
   resources :categories, only: [:show], path: ''
   resources :products, only: [:show]
-  resources :orders, only: [:create]
+  resources :orders, only: [:create] do
+    get :add_item
+    get :remove_item
+
+  end
   resources :feedbacks, only: [:create]
 
 

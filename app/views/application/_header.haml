@@ -2,13 +2,16 @@
   %header.w-container
     .w-nav.navbar{"data-animation" => "default", "data-collapse" => "small", "data-contain" => "1", "data-duration" => "400"}
       .w-container
-        %a.w-nav-brand.brand{:href => "#"}
-          %img{:alt => "54de5cae8a7a2f951de15aa2_text-logo-2.png", :src => "http://uploads.webflow.com/54de0d5c1db7daaf1eb37e44/54de5cae8a7a2f951de15aa2_text-logo-2.png", :width => "136"}/
+        = link_to root_path, class: 'w-nav-brand brand' do
+          = image_tag 'webflow/text_logo.png'
           .logo-subtitle -minsk-
-        %nav.w-nav-menu.nav-menu{:role => "navigation"}
-          %a.w-nav-link.nav-link.first{:href => root_path} продукция
-          %a.w-nav-link.nav-link{:href => lookbooks_path} галерея
-          %a.w-nav-link.left.nav-link.last{:href => contacts_path} контакты
-          %a.w-nav-link.nav-link.left{:href => about_path} о нас
+        = link_to page_cart_path, class: 'w-inline-block menu-button left-menu-button' do
+          .cart-point{class: "#{'hide' if @cart_value == 0}"}= @cart_value
+          .menu-button-icon.cart
         .w-nav-button.menu-button
           .w-icon-nav-menu.menu-button-icon
+        %nav.w-nav-menu.w-clearfix.nav-menu{:role => "navigation", :style => "transform: translateY(0px) translateX(0px);"}
+          %a.w-nav-link.nav-link.first{:href => root_path} продукция
+          %a.w-nav-link.nav-link{:href => lookbooks_path} галерея
+          %a.w-nav-link.left.nav-link.last{:href => page_contacts_path} контакты
+          %a.w-nav-link.nav-link.left{:href => page_about_path} о нас

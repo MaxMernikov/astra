@@ -1,0 +1,15 @@
+.product-block
+  &:before
+    background-color: rgba(0,0,0,0)
+    -webkit-transition: background-color 0.5s
+    transition: background-color 0.5s
+    content: ''
+    height: 100%
+    width: 100%
+    display: inline-block
+    position: absolute
+    margin-left: -15px
+
+  &:hover
+    &:before
+      background-color: rgba(0,0,0,0.04)

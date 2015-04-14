@@ -1,0 +1,28 @@
+#somedialog.dialog
+  .dialog__overlay
+  .dialog__content
+    .morph-shape
+      %svg{:height => "100%", :preserveaspectratio => "none", :viewbox => "0 0 560 280", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+        %rect{:fill => "none", :height => "276", :width => "556", :x => "3", :y => "3"}
+    .dialog-inner
+      .motion-right
+        %h3
+          Товар добавлен в корзину
+        %p.mb-32 это замечательно
+      .motion-left
+        %button.button.tiny.action.mb-32{"data-dialog-close" => ""} Продолжить покупки
+        = link_to 'Перейти к оформлению заказа', page_cart_path, class: 'button tiny'
+
+#order_success.dialog
+  .dialog__overlay
+  .dialog__content
+    .morph-shape
+      %svg{:height => "100%", :preserveaspectratio => "none", :viewbox => "0 0 560 280", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+        %rect{:fill => "none", :height => "276", :width => "556", :x => "3", :y => "3"}
+    .dialog-inner
+      .motion-right
+        %h3
+          Заказ оформлен
+        %p.mb-32 В ближайшее время с вами свяжется наш менеджер для уточнения информации
+      .motion-left
+        %button.button.small.action.mb-32{"data-dialog-close" => ""} Закрыть

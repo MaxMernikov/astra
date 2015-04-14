@@ -1,4 +1,4 @@
-/* Generated on: Mon Apr 13 2015 19:37:17 GMT+0000 (UTC) */
+/* Generated on: Mon Apr 13 2015 19:27:42 GMT+0000 (UTC) */
 /* ==========================================================================
    normalize.css v2.0.1, along with Webflow base CSS | MIT License | git.io/normalize
    ========================================================================== */
@@ -81,14 +81,9 @@ p {
   margin-bottom: 16px;
 }
 .button.small {
-  padding: 14px 20px;
+  padding: 12px 16px;
   font-size: 16px;
   line-height: 16px;
-}
-.button.tiny {
-  padding: 12px 16px;
-  font-size: 12px;
-  line-height: 12px;
 }
 .nav-link {
   display: inline-block;

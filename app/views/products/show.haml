@@ -1,89 +1,59 @@
-.uk-grid.uk-margin-remove.uk-padding-remove
-  .uk-width-1-1.uk-width-medium-1-3.cycle-slideshow{ 'data-cycle-pager-template' => '<span>{{slideNum}}</span>', 'data-cycle-pause-on-hover' => 'true', 'data-cycle-timeout' => '4240', 'data-cycle-speed' => '1000', 'data-cycle-manual-speed' => '300' }
-    - @product.images.each do |image|
-      = image_tag(image.image(:preview), class: 'uk-responsive-width' )
-    .cycle-pager.tac.uk-margin-top
-
-  .uk-width-1-1.uk-width-medium-2-3.uk-margin-large-top
-    .uk-wrapper
-      = mark(@product.category.detail_product)
-
-      цена
-      = @product.cost
-      тысяч рублей
-
-      - if @product.category.cloths.present?
-        .uk-margin-large
-          %h3.uk-text-slim
-            Данный товар можно заказать в другой цветовой схеме
-
-          .uk-thumbnail.other_cloth.hidden
-            .label.tac.uk-text-slim
-              Показать доступные
-              %br
-              расцветки
-
-            .cloth_previews
-              - @product.category.cloths.each_with_index do |cloth, index|
-                = image_tag(cloth.image(:preview), class: "cloth_preview preview_#{index}", 'data-cloth-id' => cloth.id)
-              .clear
-
-.uk-grid.uk-margin-large
-  .uk-width-1-1.uk-width-medium-1-2.uk-push-1-4.uk-width-medium-1-2
-    .uk-wrapper
-      %h2.uk-text-slim.tac
-        Оформить заказ
-      = form_for Order.new, { html: { class: 'uk-form uk-form-horizontal' }, remote: true } do |f|
-        = f.hidden_field :product_id, value: @product.id
-        .uk-form-row
-          = f.label :name, class: 'uk-form-label'
-          .uk-form-controls
-            = f.text_field :name, class: 'uk-form-large uk-width-1-1'
-
-        .uk-form-row
-          = f.label :email, class: 'uk-form-label'
-          .uk-form-controls
-            = f.text_field :email, class: 'uk-form-large uk-width-1-1'
-
-        .uk-form-row
-          = f.label :phone, class: 'uk-form-label'
-          .uk-form-controls
-            = f.text_field :phone, class: 'uk-form-large uk-width-1-1'
-            пример ввода: (029) 123-45-67
-
-        - if @product.category.cloths.present?
-          .uk-form-row
-            = f.label :cloth, class: 'uk-form-label'
-            .uk-form-controls
-              %span.pseudo_link#add_cloth выбрать
-              уникальную расцветку
-
-              .cloth_variants.hide
-                = f.hidden_field :cloth_id
-
-                = image_tag(@product.first_image, class: 'cloth_preview')
-
-                %span.pseudo_link#remove_cloth удалить
-                уникальную расцветку
-
-        .uk-form-row
-          = f.label :details, class: 'uk-form-label'
-          .uk-form-controls
-            = f.text_area :details, class: 'uk-form-large uk-width-1-1', rows: 5
-
-        .uk-form-row
-          .uk-form-controls
-            = f.submit 'отправить', class: 'uk-button uk-button-large'
-
-          -# %a#modal-4.uk-button{ 'data-uk-modal'=>"{target:'#my-id'}" } Open
+= render 'dialog'
+.w-section.section-content
+  .w-container.container
+    .w-row.mt-32.table-cell
+      .w-col.w-col-1.w-hidden-small.w-hidden-tiny
+        .slideshow-control
+          - @product.images.each_with_index do |image, index|
+            = image_tag(image.image(:preview), 'data-slide'=> index)
 
 
-#success_order.uk-modal
-  .uk-modal-dialog
-    %a.uk-modal-close.uk-close.uk-close-alt{href: ""}
-    %h1.uk-text-slim
-      Спасибо за оформление заказа
 
-    %p
-      Доставка товара осуществляется двумя способами: курьером по указанному Вами адресу либо РУП «Белпочта». Вы также можете забрать товар самостоятельно, подъехав по адресу улица Данилы Сердича, 78, кв 24. Детали доставки уточнит наш менеджер после оформления заказа.
+      .w-col.w-col-7.cycle-slideshow#cycle-1{ 'data-cycle-timeout' => 0 }
+        - @product.images.each do |image|
+          = image_tag(image.image(:preview), title: astra_tag("#{@product.category.dative} #{@product.title}"), alt: astra_tag("#{@product.category.dative} #{@product.title}"))
 
+      .w-col.w-col-4
+        .info-block
+          %h1.title
+            = @product.category.dative
+            %br/
+            %span.product-name= @product.title
+          .cost= product_cost(@product.cost)
+        .info-block
+          #st-trigger-effects
+            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button', remote: true
+  
+
+        .info-block
+          = render 'params'
+
+  = render 'astra_hr'
+
+  .w-container.container
+    %p.mt-32.paragraf
+      = raw @product.about_product.gsub("\r\n", '<br>')
+    .w-row
+      .w-col.w-col-4
+      .w-col.w-col-4
+      .w-col.w-col-4.mt-32
+        %div
+          Покажи
+          - if @product.category.slug == 'backpacks'
+            рюкзак
+          - elsif @product.category.slug == 'covers'
+            чехол
+          - else
+            сумку
+          друзьям:
+
+        = render 'share'
+
+  .w-container.other_products.mt-60.container
+    %div Другие наши товары:
+    .w-row.mt-12
+      - @random_three.each do |product|
+        .w-col.w-col-4.w-col-small-4.w-col-tiny-4
+          = render 'partials/product_preview', product: product
+
+= render 'astra_hr'

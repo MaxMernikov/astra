@@ -1,11 +1,8 @@
-.col-xs-12.col-sm-4
-  = link_to product, class: 'product_image' do
-    = image_tag(product.first_image, title: astra_tag("#{product.category.title} #{product.title}"), alt: astra_tag("#{product.category.title} #{product.title}"))
-    .text-center.product-info
-      .category-title= product.category.title
-      .title= product.title
-      .cost
-        = product_cost(product.cost)
-      .visible-xs
-        %hr
-      .hidden-xs.space
+= link_to product, class: 'w-inline-block text-center product-block' do
+  = image_tag(product.first_image, title: astra_tag("#{product.category.title} #{product.title}"), alt: astra_tag("#{product.category.title} #{product.title}"))
+  .mb-32
+    %h3.product-title
+      %span.product-category= product.category.title
+      %br
+      = product.title
+    .product-cost= product_cost(product.cost)

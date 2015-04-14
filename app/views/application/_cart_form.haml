@@ -1,0 +1,12 @@
+.w-col.w-col-4
+  .w-form
+    = form_for Order.new, {remote: true} do |f|
+      .about-text.text-center Оформление заказа
+      = f.text_field :name, class: 'w-input', placeholder: 'Имя'
+      = f.text_field :phone, class: 'w-input', placeholder: 'Номер телефона'
+
+      = f.text_area :details, class: 'w-input', rows: 4, placeholder: 'Дополнительная информация'
+
+      .text-center
+        = f.submit 'Отправить заявку*', class: 'w-button button cart-button'
+      .about-text.hint *После оформления заказа с вами свяжется наш менеджер для уточнения информации

@@ -1,0 +1,39 @@
+.w-section.cart.section-content
+  .w-container
+    .w-row.mt-32
+      - if @cart_items.size == 0
+
+      - elsif @cart_items.size == 1
+        .w-col.w-col-2
+        .w-col.w-col-4.text-center
+          = render 'cart_item', item: @cart_items.first, index: 0
+        = render 'cart_form'
+
+      - else
+        .w-col.w-col-8
+          .w-row
+            - @cart_items.each_with_index do |item, index|
+              .w-col.w-col-6.text-center
+                = render 'cart_item', item: item, index: index
+        = render 'cart_form'
+
+      
+
+
+
+  .w-container
+    .w-row.mt-60
+      .w-col.w-col-3.w-col-small-6
+        .about-text 3 дня до получения заказа
+        .about-text.hint Выполнение заказа производится в течении 3-х дней с момента отправки заявки. 
+      .w-col.w-col-3.w-col-small-6
+        .about-text Сначала товар, потом деньги
+        .about-text.hint Оплата производится при получении товара
+      .w-col.w-col-3.w-col-small-6
+        .about-text Курьер или самовывоз
+        .about-text.hint Мы можем доставить вам заказ курьером, либо вы можете забрать продукт из мастерской.
+      .w-col.w-col-3.w-col-small-6
+        .about-text Нужна еще информация?
+        .about-text.hint Подробнее информацию о доставке и оплате вы можете узнать по телефону или задать в форме обратной связи.
+
+= render 'astra_hr'

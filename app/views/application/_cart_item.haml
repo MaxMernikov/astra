@@ -1,0 +1,7 @@
+= link_to 'x', order_remove_item_path(index), class: 'delete-cart', title: 'Удалить позицию', remote: true
+= image_tag item.first_image
+%h3.product-title
+  %span.product-category= item.category.dative
+  %br
+  = item.title
+.product-cost.mb-32= product_cost(item.cost)

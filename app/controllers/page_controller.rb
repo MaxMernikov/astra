@@ -3,10 +3,9 @@ class PageController < ApplicationController
     set_meta_tags description: 'Astra это Беларуский производитель рюкзаков и сумок. Astra Store - интернет-магазин, где вы сможете купить городской рюкзак или сумку в Минске по низкой цене.',
       title: 'Магазин городских рюкзаков и сумок',
       image_src: root_url + ActionController::Base.helpers.asset_path("logo.png", type: :image)
-    # 'Astra это Беларуский производитель рюкзаков и сумок. Astra Store - интернет-магазин, где вы сможете купить самые интересные в Минске рюкзаки по низким ценам. Мы предлагаем рюкзаки для учебы, спорта и прогулок по городу, женские и детские, с доставкой по всей Беларуси.'
 
     @products = Product.by_pos.show
-    render 'home_2'
+    render 'home', layout: 'webflow'
   end
 
   def about
@@ -17,5 +16,13 @@ class PageController < ApplicationController
   def contacts
     set_meta_tags title: 'Контакты'
     render 'contacts', layout: 'webflow'
+  end
+
+  def cart
+    @cart_items = []
+    cart_items_ids = JSON.parse(cookies[:astra_cart]) if cookies[:astra_cart].present?
+    cart_items_ids.each{|id| @cart_items << Product.find_by(id: id)}
+
+    render 'cart', layout: 'webflow'
   end
 end

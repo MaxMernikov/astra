@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # http_basic_authenticate_with name: 'max', password: '123'
   protect_from_forgery with: :exception
   before_filter :load_categories
+  before_filter :cart_value
 
   def after_sign_in_path_for(resource)
     admin_dashboards_path
@@ -24,5 +25,11 @@ class ApplicationController < ActionController::Base
   def render_404
     set_meta_tags title: '404 Страница не найдена'
     render 'page/page_404', formats: 'html', status: '404'
+  end
+
+  def cart_value
+    astra_cart = JSON.parse(cookies[:astra_cart]) if cookies[:astra_cart].present?
+    astra_cart = [] if astra_cart.blank?
+    @cart_value = astra_cart.size
   end
 end
