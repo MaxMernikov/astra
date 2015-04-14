@@ -9,11 +9,12 @@
     = csrf_meta_tags
     = render 'partials/share'
     = render 'partials/ga' if Rails.env.production?
-    = render 'partials/fonts_load' if Rails.env.production?
+    = render 'partials/fonts_load'
     %script{:src => "http://yastatic.net/modernizr/2.7.1/modernizr.min.js"}
 
 
   %body{class: "#{params[:controller]} #{params[:action]}" }
+    = render 'dialog'
     = render 'header'
     = yield
     / = render 'partials/footer' unless params[:controller] == 'lookbooks'

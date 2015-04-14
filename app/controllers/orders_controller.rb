@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   def create
-    order = Order.create(order_params)
-    NotificationMailer.order_created.deliver
+    # order = Order.create(order_params)
+    # NotificationMailer.order_created.deliver
 
-    cookies.delete(:astra_cart)
-    render js: 'successOrder()'
+    # cookies.delete(:astra_cart)
+    render js: 'console.log("sas")'
   end
 
   def add_item

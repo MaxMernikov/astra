@@ -20,6 +20,7 @@ class PageController < ApplicationController
 
   def cart
     @cart_items = []
+    cart_items_ids = []
     cart_items_ids = JSON.parse(cookies[:astra_cart]) if cookies[:astra_cart].present?
     cart_items_ids.each{|id| @cart_items << Product.find_by(id: id)}
 
