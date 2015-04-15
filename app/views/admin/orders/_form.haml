@@ -22,7 +22,11 @@
       .uk-form-row
         = f.label :product, class: 'uk-form-label'
         .uk-form-controls
-          = image_tag(f.object.product.first_image, class: 'uk-width-1-2')
+          - if f.object.product_ids.present?
+            - Product.where(id: f.object.product_ids).each do |product|
+              = image_tag product.first_image
+          - else
+            = image_tag f.object.product.first_image
 
       - if f.object.cloth.present?
         .uk-form-row

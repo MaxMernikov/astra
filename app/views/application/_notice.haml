@@ -1,4 +1,4 @@
-#somedialog.dialog
+#order_success.dialog
   .dialog__overlay
   .dialog__content
     .morph-shape
@@ -6,9 +6,14 @@
         %rect{:fill => "none", :height => "276", :width => "556", :x => "3", :y => "3"}
     .dialog-inner
       .motion-right
-        .about-text Товар добавлен в корзину
-        .hint.about-text.mb-32 It's amazing
-      .motion-left
-        %button.button.tiny.action.mb-32{"data-dialog-close" => ""} Продолжить покупки
-        = link_to 'Перейти к оформлению заказа', page_cart_path, class: 'button tiny'
+        .about-text= flash[:notice][:title]
+        .hint.about-text.mb-32= raw flash[:notice][:body]
 
+      .motion-left
+        %button.button.small.action.mb-32{"data-dialog-close" => ""} Закрыть
+
+:javascript
+  (function() {
+    order_success = new DialogFx( order_success );
+    order_success.toggle.bind(order_success).call()
+  })();

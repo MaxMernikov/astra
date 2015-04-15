@@ -21,4 +21,6 @@
     / = render 'partials/help_widjet'
     = render 'footer'
     = render 'partials/analitycs' if Rails.env.production?
+
     = javascript_include_tag "webflow"
+    = render 'notice' if flash[:notice].try(:[], :type).present?
