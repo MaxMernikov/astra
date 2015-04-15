@@ -65,6 +65,7 @@ Astra::Application.routes.draw do
     get :about
     get :contacts
     get :cart
+    get :thankyou
   end
   
 

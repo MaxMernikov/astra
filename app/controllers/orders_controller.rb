@@ -6,12 +6,12 @@ class OrdersController < ApplicationController
     order = Order.new(order_params)
     order.product_ids = astra_cart
     order.save
-    # NotificationMailer.order_created.deliver
+    NotificationMailer.order_created.deliver
 
     cookies.delete(:astra_cart)
-    flash[:notice] = {title: 'Спасибо. Ваша заявка принята', body: 'В&nbsp;ближайшее время с&nbsp;вами свяжется наш менеджер для уточнения информации. <br>А вам говорили, что&nbsp;вы великолепны?', type: 'order_created'}
+    # flash[:notice] = {title: 'Спасибо. Ваша заявка принята', body: 'В&nbsp;ближайшее время с&nbsp;вами свяжется наш менеджер для уточнения информации. <br>А вам говорили, что&nbsp;вы великолепны?', type: 'order_created'}
 
-    render js: "window.location.replace('#{root_path}');"
+    render js: "window.location.replace('#{page_thankyou_path}');"
   end
 
   def add_item

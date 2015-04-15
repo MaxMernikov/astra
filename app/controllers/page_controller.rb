@@ -26,4 +26,8 @@ class PageController < ApplicationController
 
     render 'cart', layout: 'webflow'
   end
+
+  def thankyou
+    render 'thankyou', layout: 'webflow'
+  end
 end
