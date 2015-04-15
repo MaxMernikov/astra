@@ -47,3 +47,13 @@
       [data-snid="gp"]
         border-color: #cf5d46
 
+.slideshow-control
+  &> div, > img
+    cursor: pointer
+    z-index: 100
+
+@media screen and (max-width: 767px)
+  .products.show
+    .w-col
+      vertical-align: inherit
+      display: inherit

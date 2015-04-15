@@ -12,6 +12,14 @@
         - @product.images.each do |image|
           = image_tag(image.image(:preview), title: astra_tag("#{@product.category.dative} #{@product.title}"), alt: astra_tag("#{@product.category.dative} #{@product.title}"))
 
+        .w-row.w-hidden-main.w-hidden-medium.product-preview-2.mt-32
+          .w-col.w-col-3.w-col-small-3.w-col-tiny-3
+          - @product.images.each_with_index do |image, index|
+            .w-col.w-col-2.w-col-small-2.w-col-tiny-2.slideshow-control
+              = image_tag(image.image(:preview), 'data-slide'=> index)
+          .w-col.w-col-3.w-col-small-3.w-col-tiny-3
+
+
       .w-col.w-col-4
         .info-block
           %h1.title
