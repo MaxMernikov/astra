@@ -23,4 +23,4 @@
     = render 'partials/analitycs' if Rails.env.production?
 
     = javascript_include_tag "webflow"
-    = render 'notice' if flash[:notice].try(:[], :type).present?
+    = render 'notice' if flash[:notice][:type].present? rescue nil
