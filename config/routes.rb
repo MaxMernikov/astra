@@ -17,46 +17,6 @@ Astra::Application.routes.draw do
       get :show_hide
     end
     resources :galleries
-    namespace :public_relations do
-      get :index
-    end
-
-    namespace :insta do
-      get :statistics
-      get :partial
-      get :index
-      get :index_2
-
-      get :callback
-
-      get :user
-      get :user_info
-      get :user_followed_by
-
-      get :init_bot
-
-      resources :insta_schedules, only: [:destroy], defaults: {format: :json} do
-        collection do
-          get :set_schedule
-          get :run_workers
-
-          get :schedules
-        end
-      end
-
-      resources :insta_users, only: [:show, :index], defaults: {format: :json} do
-        get :spud
-        get :reset_spud
-        get :relationship
-        get :followers
-        get :info
-        collection do
-          get :in_spudding
-        end
-      end
-
-    end
-
   end
 
   namespace :page, path: '' do
