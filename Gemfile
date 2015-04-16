@@ -55,7 +55,6 @@ gem 'awesome_print'
 
 gem 'hashie'
 
-gem 'instagram'
 gem 'vkontakte_api', '~> 1.4.3'
 
 group :development do
