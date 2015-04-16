@@ -1,22 +1,6 @@
-  / %p
-  /   В своем деле мы ставим перед собой задачу соответствовать ряду критериев
-  / %ul
-  /   %li
-  /     внешний вид вызывающий желание стать обладателем рюкзака или сумки.
-  /   %li
-  /     качество и надежность. Для этого используются плотные ткани прошитые специальными швами, равномерное распределение нагрузки
-  /   %li
-  /     удобство использования. Приятная на ощупь ткань, удобная фурнитура и дополнительные плюшки ввиде карманов, отсеков.
-
-
   mysql -uroot -hlocalhost -p astra_development  < 07.02.15.astra_production.sql
 
 
-  ins = 'http://localhost:3000/admin/insta/callback'
-  Instagram.authorize_url(:redirect_uri => ins, scope: 'likes')
-  Instagram.get_access_token('5e80278090be423a9b86972a21e5081f', redirect_uri: ins)
 
 
-
-https://api.instagram.com/v1/users/self/feed - проверка ленты
-https://api.instagram.com/v1/users/1683326866/relationship - чекнуть статус подписки
+d8f0a4fb0aff4829cade98feb5108ce292a669f68f0cc498066b6a6600e7ee0e30326636441ad55c9c09e

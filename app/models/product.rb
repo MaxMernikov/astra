@@ -1,5 +1,12 @@
 class Product < ActiveRecord::Base
+  #delegates
+  delegate :url_helpers, to: 'Rails.application.routes'
+
+  # constans
   PARAMS = [:size, :zipper, :material, :lining, :compartments, :pockets]
+  VK_GROUP_ID = 73282144 # group id integer
+  VK_ALBUM_ID = 204862394 # albumn id integer
+
   belongs_to :category
   has_settings :params
 
@@ -7,10 +14,10 @@ class Product < ActiveRecord::Base
 
   has_many :galeries
   has_many :lookbook_items, through: :galeries
+  has_many :orders
 
 
   accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
-  has_many :orders
 
   validates :cost, :title, :images, presence: true
 
@@ -18,7 +25,7 @@ class Product < ActiveRecord::Base
   scope :by_pos, -> { order(:pos) }
 
   # callbacks
-  after_create   :generate_vk_photo_images, :upload_vk_product
+  # after_create   :generate_vk_photo_images, :upload_vk_product
   before_update  :check_vk_association, :vk_product_caption_update
   before_destroy :delete_vk_product
 
@@ -30,14 +37,9 @@ class Product < ActiveRecord::Base
     }
   validates_attachment :vk_photo_image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
   # ! set ids !
-  VK_GROUP_ID = 73282144 # group id integer
-  VK_ALBUM_ID = 204862394 # albumn id integer
 
-  #delegates
-  delegate :url_helpers, to: 'Rails.application.routes'
 
   #methods
-
   def self.settings_attr_accessor(*args)
     args.each do |method_name|
       eval "
@@ -51,7 +53,7 @@ class Product < ActiveRecord::Base
     end
   end
 
-  settings_attr_accessor :size, :zipper, :material, :lining, :compartments, :pockets
+  settings_attr_accessor :size, :zipper, :material, :lining, :compartments, :pockets, :name
 
   def first_image
     self.images.first.image(:preview)
@@ -69,9 +71,13 @@ class Product < ActiveRecord::Base
     url_helpers.product_url(self, host: 'http://astrastore.by')
   end
 
+  # thank you ledermann-rails-settings
+  def destroy
+    settings(:params).destroy
+    self.delete
+  end
+
   private
-
-
     def generate_vk_photo_images
       self.vk_photo_image = File.open(images.first.image.path)
       self.vk_photo_image.save
@@ -91,9 +97,7 @@ class Product < ActiveRecord::Base
           group_id: VK_GROUP_ID,
           server: vk_response.server,
           photos_list: vk_response.photos_list,
-          caption: "#{category.title}: #{title} \n
-                    Цена: #{cost} \n
-                    Подробное описание и заказ на сайте: #{url}",
+          caption: caption,
           hash: vk_response['hash']
         ).first
 
@@ -113,14 +117,20 @@ class Product < ActiveRecord::Base
 
     def vk_product_caption_update
       set_vk
-      vk_photo_caption = "#{category.title}: #{title} \n
-                          Цена: #{cost} \n
-                          Подробное описание и заказ на сайте: #{url}"
-      @vk.photos.edit(owner_id: vk_owner_id, photo_id: vk_photo_id, caption: vk_photo_caption)
+      @vk.photos.edit(owner_id: vk_owner_id, photo_id: vk_photo_id, caption: caption)
     end
 
     def delete_vk_product
+      ap 'sdasdasd'
       set_vk
       true if (@vk.photos.delete(owner_id: vk_owner_id.to_i, photo_id: vk_photo_id) == 1) || !(vk_owner_id && vk_photo_id)
+    end
+
+    def site_cost
+      "#{cost}0 000 руб."
+    end
+
+    def caption
+      "#{category.title}\n#{title}\n#{site_cost}\n\n#{url}?utm_source=Vkontakte&utm_medium=banner&utm_campaign=album"
     end
 end
