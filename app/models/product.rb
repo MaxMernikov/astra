@@ -25,7 +25,7 @@ class Product < ActiveRecord::Base
   scope :by_pos, -> { order(:pos) }
 
   # callbacks
-  # after_create   :generate_vk_photo_images, :upload_vk_product
+  after_create   :generate_vk_photo_images, :upload_vk_product
   before_update  :check_vk_association, :vk_product_caption_update
   before_destroy :delete_vk_product
 
