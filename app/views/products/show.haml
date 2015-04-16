@@ -29,7 +29,7 @@
           .cost= product_cost(@product.cost)
         .info-block
           #st-trigger-effects
-            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button', remote: true
+            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button', remote: true, onclick: "ga('send', 'event', 'button','add_to_cart')"
   
 
         .info-block
