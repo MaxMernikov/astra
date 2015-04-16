@@ -49,13 +49,6 @@
           = f.text_area :description, class: 'uk-width-1-1', rows: 6
 
       %hr
-
-      .uk-form-row
-        = f.label :vk_photo_caption, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_area :vk_photo_caption, class: 'uk-width-1-1', rows: 6
-
-      %hr
       - Product::PARAMS.each do |keys|
         .uk-form-row
           = f.label keys, I18n.t("activerecord.attributes.product.#{keys.to_s}"),class: 'uk-form-label'

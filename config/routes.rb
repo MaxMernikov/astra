@@ -1,5 +1,3 @@
-require 'sidekiq/web'
-
 Astra::Application.routes.draw do  
   devise_for :admins, skip: [:registrations, :passwords],
     controllers: { :sessions => 'admin/sessions' }
@@ -79,7 +77,5 @@ Astra::Application.routes.draw do
   end
   resources :feedbacks, only: [:create]
 
-
-  mount Sidekiq::Web, at: 'admin/sidekiq'
   root 'page#home'
 end

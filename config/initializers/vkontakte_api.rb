@@ -2,8 +2,12 @@ VkontakteApi.configure do |config|
   # Authorization parameters (not needed when using an external authorization):
 
   # STAND ALONE APP!!! need for photos.delete
-  config.app_id       = ENV['APP_ID']
-  config.app_secret   = ENV['APP_SECRET']
+  # config.app_id       = ENV['APP_ID']
+  config.app_id         = 4854055
+
+  # config.app_secret   = ENV['APP_SECRET']
+  config.app_secret     = 'Rlk3JtLBBUUPkhiFqX5n'
+
   # Faraday adapter to make requests with:
   # config.adapter = :net_http
 

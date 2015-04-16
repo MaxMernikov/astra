@@ -233,17 +233,20 @@ ActiveRecord::Schema.define(version: 20150415103517) do
     t.string   "title"
     t.integer  "category_id"
     t.integer  "cost"
-    t.boolean  "show",             default: true
+    t.boolean  "show",                        default: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "pos",              default: 0
+    t.integer  "pos",                         default: 0
     t.text     "about_product"
     t.string   "description"
-    t.boolean  "v3",               default: false
+    t.boolean  "v3",                          default: false
     t.string   "translate"
     t.integer  "vk_owner_id"
     t.integer  "vk_photo_id"
-    t.text     "vk_photo_caption"
+    t.string   "vk_photo_image_file_name"
+    t.string   "vk_photo_image_content_type"
+    t.integer  "vk_photo_image_file_size"
+    t.datetime "vk_photo_image_updated_at"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
