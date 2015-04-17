@@ -77,6 +77,10 @@ class Product < ActiveRecord::Base
     self.delete
   end
 
+  def site_cost
+    "#{cost}0 000 руб."
+  end
+
   private
     def generate_vk_photo_images
       self.vk_photo_image = File.open(images.first.image.path)
@@ -126,9 +130,7 @@ class Product < ActiveRecord::Base
       true if (@vk.photos.delete(owner_id: vk_owner_id.to_i, photo_id: vk_photo_id) == 1) || !(vk_owner_id && vk_photo_id)
     end
 
-    def site_cost
-      "#{cost}0 000 руб."
-    end
+    
 
     def caption
       "#{category.title}\n#{title}\n#{site_cost}\n\n#{url}?utm_source=Vkontakte&utm_medium=banner&utm_campaign=album"

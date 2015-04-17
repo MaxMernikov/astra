@@ -11,8 +11,8 @@
         = image_tag(product.images.first.image(:preview))
       .uk-margin-small-top.uk-alert{ class: product.trouble ? 'uk-alert-success' : 'uk-alert-warning'}
         %span.uk-article-lead
-          = product.cost
-          $
+          id: #{product.id}
+
         .uk-button-group.uk-align-right
           -# = link_to 'Show', category_place_path(place.category, place), target: '_blank'
           = link_to edit_admin_product_path(product), class: 'uk-button uk-button-small uk-button-success' do
