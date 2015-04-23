@@ -125,7 +125,6 @@ class Product < ActiveRecord::Base
     end
 
     def delete_vk_product
-      ap 'sdasdasd'
       set_vk
       true if (@vk.photos.delete(owner_id: vk_owner_id.to_i, photo_id: vk_photo_id) == 1) || !(vk_owner_id && vk_photo_id)
     end
@@ -133,6 +132,6 @@ class Product < ActiveRecord::Base
     
 
     def caption
-      "#{category.title}\n#{title}\n#{site_cost}\n\n#{url}?utm_source=Vkontakte&utm_medium=banner&utm_campaign=album"
+      "#{category.title}\n#{title}\n#{site_cost}\n\n#{url}?utm_source=vk.com&utm_medium=banner&utm_campaign=album"
     end
 end

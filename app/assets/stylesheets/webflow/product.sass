@@ -13,3 +13,31 @@
   &:hover
     &:before
       background-color: rgba(0,0,0,0.04)
+
+  &.rex
+    &:after
+      background-image: url('../products/rex.png')
+
+  &.jazzy-knit
+    &:after
+      background-image: url('../products/jazzy-knit.png')
+
+  &.nindza
+    &:after
+      background-image: url('../products/nindza.png')
+
+
+  &.rex, &.jazzy-knit, &.nindza
+    &:after
+      top: 0
+      left: -5px
+      content: ''
+      height: 100%
+      width: 100%
+      display: inline-block
+      position: absolute
+
+    img
+      position: relative
+      z-index: 1
+
