@@ -13,3 +13,37 @@
   &:hover
     &:before
       background-color: rgba(0,0,0,0.04)
+
+  &.rex
+    &:after
+      background-image: url(image_path('products/rex.png'))
+
+  &.jazzy-knit
+    &:after
+      background-image: url(image_path('products/jazzy-knit.png'))
+
+  &.nindza
+    &:after
+      background-image: url(image_path('products/nindza.png'))
+      opacity: 0.25 !important
+
+
+  &.rex, &.jazzy-knit, &.nindza
+    &:after
+      top: 0
+      left: -5px
+      content: ''
+      height: 96%
+      width: 96%
+      display: inline-block
+      position: absolute
+      background-position-x: 50%
+      opacity: 0.5
+      background-size: 100%
+      background-repeat: repeat-x
+      margin: 2%
+
+    img
+      position: relative
+      z-index: 1
+

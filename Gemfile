@@ -55,11 +55,6 @@ gem 'awesome_print'
 
 gem 'hashie'
 
-gem 'sidekiq'
-gem 'sinatra', require: false
-# gem 'slim'
-
-gem 'instagram'
 gem 'vkontakte_api', '~> 1.4.3'
 
 group :development do
