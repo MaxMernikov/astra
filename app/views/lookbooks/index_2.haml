@@ -1,11 +1,21 @@
-.w-section.section-content
+.w-section.section-content.lookbook-2
   .w-container.container
     .w-row.mt-32
       .w-col.w-col-12.lookbook-slide
-        = image_tag('home_page_background.jpg', class: 'lookbook-slide-item')
-      .w-col.w-col-9
-      .w-col.w-col-3
-        %h1 привет дурачье
+        .lookbook-slide-item
+          = image_tag('home_page_background.jpg')
+          .lookbook-slide-title.about-text Лето 2014
+        .lookbook-slide-text
+          .about-text Лето 2014
+          .about-text.hint
+            Основой для съемки послужила летняя коллекция рюкзаков Astra
+            %br
+            %br
+            В съемках участвовали 
+            -# = link_to 'Саша Шульгович', '#'
+            Саша Шульгович, Саша Солнце
+
+          .button.tiny Смотреть
 
 
     .w-row.mt-32
