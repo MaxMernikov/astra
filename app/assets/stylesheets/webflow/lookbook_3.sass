@@ -31,6 +31,10 @@
   .lookbook-slide
     overflow: hidden
     cursor: pointer
+    transition: left 0.3s, transform 2.4s, opacity 0.3s
+    left: 0
+    transform: scale(1)
+    opacity: 1
 
     &:before
       transition: all 0.3s
@@ -60,3 +64,9 @@
       .lookbook-slide-about-text
         top: 54%
         opacity: 0.75
+
+    &.active
+      left: -95%
+    &.passive
+      transform: scale(0)
+      opacity: 0
