@@ -2,7 +2,7 @@ function fnCreateGridster(page, colors, states, titles){
 	/* load saved position and sizes */
 	if(localdata_position){
 		$.each(localdata_position, function(i,value){
-			$('#'+value.id).attr({"data-col":value.col, "data-row":value.row, "data-sizex":value.size_x, "data-sizey":value.size_y});
+				$('#'+value.id).attr({"data-col":value.col, "data-row":value.row, "data-sizex":value.size_x, "data-sizey":value.size_y});
 		});
 	}
 	

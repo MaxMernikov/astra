@@ -1,0 +1,29 @@
+$totalCols: 3 !default
+$totalRows: 30 !default
+
+.gridster.responsive
+  opacity: .8
+
+  & > *
+    padding: 0
+    width: 100%!important
+
+  .gs-w
+    list-style: none
+
+    @for $i from 1 through $totalCols
+      &[data-sizex="#{$i}"]
+        width: (100% / $totalCols * $i) - 1%
+
+      &[data-col="#{$i}"]
+        left: (100% / $totalCols * ($i - 1)) + 1%
+
+    @for $i from 1 through $totalRows
+      &[data-row="#{$i}"]
+        top: (100% / 3 * ($i - 1)) + 1%
+
+      &[data-sizey="#{$i}"]
+        height: (100% / 3 * $i) - 1.5%
+
+      // &[data-col="#{$i}"]
+      //   left: (100% / $totalCols * ($i - 1)) + 1%

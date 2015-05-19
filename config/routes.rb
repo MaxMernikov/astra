@@ -27,9 +27,10 @@ Astra::Application.routes.draw do
   end
   
 
-  resources :lookbooks, only: [:index], path: 'lookbook' do
+  resources :lookbooks, only: [:index, :show], path: 'lookbook' do
     get :index_2, on: :collection
     get :index_3, on: :collection
+
 
   end
   resources :categories, only: [:show], path: ''
