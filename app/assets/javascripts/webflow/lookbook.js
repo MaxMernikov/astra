@@ -15,6 +15,10 @@ $(function() {
       url: "1",
       context: document.body
         }).done(function(data) {
+          $(window).resize(function(){
+            resize_gridster();
+          });
+
           $('.w-row').hide();
 
           gridster = $(".gridster.responsive ul").gridster({
@@ -24,8 +28,9 @@ $(function() {
             max_cols: 3,
           }).data('gridster');
 
+          gridster.disable();
+
           function addElement(widget){
-            // console.log('ew');
             elem = '<li data-col=' + widget.col + ' data-row=' + widget.row + '  style= "background-image: url(' + widget.bg_size + ')"></li>';
             return gridster.add_widget.apply(gridster, [elem, widget.size_x, widget.size_y])
           }

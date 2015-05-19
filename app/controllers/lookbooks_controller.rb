@@ -1,6 +1,6 @@
 class LookbooksController < ApplicationController
   def index
-    @lookbook = LookbookItem.visible.limit(1)
+    @lookbook = LookbookItem.visible
   end
 
   def index_2
