@@ -31,7 +31,7 @@ $(function() {
           gridster.disable();
 
           function addElement(widget){
-            elem = '<li data-col=' + widget.col + ' data-row=' + widget.row + '  style= "background-image: url(' + widget.bg_size + ')"></li>';
+            elem = '<li data-col=' + widget.col + ' data-row=' + widget.row + '  style= "background-image: url(' + widget.bg_size + '); background-position: ' + widget.bg_position + '"></li>';
             return gridster.add_widget.apply(gridster, [elem, widget.size_x, widget.size_y])
           }
 
@@ -40,7 +40,7 @@ $(function() {
                   setTimeout(function(){
                     addElement(data[idx]);
                     resize_gridster(); 
-                  },100*idx);
+                  },250*idx + 350);
               })(i);
           };
 
