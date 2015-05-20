@@ -88,5 +88,12 @@
 
   .lookbook-gridster
     ul
-      min-height: 1024px
+      transition: left 1.35s
+      left: 0
+      // min-height: 1024px
+
+    &.close
+      overflow: hidden
+      ul
+        left: 150%
 

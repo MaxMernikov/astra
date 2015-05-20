@@ -12,7 +12,6 @@ class LookbooksController < ApplicationController
   end
 
   def show
-    ap LookbookItem.visible.limit(1)
     render json: LookbookItem.visible.order(:row).to_json(:only => [:id], :methods => [:col, :row, :size_x, :size_y, :bg_position, :bg_size])
   end
 end
