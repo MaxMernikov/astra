@@ -31,7 +31,7 @@
   .lookbook-slide
     overflow: hidden
     cursor: pointer
-    transition: left 0.3s, transform 2.4s, opacity 0.3s
+    transition: left 0.5s, transform 0.5s, opacity 0.8s
     left: 0
     transform: scale(1)
     opacity: 1
@@ -67,6 +67,26 @@
 
     &.active
       left: -200%
+      transition: left .5s
     &.passive
-      transform: scale(0)
+      transform: scale(0.6)
       opacity: 0
+      transition: transform 2.4s, opacity 0.3s
+
+
+  .go-back-button.button.small
+    padding: 18px 22px
+    margin-left: -54px
+    margin-top: 9px
+    position: fixed
+    opacity: 1
+    transition: opacity 0.35s 0.9s
+
+    &.close
+      opacity: 0
+      transition: opacity 0.35s 0s
+
+  .lookbook-gridster
+    ul
+      min-height: 1024px
+
