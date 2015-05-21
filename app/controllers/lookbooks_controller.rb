@@ -8,10 +8,11 @@ class LookbooksController < ApplicationController
   end
 
   def index_3
+    @lookbook_category = LookbookCategory.show.order(:created_at)
     render 'index_3', layout: 'webflow'
   end
 
   def show
-    render json: LookbookItem.visible.order(:row).to_json(:only => [:id], :methods => [:col, :row, :size_x, :size_y, :bg_position, :bg_size])
+    render json: LookbookCategory.find(params[:id]).lookbook_items.order(:row).to_json(:only => [:id], :methods => [:col, :row, :size_x, :size_y, :bg_position, :bg_size])
   end
 end

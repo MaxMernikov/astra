@@ -1,24 +1,24 @@
 class Admin::LookbookItemsController < Admin::BaseController
+  before_action :init_category, except: [:save_position]
+
   def new
     @lookbook_item = LookbookItem.new
   end
 
   def edit
-    resource.galeries.build if resource.galeries.blank?
+    # resource.galeries.build if resource.galeries.blank?
   end
 
   def create
-    create!{ resource.book ? admin_galleries_url : collection_url }
+    create!{ admin_lookbook_category_path(@lookbook_category) }
   end
 
   def update
-    resource.update_attributes(lookbook_item_params)
-    redirect_to resource.book ? admin_galleries_url : collection_url
-    # update!{ resource.book ? admin_galleries_url : collection_url }
+    update!{ admin_lookbook_category_path(@lookbook_category) }
   end
 
   def destroy
-    destroy!{ resource.book ? admin_galleries_url : collection_url }
+    destroy!{ admin_lookbook_category_path(@lookbook_category) }
   end
 
   def show_hide
@@ -45,11 +45,16 @@ class Admin::LookbookItemsController < Admin::BaseController
   end
 
   def lookbook_item_params
-    params.require(:lookbook_item).permit(:image, :position, :background_position, :product_id, :url, :comment, :show, :y_orient, :book, galeries_attributes: [:id, :delete, :product_id, :lookbook_item_id])
+    params.require(:lookbook_item).permit(:image, :position, :background_position, :product_id, :url, :comment, :show, :y_orient, :book, :lookbook_category_id, galeries_attributes: [:id, :delete, :product_id, :lookbook_item_id])
   end
 
   protected
     def collection
       LookbookItem.where(book: false)
+    end
+
+  private
+    def init_category
+      @lookbook_category = LookbookCategory.find(params[:lookbook_category_id])
     end
 end

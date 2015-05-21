@@ -1,11 +1,8 @@
 class LookbookItem < ActiveRecord::Base
-  belongs_to :product
+  belongs_to :lookbook_category
+
   serialize :position, Hash
   serialize :background_position
-
-  has_many :galeries
-  # has_many :products, through: :galeries
-  # accepts_nested_attributes_for :galeries, :reject_if => :all_blank, :allow_destroy => true
 
   scope :by_rows, -> { order(:row) }
   scope :visible, -> { where(show: true) }
@@ -14,6 +11,7 @@ class LookbookItem < ActiveRecord::Base
 
   has_attached_file :image, styles: lambda { |i| i.instance.image_styles }
 
+  validates :lookbook_category_id, presence: true
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }, presence: true
 
   def image_styles
@@ -35,7 +33,7 @@ class LookbookItem < ActiveRecord::Base
   end
 
   def row
-    ap position[:row]
+    position[:row]
   end
 
   def size_x

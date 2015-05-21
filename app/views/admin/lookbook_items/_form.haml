@@ -1,64 +1,68 @@
-= form_for([:admin, @lookbook_item], html: { class: 'uk-form uk-form-horizontal' }) do |f|
-  - if @lookbook_item.errors.any?
-    = render '/admin/partials/form_errors', f: f
+.row
+  .col-xs-8.col-xs-offset-2
+    = form_for([:admin, @lookbook_category, resource], html: {role: 'form'}) do |f|
+      - if resource.errors.present?
+        = render 'errors', errors: resource.errors
 
-  %fieldset
-    %legend
-      .uk-form-row
-        = f.label :image, class: 'uk-form-label'
-        .uk-form-controls
-          = f.file_field :image, class: 'uk-width-1-4'
-          - if f.object.image.present?
-            = image_tag(f.object.image(:preview), class: 'uk-width-1-4')
+      = f.hidden_field :lookbook_category_id, value: @lookbook_category.id
 
-      .uk-form-row
-        = f.label :background_position, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_field :background_position, class: 'uk-width-1-6'
+      .form-group
+        .row
+          .col-xs-8
+            = f.label :image
+            = f.file_field :image
+          .col-xs-4
+            - if f.object.image.present?
+              = image_tag f.object.image(:preview), class: 'pull-right img-responsive'
 
-      .uk-form-row
-        = f.label :product_id, class: 'uk-form-label'
-        .uk-form-controls
-          = f.select :product_id, Product.by_pos.map{|c| [c.title, c.id] }, class: 'uk-width-1-2'
-
-      .uk-form-row
-        = f.label :y_orient, class: 'uk-form-label'
-        .uk-form-controls
-          = f.check_box :y_orient, class: 'uk-width-1-2'
-
-      .uk-form-row
-        = f.label :show, class: 'uk-form-label'
-        .uk-form-controls
-          = f.check_box :show, class: 'uk-width-1-2'
-
-      .uk-form-row
-        = f.label :book, class: 'uk-form-label'
-        .uk-form-controls
-          = f.check_box :book, class: 'uk-width-1-2'
-
-      .uk-form-row
-        = f.label :url, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_field :url, class: 'uk-width-1-6'
-
-      .uk-form-row
-        = f.label :comment, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_area :comment, class: 'uk-width-1-2'
-
-      %hr
-
-      #products.uk-margin
-        %hr
-        = f.fields_for :galeries do |galery|
-          = render 'galery_fields', f: galery
-        .links
-          = link_to_add_association 'add product', f, :galeries
+      .form-group
+        = f.label :background_position
+        = f.text_field :background_position, class: 'form-control'
 
 
-      .uk-form-row
-        .uk-width-1-2.uk-container-center.uk-margin
-          = f.submit 'Сохранить', class: 'uk-button uk-button-large uk-button-success'
-          = link_to 'Назад', admin_products_path, class: 'uk-button uk-button-large'
+      .form-group
+        = f.label :y_orient
+        = f.check_box :y_orient
+
+      .form-group
+        = f.label :show
+        = f.check_box :show
+
+      .form-group
+        = f.submit 'Сохранить', class: 'btn btn-success'
+
+  -#     .uk-form-row
+  -#       = f.label :product_id, class: 'uk-form-label'
+  -#       .uk-form-controls
+  -#         = f.select :product_id, Product.by_pos.map{|c| [c.title, c.id] }, class: 'uk-width-1-2'
+
+
+
+  -#     .uk-form-row
+  -#       = f.label :book, class: 'uk-form-label'
+  -#       .uk-form-controls
+  -#         = f.check_box :book, class: 'uk-width-1-2'
+
+  -#     .uk-form-row
+  -#       = f.label :url, class: 'uk-form-label'
+  -#       .uk-form-controls
+  -#         = f.text_field :url, class: 'uk-width-1-6'
+
+  -#     .uk-form-row
+  -#       = f.label :comment, class: 'uk-form-label'
+  -#       .uk-form-controls
+  -#         = f.text_area :comment, class: 'uk-width-1-2'
+
+  -#     %hr
+
+  -#     #products.uk-margin
+  -#       %hr
+  -#       = f.fields_for :galeries do |galery|
+  -#         = render 'galery_fields', f: galery
+  -#       .links
+  -#         = link_to_add_association 'add product', f, :galeries
+
+
+
 
 

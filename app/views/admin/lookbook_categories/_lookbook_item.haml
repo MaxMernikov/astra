@@ -1,0 +1,20 @@
+- controls = ''
+- controls += link_to('edit', edit_admin_lookbook_category_lookbook_item_path(resource, item))
+- controls += ' '
+- controls += link_to("#{item.show ? 'show' : 'hide'}",admin_lookbook_category_lookbook_item_show_hide_path(resource, item), remote: true)
+- controls += ' '
+- controls += lookbook_background_position(item.background_position)
+- controls += ' '
+- controls += link_to('удалить', admin_lookbook_category_lookbook_item_path(resource, item), confirm: 'Are you sure?', method: 'delete')
+
+
+- if item.position.present?
+  %li{'data-id' => "#{item.id}", "data-col" => "#{item.position[:col]}", "data-row" => "#{item.position[:row]}", "data-sizex" => "#{item.position[:size_x]}", "data-sizey" => "#{item.position[:size_y]}", style: "background-image: url(#{lookbook_background_size(item)}); background-position: #{lookbook_background_position(item.background_position)};"}
+
+    = raw controls
+
+
+- else
+  %li{'data-id' => "#{item.id}", "data-col" => '6', "data-row" => "1", "data-sizex" => "1", "data-sizey" => "1", style: "background-image: url(#{item.image(:preview)})"}
+    = raw controls
+

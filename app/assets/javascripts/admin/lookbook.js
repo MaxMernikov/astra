@@ -21,7 +21,7 @@ $(function(){
     }).data('gridster');
 
     $('#js-seralize').on('click', function() {
-      url = '/admin/lookbook_items/save_position'
+      url = '/admin/lookbook_categories/0/lookbook_items/save_position'
       $.post( url, { positions: gridster.serialize() })
     })
   }

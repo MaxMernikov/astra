@@ -12,11 +12,12 @@ Astra::Application.routes.draw do
     resources :categories_cloths
     resources :orders, except: [:show, :new, :create]
     resources :feedbacks, only: [:index, :destroy]
-    resources :lookbook_items, except: [:show] do
-      post :save_position, on: :collection
-      get :show_hide
+    resources :lookbook_categories do
+      resources :lookbook_items, except: [:show] do
+        post :save_position, on: :collection
+        get :show_hide
+      end
     end
-    resources :galleries
   end
 
   namespace :page, path: '' do

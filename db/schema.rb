@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415103517) do
+ActiveRecord::Schema.define(version: 20150521072158) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -192,6 +192,18 @@ ActiveRecord::Schema.define(version: 20150415103517) do
 
   add_index "insta_users", ["insta_id"], name: "index_insta_users_on_insta_id", using: :btree
 
+  create_table "lookbook_categories", force: true do |t|
+    t.string   "title"
+    t.text     "overview"
+    t.boolean  "show",               default: false
+    t.string   "image_file_name"
+    t.integer  "image_file_size"
+    t.string   "image_content_type"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lookbook_items", force: true do |t|
     t.string   "image_file_name"
     t.integer  "image_file_size"
@@ -202,14 +214,16 @@ ActiveRecord::Schema.define(version: 20150415103517) do
     t.integer  "product_id"
     t.string   "url"
     t.text     "comment"
-    t.boolean  "show",                default: false
+    t.boolean  "show",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "y_orient",            default: false
+    t.boolean  "y_orient",             default: false
     t.datetime "image_updated_at"
-    t.boolean  "book",                default: false
+    t.boolean  "book",                 default: false
+    t.integer  "lookbook_category_id"
   end
 
+  add_index "lookbook_items", ["lookbook_category_id"], name: "index_lookbook_items_on_lookbook_category_id", using: :btree
   add_index "lookbook_items", ["product_id"], name: "index_lookbook_items_on_product_id", using: :btree
 
   create_table "orders", force: true do |t|

@@ -10,17 +10,8 @@
     %li{ class: active_menu('admin/products') }
       = link_to 'Продукты', admin_products_path
 
-    %li{ class: active_menu('admin/lookbook_items') }
-      = link_to 'LookBook', admin_lookbook_items_path
-
-    %li{ class: active_menu('admin/galleries') }
-      = link_to 'Gallery', admin_galleries_path
-
-    -# %li{ class: active_menu('admin/cloths') }
-    -#   = link_to 'Ткани', admin_cloths_path
-
-    -# %li{ class: active_menu('admin/categories_cloths')}
-    -#   = link_to 'Таблица категорий и тканей', admin_categories_cloths_path
+    %li{ class: active_menu('admin/lookbook_categories') }
+      = link_to 'Gallery', admin_lookbook_categories_path
 
     %li{ class: active_menu('admin/feedbacks') }
       = link_to 'Обратная связь', admin_feedbacks_path

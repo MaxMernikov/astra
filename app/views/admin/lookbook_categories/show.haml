@@ -1,0 +1,11 @@
+.page-header
+  %h1
+    LookBook
+    = link_to 'save position', '#', id: 'js-seralize', class: 'btn btn-default pull-right'
+    = link_to '+ new item', new_admin_lookbook_category_lookbook_item_path(resource.id), class: 'btn btn-default pull-right'
+
+.row
+  .col-xs-12.gridster
+    %ul
+      - @lookbook_items.each do |item|
+        = render 'lookbook_item', item: item

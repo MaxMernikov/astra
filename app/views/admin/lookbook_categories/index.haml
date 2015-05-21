@@ -1,0 +1,32 @@
+.page-header
+  %h1
+    Категории
+    = link_to '+ добавить', new_resource_url, class: 'btn btn-default pull-right'
+
+
+- if collection.present?
+  %table.table
+    %thead
+      %tr
+        %th id
+        %th overview
+        %th image
+        %th
+
+    %tbody
+      - collection.each do |category|
+        %tr
+          %td= category.id
+          %td
+            %b= category.title
+            %br
+            = category.overview
+            %br
+          %td
+            = image_tag(category.image.url(:galery))
+          %td
+            = time_tag category.created_at
+            .pull-right.controls
+              = link_to 'редактировать раздел', edit_resource_path(category), class: 'btn btn-default btn-xs'
+              = link_to 'редактировать элементы раздела', resource_path(category), class: 'btn btn-default btn-xs'
+              = link_to 'удалить', resource_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'
