@@ -6,7 +6,7 @@ class LookbookCategory < ActiveRecord::Base
 
   has_many :lookbook_items
 
-  has_attached_file :image, styles: {galery: "1400x658>"}
+  has_attached_file :image, styles: {galery: "1400x658#"}
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 end
 
