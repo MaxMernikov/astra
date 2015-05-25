@@ -25,6 +25,9 @@
         = f.label :show
         = f.check_box :show
 
+      .form-group
+        = f.label :created_at
+        = f.date_field :created_at
 
       .form-group
         = f.submit 'Сохранить', class: 'btn btn-success'
