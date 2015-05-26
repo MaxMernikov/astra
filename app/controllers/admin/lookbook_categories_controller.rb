@@ -9,6 +9,6 @@ protected
   end
 
   def lookbook_category_params
-    params.require(:lookbook_category).permit(:title, :overview, :image, :show)
+    params.require(:lookbook_category).permit(:title, :overview, :image, :show, :created_at)
   end
 end
