@@ -1,6 +1,6 @@
 class LookbooksController < ApplicationController
   def index
-    @lookbook_category = LookbookCategory.show.order(:created_at)
+    @lookbook_category = LookbookCategory.show.order(created_at: :desc)
     render 'index_3', layout: 'webflow'
   end
 

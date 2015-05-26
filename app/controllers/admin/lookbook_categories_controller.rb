@@ -5,7 +5,7 @@ class Admin::LookbookCategoriesController < Admin::BaseController
 
 protected
   def collection
-    LookbookCategory.order(:created_at)
+    LookbookCategory.order(created_at: :desc)
   end
 
   def lookbook_category_params
