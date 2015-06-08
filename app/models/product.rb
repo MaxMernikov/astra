@@ -91,6 +91,7 @@ class Product < ActiveRecord::Base
     # заливаем фото в альбум
     def upload_vk_product(type = nil)
       return self unless self.show
+      generate_vk_photo_images unless self.vk_photo_image_file_name?
         
       @vk = VkontakteApi::Client.new(Admin.first.vk_token)
 
