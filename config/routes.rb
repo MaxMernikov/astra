@@ -7,6 +7,7 @@ Astra::Application.routes.draw do
     resources :categories
     resources :products do
       post :change_position, on: :collection
+      get :upload_vk_photo
     end
     resources :cloths
     resources :categories_cloths

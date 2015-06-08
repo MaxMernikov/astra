@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521072158) do
+ActiveRecord::Schema.define(version: 20150608052641) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -261,6 +261,7 @@ ActiveRecord::Schema.define(version: 20150521072158) do
     t.string   "vk_photo_image_content_type"
     t.integer  "vk_photo_image_file_size"
     t.datetime "vk_photo_image_updated_at"
+    t.integer  "vk_group_id"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree

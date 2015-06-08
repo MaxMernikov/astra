@@ -5,7 +5,7 @@
       %small= link_to 'Добавить продукт', new_admin_product_path
 
 .uk-grid.sortable_grid
-  - @products.each do |product|
+  - collection.each do |product|
     .uk-width-medium-1-2.uk-width-large-1-5.js_sort{ class: product.show ? '' : 'not_show', :'data-id' => product.id }
       = link_to product do
         = image_tag(product.images.first.image(:preview))

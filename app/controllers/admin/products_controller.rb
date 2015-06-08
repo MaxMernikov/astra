@@ -1,58 +1,34 @@
-class Admin::ProductsController < ApplicationController
-  load_and_authorize_resource except: [:create]
-  layout 'admin'
-  before_action :set_product, only: [:edit, :update, :destroy]
-
-  def index
-    @products = Product.by_pos
-  end
-
-  def new
-    @product = Product.new
-    @product.images.build
-  end
-
-  def edit
-    @product.images.build if @product.images.blank?
-  end
-
+class Admin::ProductsController < Admin::BaseController
   def create
-    authorize! :manage, :all
-    @product = Product.new(product_params)
-
-    if @product.save
-      redirect_to admin_products_path, notice: 'Product was successfully created.'
-    else
-      render action: 'new'
-    end
+    create!{ collection_url }
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to admin_products_path, notice: 'Product was successfully updated.'
-    else
-      render action: 'edit'
-    end
+    update!{ collection_url }
   end
 
-  def destroy
-    @product.destroy
-    redirect_to admin_products_path
+  def upload_vk_photo
+    product = Product.find(params[:product_id])
+
+    product.generate_vk_photo_images unless product.vk_photo_image_file_name?
+    product.upload_vk_product(params[:type])
+
+    redirect_to :back
   end
 
   def change_position
     params[:positions].each_with_index do |product_id, index|
-      Product.find(product_id).update_column(:pos, index)
+      Product.find(product_id).update_attribute(:pos, index)
     end
     render text: 'ok'
   end
 
 private
-  def set_product
-    @product = Product.find(params[:id])
-  end
-
   def product_params
     params.require(:product).permit(:title, :category_id, :cost, :show, :v3, :pos, :about_product, :description, Product::PARAMS, images_attributes: [:id, :image, :_destroy])
+  end
+
+  def collection
+    get_collection_ivar || Product.by_pos
   end
 end

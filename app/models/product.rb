@@ -4,8 +4,6 @@ class Product < ActiveRecord::Base
 
   # constans
   PARAMS = [:size, :zipper, :material, :lining, :compartments, :pockets]
-  VK_GROUP_ID = 73282144 # group id integer
-  VK_ALBUM_ID = 204862394 # albumn id integer
 
   belongs_to :category
   has_settings :params
@@ -25,9 +23,10 @@ class Product < ActiveRecord::Base
   scope :by_pos, -> { order(:pos) }
 
   # callbacks
-  # after_create   :generate_vk_photo_images, :upload_vk_product
-  # before_update  :check_vk_association, :vk_product_caption_update
-  before_destroy :delete_vk_product
+  after_create :generate_vk_photo_images, :upload_vk_product
+  # before_update :check_vk_association, :vk_product_caption_update
+  before_update :vk_product_caption_update
+  # before_destroy :delete_vk_product
 
   # vk part
   has_attached_file :vk_photo_image,
@@ -81,33 +80,50 @@ class Product < ActiveRecord::Base
     "#{cost}0 000 руб."
   end
 
-  private
+  # private
+    # генерируем изображение для контакта
     def generate_vk_photo_images
       self.vk_photo_image = File.open(images.first.image.path)
       self.vk_photo_image.save
+      self
     end
 
-    def upload_vk_product
-      set_vk
+    # заливаем фото в альбум
+    def upload_vk_product(type = nil)
+      return self unless self.show
+        
+      @vk = VkontakteApi::Client.new(Admin.first.vk_token)
 
-      server_upload_url = @vk.photos.getUploadServer(group_id: VK_GROUP_ID, album_id: VK_ALBUM_ID).upload_url #take server upload url
-      image_file_path = vk_photo_image.path
+      case type
+      when 'group'
+        credentials = {photo: {group_id: 73282144, album_id: 204862394}}
+      when 'photo'
+        credentials = {group: {album_id: 216770294}}
+      else
+        credentials = {group: {album_id: 216770294}, photo: {group_id: 73282144, album_id: 204862394}}
+      end
 
-      vk_response = VkontakteApi.upload(url: server_upload_url, photo: [image_file_path, 'image/jpeg'])
+      credentials.each do |key, credential|
+        #take server upload url
+        vk_image_path = @vk.photos.getUploadServer(group_id: credential[:group_id], album_id: credential[:album_id]) 
 
-      vk_save_photos_response =
-        @vk.photos.save(
-          album_id: VK_ALBUM_ID,
-          group_id: VK_GROUP_ID,
-          server: vk_response.server,
-          photos_list: vk_response.photos_list,
-          caption: caption,
-          hash: vk_response['hash']
-        ).first
+        vk_response = VkontakteApi.upload(url: vk_image_path.upload_url, photo: [vk_photo_image.path, 'image/jpeg'])
 
-      #set vk fields values
-      self.vk_owner_id = vk_save_photos_response.owner_id
-      self.vk_photo_id = vk_save_photos_response.pid
+        vk_save_photos_response =
+          @vk.photos.save(
+            album_id: credential[:album_id],
+            group_id: credential[:group_id],
+            server: vk_response.server,
+            photos_list: vk_response.photos_list,
+            caption: caption,
+            hash: vk_response['hash']
+          ).first
+
+        # #set vk fields values
+        self.vk_owner_id = vk_save_photos_response.owner_id
+        self["vk_#{key}_id"] = vk_save_photos_response.pid
+
+      end
       vk_photo_image.destroy
       self.save
     end
@@ -120,8 +136,14 @@ class Product < ActiveRecord::Base
     end
 
     def vk_product_caption_update
+      return self unless self.changed_attributes.keys.include? ['title', 'cost']
+
       set_vk
-      @vk.photos.edit(owner_id: vk_owner_id, photo_id: vk_photo_id, caption: caption)
+
+      ['photo', 'group'].each do |type|
+        @vk.photos.edit(owner_id: vk_owner_id, photo_id: self["vk_#{type}_id"], caption: caption)
+      end
+
     end
 
     def delete_vk_product

@@ -1,69 +1,72 @@
-= form_for([:admin, @product], html: { class: 'uk-form uk-form-horizontal' }) do |f|
-  - if @product.errors.any?
-    = render '/admin/partials/form_errors', f: f
+.row
+  .col-xs-12
+    - if resource.id?
+      %ul
+        %li
+          = link_to 'upload photo to group', admin_product_upload_vk_photo_path(resource, type: 'group')
+          \|
+          = resource.vk_group_id
+        %li
+          = link_to 'upload photo to user', admin_product_upload_vk_photo_path(resource, type: 'photo')
+          \|
+          = resource.vk_photo_id
 
-  %fieldset
-    %legend
-      .uk-form-row
-        = f.label :category_id, class: 'uk-form-label'
-        .uk-form-controls
-          = f.select :category_id, Category.by_pos.map{|c| [c.title, c.id] }, class: 'uk-width-1-2'
+    %hr
+.row
+  .col-xs-12
+    = form_for([:admin, resource], html: {role: 'form'}) do |f|
+      - if resource.errors.present?
+        = render 'errors', errors: resource.errors
 
-      #images.uk-margin
+      .form-group
+        = f.label :category_id
+        = f.select :category_id, Category.by_pos.map{|c| [c.title, c.id] }, class: 'form-control'
+        %br
+
+
+      #images
         %hr
         = f.fields_for :images do |image|
           = render 'image_fields', f: image
         .links
           = link_to_add_association 'add image', f, :images
 
-      .uk-form-row
-        = f.label :show, class: 'uk-form-label'
-        .uk-form-controls
-          = f.check_box :show, class: 'uk-width-1-2'
+      .form-group
+        = f.label :show
+        = f.check_box :show
 
-      .uk-form-row
-        = f.label :v3, class: 'uk-form-label'
-        .uk-form-controls
-          = f.check_box :v3, class: 'uk-width-1-2'
+      .form-group
+        = f.label :v3
+        = f.check_box :v3
 
-      .uk-form-row
-        = f.label :cost, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_field :cost, class: 'uk-width-1-6'
+      .form-group
+        = f.label :cost
+        = f.text_field :cost, class: 'form-control'
 
-      .uk-form-row
-        = f.label :title, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_field :title, class: 'uk-width-1-2'
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
 
-      .uk-form-row
-        = f.label :about_product, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_area :about_product, class: 'uk-width-1-1', rows: 6
+      .form-group
+        = f.label :about_product
+        = f.text_area :about_product, class: 'form-control', rows: 12
 
-      %hr
-
-      .uk-form-row
-        = f.label :description, class: 'uk-form-label'
-        .uk-form-controls
-          = f.text_area :description, class: 'uk-width-1-1', rows: 6
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: 'form-control', rows: 6
 
       %hr
       - Product::PARAMS.each do |keys|
-        .uk-form-row
-          = f.label keys, I18n.t("activerecord.attributes.product.#{keys.to_s}"),class: 'uk-form-label'
-          .uk-form-controls
-            = f.text_field keys, class: 'uk-width-1-2'
+        .form-group
+          = f.label keys, I18n.t("activerecord.attributes.product.#{keys.to_s}")
+          = f.text_field keys, class: 'form-control'
 
-      .uk-form-row
-        .uk-width-1-2.uk-container-center.uk-margin
-          = f.submit 'Сохранить', class: 'uk-button uk-button-large uk-button-success'
-          = link_to 'Назад', admin_products_path, class: 'uk-button uk-button-large'
+      .form-group
+        = f.submit 'Сохранить', class: 'btn btn-success'
 
 
-
-  -# .form-group
-  -#   = f.label :with_image
-  -#   = f.check_box :with_image, class: 'form-control'
-  -#   hint: показывать в большом блоке или нет
+      -# .form-group
+      -#   = f.label :with_image
+      -#   = f.check_box :with_image, class: 'form-control'
+      -#   hint: показывать в большом блоке или нет
 
