@@ -1,50 +1,48 @@
-.uk-grid
-  .uk-width-1-1
-    %h2
-      Заказы
+.page-header
+  %h1
+    Заказы
 
-.uk-wrapper
-  %table.uk-table
-    %thead
-      %tr
-        %th Фото
-        %th Информация о заказе
-        %th Информация о заказчике
-        -# %th Статус
-        %th
+%table.table.table-hover
+  %thead
+    %tr
+      %th Фото
+      %th Информация о заказе
+      %th Информация о заказчике
+      -# %th Статус
+      %th
 
-    %tbody
-      - @orders.each do |order|
-        %tr.uk-alert{ class: order.complete ? 'uk-alert-success' : ''}
-          %td{ style: 'width: 10%' }
-            - if order.product_ids.present?
-              - Product.where(id: order.product_ids).each do |product|
-                = image_tag product.first_image
-            - else
-              = image_tag order.product.first_image if order.product.present?
-          %td
-            .id
-              %b Заказ ##{order.id}
-            - if order.details.present?
-              .details
-                %b Детали заказа:
-                = order.details
-            - if order.mark.present?
-              .mark
-                %b Пометки:
-                = order.mark
-            .created_at
-              %b Дата добавления:
-              = time_tag order.created_at
-          %td
-            .name= order.name
-            .phone= phone_tag order.phone
-            .email Email: #{order.email}
-          -# %td
-          -#   = order.complete
-          %td
-            = link_to edit_admin_order_path(order), class: 'uk-button uk-button-mini uk-button-success' do
-              .uk-icon-pencil
-            = link_to admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-mini uk-button-danger' do
-              .uk-icon-times
+  %tbody
+    - @orders.each do |order|
+      %tr{ class: order.complete ? 'success' : 'info'}
+        %td{ style: 'width: 10%' }
+          - if order.product_ids.present?
+            - Product.where(id: order.product_ids).each do |product|
+              = image_tag product.first_image
+          - else
+            = image_tag order.product.first_image if order.product.present?
+        %td
+          .id
+            %b Заказ ##{order.id}
+            = time_tag order.created_at, format: :short
+
+          = Product.where(id: order.product_ids).pluck(:title).join(', ')
+
+          - if order.details.present?
+            .details
+              %b Детали заказа:
+              = order.details
+          - if order.mark.present?
+            .mark
+              %b Пометки:
+              = order.mark
+  
+        %td
+          = phone_tag order.phone
+          = order.name
+
+        %td
+          = link_to edit_admin_order_path(order), class: 'uk-button uk-button-mini uk-button-success' do
+            .uk-icon-pencil
+          = link_to admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-mini uk-button-danger' do
+            .uk-icon-times
 

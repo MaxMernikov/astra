@@ -6,4 +6,4 @@
 d8f0a4fb0aff4829cade98feb5108ce292a669f68f0cc498066b6a6600e7ee0e30326636441ad55c9c09e
 LookbookItem.all.each{|i| i.update_column(:lookbook_category_id, LookbookCategory.first.id)}
 
-# VkontakteApi.authorization_url(type: :code, scope: [:offline])
+# https://vk.com/dev/auth_sites
