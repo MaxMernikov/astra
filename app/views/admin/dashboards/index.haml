@@ -30,7 +30,7 @@
             - if order.details.present?
               %br
               %b Детали заказа:
-              = order.details
+              = order.details.gsub('/', ' /')
             - if order.mark.present?
               %br
               %b Пометки:
