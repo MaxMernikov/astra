@@ -21,20 +21,19 @@
           - else
             = image_tag order.product.first_image if order.product.present?
         %td
-          .id
-            %b Заказ ##{order.id}
-            = time_tag order.created_at, format: :short
+          %b Заказ ##{order.id}
+          = time_tag order.created_at, format: :short
 
           = Product.where(id: order.product_ids).pluck(:title).join(', ')
 
           - if order.details.present?
-            .details
-              %b Детали заказа:
-              = order.details
+            %br
+            %b Детали заказа:
+            = order.details
           - if order.mark.present?
-            .mark
-              %b Пометки:
-              = order.mark
+            %br
+            %b Пометки:
+            = order.mark
   
         %td
           = phone_tag order.phone
