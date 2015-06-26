@@ -1,6 +1,6 @@
 .w-section.home_page.section-content
   .w-container
-    .w-row
+    .w-row.mt-32
       - @products.each do |product|
         .w-col.w-col-4
           = render 'partials/product_preview', product: product

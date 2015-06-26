@@ -1,4 +1,4 @@
-/* Generated on: Wed Apr 15 2015 12:37:23 GMT+0000 (UTC) */
+/* Generated on: Fri Jun 26 2015 09:53:45 GMT+0000 (UTC) */
 /* ==========================================================================
    normalize.css v2.0.1, along with Webflow base CSS | MIT License | git.io/normalize
    ========================================================================== */
@@ -437,6 +437,7 @@ p {
   display: none;
 }
 .product-cost {
+  margin-top: -4px;
   font-size: 16px;
   line-height: 16px;
   font-weight: 300;
@@ -449,7 +450,7 @@ p {
 }
 .product-title {
   margin-top: -12px;
-  line-height: 26px;
+  line-height: 36px;
 }
 .mb-32 {
   margin-bottom: 32px;
@@ -478,6 +479,9 @@ p {
 }
 .delete-cart:hover {
   border-color: #aaa;
+}
+.product-details-contaner {
+  min-height: 132px;
 }
 @media (max-width: 991px) {
   .container {
