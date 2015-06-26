@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
                   }
     
 
-    @random_three = Product.show.where(id: Product.ids.shuffle.take(3))
+    @random_three = Product.show.where(id: Product.show.ids.shuffle.take(3))
     return render('show', layout: 'webflow') if @product.v3
     render 'show2'
   end
