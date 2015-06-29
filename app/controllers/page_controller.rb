@@ -30,4 +30,8 @@ class PageController < ApplicationController
   def thankyou
     render 'thankyou', layout: 'webflow'
   end
+
+  def test
+    render 'test', layout: 'webflow'
+  end
 end
