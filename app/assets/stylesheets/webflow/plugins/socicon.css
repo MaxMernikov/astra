@@ -40,6 +40,8 @@
   width: 1em;
 }
 
+.socicon > span{ display: none; }
+
 .socicon-vkontakte { color: #55759a; border-color: #55759a; }
 .socicon-vkontakte:before { content: ";"; }
 
