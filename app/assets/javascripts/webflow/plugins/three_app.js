@@ -36,7 +36,7 @@ $(function () {
     mesh.position.z = 1.9;
     mesh.position.y = -1.2;
 
-    scene.add( mesh );
+    // scene.add( mesh );
   });
 
   // 
