@@ -16,6 +16,9 @@
     %li{ class: active_menu('admin/feedbacks') }
       = link_to 'Обратная связь', admin_feedbacks_path
 
+    %li{ class: active_menu('admin/statistics') }
+      = link_to 'Статистика', admin_statistics_path
+
   %ul.uk-navbar-nav
     %li
       = link_to 'выйти', destroy_admin_session_path, method: :delete

@@ -19,6 +19,8 @@ Astra::Application.routes.draw do
         get :show_hide
       end
     end
+
+    resources :statistics, only: :index
   end
 
   namespace :page, path: '' do

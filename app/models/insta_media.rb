@@ -15,13 +15,17 @@ class InstaMedia < ActiveRecord::Base
     medias = client.tag_recent_media(tag, count: rand(15) + 15)
     like.media_count = medias.size
 
-    medias.each do |media|
-      unless media.user_has_liked
-        client.like_media(media.id)
-        like.links << media.link
-        like.liked_count += 1
-        sleep(rand(6) + 2)
+    begin
+      medias.each do |media|
+        unless media.user_has_liked
+          client.like_media(media.id)
+          like.links << media.link
+          like.liked_count += 1
+          sleep(rand(6) + 2)
+        end
       end
+    rescue
+      ap '=('
     end
 
     like.save
