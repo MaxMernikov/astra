@@ -7,6 +7,6 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-every 1532.seconds do
+every 3632.seconds do
   runner "InstaMedia.get_media_by_tag('minsk')"
 end
