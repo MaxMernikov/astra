@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608052641) do
+ActiveRecord::Schema.define(version: 20150701120734) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -115,82 +115,6 @@ ActiveRecord::Schema.define(version: 20150608052641) do
   end
 
   add_index "images", ["product_id"], name: "index_images_on_product_id", using: :btree
-
-  create_table "insta_caches", force: true do |t|
-    t.integer  "insta_user_id"
-    t.string   "cache_type"
-    t.text     "info_hash",     limit: 16777215
-    t.string   "params"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "insta_caches", ["insta_user_id"], name: "index_insta_caches_on_insta_user_id", using: :btree
-
-  create_table "insta_confs", force: true do |t|
-    t.string   "token"
-    t.integer  "insta_id"
-    t.text     "settings_response"
-    t.text     "info_response"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "insta_delay_works", force: true do |t|
-    t.datetime "run_at"
-    t.integer  "insta_user_id"
-    t.string   "work_type"
-    t.string   "status",        default: "hold"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "insta_logs", force: true do |t|
-    t.integer  "insta_user_id"
-    t.string   "log_type"
-    t.text     "params"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "point"
-  end
-
-  add_index "insta_logs", ["insta_user_id"], name: "index_insta_logs_on_insta_user_id", using: :btree
-  add_index "insta_logs", ["point", "log_type"], name: "index_insta_logs_on_point_and_log_type", using: :btree
-
-  create_table "insta_schedules", force: true do |t|
-    t.datetime "run_at"
-    t.integer  "insta_user_id"
-    t.string   "work_type"
-    t.string   "status"
-    t.text     "params"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "insta_schedules", ["insta_user_id"], name: "index_insta_schedules_on_insta_user_id", using: :btree
-
-  create_table "insta_users", force: true do |t|
-    t.integer  "insta_id"
-    t.datetime "followed_at"
-    t.datetime "unfollowed_at"
-    t.boolean  "private",           default: false
-    t.text     "info_hash"
-    t.integer  "followed_by_count", default: 0
-    t.boolean  "followed_by",       default: false
-    t.boolean  "follows",           default: false
-    t.boolean  "potential",         default: false
-    t.boolean  "not_unsubscribe",   default: false
-    t.integer  "bot_version"
-    t.datetime "start_monitoring"
-    t.datetime "start_follow"
-    t.boolean  "not_resultative",   default: false
-    t.integer  "bot_step",          default: 0
-    t.integer  "insta_likes_count", default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "insta_users", ["insta_id"], name: "index_insta_users_on_insta_id", using: :btree
 
   create_table "lookbook_categories", force: true do |t|
     t.string   "title"
