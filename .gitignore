@@ -12,3 +12,7 @@ db/migrate/20150204112903_create_insta_users.rb
 =======
 /public/system/*
 >>>>>>> 1e1f094441dad83a91bdc1444587f16e123c0835
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
