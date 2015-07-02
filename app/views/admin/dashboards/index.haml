@@ -30,7 +30,7 @@
             - if order.details.present?
               %br
               %b Детали заказа:
-              = order.details.gsub('/', ' /')
+              = raw link_finder(order.details)
             - if order.mark.present?
               %br
               %b Пометки:
