@@ -1,13 +1,10 @@
-class Admin::OrdersController < ApplicationController
-  load_and_authorize_resource except: [:create]
-  layout 'admin'
-  before_action :set_order, only: [:edit, :update, :destroy]
+class Admin::OrdersController < Admin::BaseController
+  # load_and_authorize_resource except: [:create]
+  # layout 'admin'
+  before_action :set_order
 
   def index
     @orders = Order.all
-  end
-
-  def edit
   end
 
   def update
@@ -22,12 +19,17 @@ class Admin::OrdersController < ApplicationController
 
   def destroy
     @order.destroy
-    redirect_to admin_orders_path
+    redirect_to admin_dashboards_path
+  end
+
+  def completed
+    @order.update_attribute(:complete, !@order.complete)
+    redirect_to admin_dashboards_path
   end
 
 private
   def set_order
-    @order = Order.find(params[:id])
+    @order = Order.find(params[:id] || params[:order_id])
   end
 
   def order_params

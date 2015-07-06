@@ -11,7 +11,9 @@ Astra::Application.routes.draw do
     end
     resources :cloths
     resources :categories_cloths
-    resources :orders, except: [:show, :new, :create]
+    resources :orders, except: [:show, :new, :create] do
+      get :completed
+    end
     resources :feedbacks, only: [:index, :destroy]
     resources :lookbook_categories do
       resources :lookbook_items, except: [:show] do

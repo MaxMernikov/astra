@@ -9,7 +9,6 @@
         %th Фото
         %th Информация о заказе
         %th Информация о заказчике
-        -# %th Статус
         %th
 
     %tbody
@@ -41,8 +40,12 @@
             = order.name
 
           %td
-            = link_to edit_admin_order_path(order), class: 'uk-button uk-button-mini uk-button-success' do
-              .uk-icon-pencil
-            = link_to admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-mini uk-button-danger' do
-              .uk-icon-times
+            = link_to admin_order_completed_path(order), class: 'btn btn-success btn-xs' do
+              .icon-cut
+
+            = link_to edit_admin_order_path(order), class: 'btn btn-default btn-xs' do
+              .icon-pencil
+
+            / = link_to admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-mini uk-button-danger' do
+            /   .uk-icon-times
 
