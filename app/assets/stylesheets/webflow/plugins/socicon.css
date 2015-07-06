@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'socicon';
+  src: url('/font/socicon.eot');
+  src: url('/font/socicon.eot?#iefix') format('embedded-opentype'),
+    url('/font/socicon.woff') format('woff'),
+    url('/font/socicon.woff2') format('woff2'),
+    url('/font/socicon.ttf') format('truetype'),
+    url('/font/socicon.svg#sociconregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  text-transform: initial;
+}
+
+.socicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'socicon';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.socicon.bordered {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border: 1px solid;
+  border-radius: 32px;
+  padding: 10px 12px;
+  line-height: 30px;
+  font-size: 22px;
+  display: inline-block;
+  margin-right: 8px;
+  margin-top: 12px
+}
+
+.socicon:empty{
+  width: 1em;
+}
+
+.socicon > span{ display: none; }
+
+.socicon-vkontakte { color: #55759a; border-color: #55759a; }
+.socicon-vkontakte:before { content: ";"; }
+
+.socicon-facebook { color: #47679c; border-color: #47679c; }
+.socicon-facebook:before { content: "b"; }
+
+.socicon-twitter { color: #4eb8e8; border-color: #4eb8e8; }
+.socicon-twitter:before { content: "a"; }
+
+.socicon-google { color: #dd4b39; border-color: #dd4b39; }
+.socicon-google:before { content: "c"; }

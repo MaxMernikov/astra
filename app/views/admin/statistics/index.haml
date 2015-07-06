@@ -1,0 +1,22 @@
+.container
+  .page-header
+    %h1
+      Статистика
+
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Время запуска
+        %th Рассмотрено постов
+        %th Проставлено лайков
+        %th Urls
+
+    %tbody
+      - @collection.each do |insta_media|
+        %tr
+          %td= time_tag insta_media.created_at
+          %td= insta_media.media_count
+          %td= insta_media.liked_count
+          %td
+            - insta_media.links.each do |link|
+              = link_to link, link, target: '_blank'

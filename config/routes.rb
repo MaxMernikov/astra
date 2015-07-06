@@ -21,6 +21,8 @@ Astra::Application.routes.draw do
         get :show_hide
       end
     end
+
+    resources :statistics, only: :index
   end
 
   namespace :page, path: '' do
@@ -28,6 +30,7 @@ Astra::Application.routes.draw do
     get :contacts
     get :cart
     get :thankyou
+    get :test
   end
   
 

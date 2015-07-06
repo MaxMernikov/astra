@@ -7,7 +7,6 @@
 
     = stylesheet_link_tag    "webflow", media: "all"
     = csrf_meta_tags
-    = render 'partials/share'
     = render 'partials/ga' if Rails.env.production?
     = render 'partials/fonts_load'
     %script{:src => "http://yastatic.net/modernizr/2.7.1/modernizr.min.js"}

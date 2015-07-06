@@ -1,8 +1,8 @@
-.container
-  .page-header
-    %h1
-      Заказы
+.page-header
+  %h1
+    Заказы
 
+.row
   %table.table.table-hover
     %thead
       %tr
@@ -29,7 +29,7 @@
             - if order.details.present?
               %br
               %b Детали заказа:
-              = order.details.gsub('/', ' /')
+              = raw link_finder(order.details)
             - if order.mark.present?
               %br
               %b Пометки:

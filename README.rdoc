@@ -7,3 +7,10 @@ d8f0a4fb0aff4829cade98feb5108ce292a669f68f0cc498066b6a6600e7ee0e30326636441ad55c
 LookbookItem.all.each{|i| i.update_column(:lookbook_category_id, LookbookCategory.first.id)}
 
 # https://vk.com/dev/auth_sites
+
+/insta auth
+Instagram.authorize_url(:redirect_uri => Settings.instagram_api.redirect_path)
+get code and insert to
+Instagram.get_access_token('f430effe26ee4f48999afad7df915ac4', :redirect_uri => Settings.instagram_api.redirect_path)
+
+239000873.58b9b7b.8bf9837b35fa4f699b6005c7b2f3ecdb

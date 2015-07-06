@@ -50,12 +50,17 @@ gem 'meta-tags'
 gem 'newrelic_rpm'
 
 gem 'sitemap_generator'
+
+# core
+gem 'rails_config'
+gem 'hashie'
 gem 'inherited_resources'
 gem 'awesome_print'
+gem 'whenever', :require => false
 
-gem 'hashie'
-
+# social
 gem 'vkontakte_api', '~> 1.4.3'
+gem 'instagram'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'
