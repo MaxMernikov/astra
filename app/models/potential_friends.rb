@@ -10,7 +10,7 @@ class PotentialFriends
     potential = []
 
     # @vk.friends.get(uid: user_id, count: count, fields: [:sex, :city]) do |friend|
-    @vk.friends.get(uid: user_id, count: 100, fields: [:sex, :city]) do |friend|
+    @vk.friends.get(uid: user_id, count: 500, fields: [:sex, :city]) do |friend|
       potential << friend if my_friends.exclude?(friend.uid) && friend.sex == 1 && friend.deactivated == nil && friend.city == 282
 
     end
