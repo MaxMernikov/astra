@@ -14,3 +14,13 @@ get code and insert to
 Instagram.get_access_token('f430effe26ee4f48999afad7df915ac4', :redirect_uri => Settings.instagram_api.redirect_path)
 
 239000873.58b9b7b.8bf9837b35fa4f699b6005c7b2f3ecdb
+
+
+//// VK AUTH
+VkontakteApi.authorization_url(scope: [:notify, :friends, :photos])
+=> b49e2705119452a6bf
+
+VkontakteApi.authorize(code: 'b49e2705119452a6bf')
+=> 37457e612387f06aa8dd7e1f69581a2df0d586f5f15e0ec5ee90c10210ede2b7404a4c50a6cb880a7f2c6
+
+/// 

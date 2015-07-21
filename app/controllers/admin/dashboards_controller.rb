@@ -8,4 +8,8 @@ class Admin::DashboardsController < ApplicationController
 
     @orders = Order.order(created_at: :desc)
   end
+
+  def vk_friends
+    @users = PotentialFriends.get_some(84735, 30)
+  end
 end

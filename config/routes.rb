@@ -3,7 +3,9 @@ Astra::Application.routes.draw do
     controllers: { :sessions => 'admin/sessions' }
 
   namespace :admin do
-    resources :dashboards, path: '', only: [:index]
+    resources :dashboards, path: '', only: [:index] do
+      get :vk_friends, on: :collection
+    end
     resources :categories
     resources :products do
       post :change_position, on: :collection
@@ -21,7 +23,6 @@ Astra::Application.routes.draw do
         get :show_hide
       end
     end
-
     resources :statistics, only: :index
   end
 
