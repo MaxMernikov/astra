@@ -23,12 +23,12 @@ class PotentialFriends
       are_not_friend = are_friend.map{|i| i.uid if i.friend_status == 0}
       potential = potential.map{ |i| i if are_not_friend.include?(i.uid) }.compact
 
-      potential.each do |friend|
-        friend.mutual = @vk.friends.getMutual(target_uid: friend.uid).size
-        sleep(1.0 / 8)
-      end
+      # potential.each do |friend|
+      #   friend.mutual = @vk.friends.getMutual(target_uid: friend.uid).size
+      #   sleep(1.0 / 8)
+      # end
 
-      potential = potential.sort_by{ |f| f.mutual }.reverse
+      # potential = potential.sort_by{ |f| f.mutual }.reverse
     end
 
     potential
