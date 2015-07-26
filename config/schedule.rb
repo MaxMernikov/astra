@@ -8,5 +8,5 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 every 73.minutes do
-  # runner "InstaMedia.get_media_by_tag('minsk')"
+  runner "InstaMedia.get_media_by_tag('minsk')"
 end
