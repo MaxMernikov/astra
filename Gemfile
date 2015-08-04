@@ -51,12 +51,14 @@ gem 'newrelic_rpm'
 
 gem 'sitemap_generator'
 
+
 # core
 gem 'rails_config'
 gem 'hashie'
 gem 'inherited_resources'
 gem 'awesome_print'
 gem 'whenever', :require => false
+gem 'paperclip-compression'
 
 # social
 gem 'vkontakte_api', '~> 1.4.3'
