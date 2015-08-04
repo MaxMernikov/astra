@@ -1,0 +1,2 @@
+instagram_api:
+  redirect_path: 'http://localhost:3000/fake_path'
