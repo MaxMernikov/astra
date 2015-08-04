@@ -20,7 +20,7 @@ Instagram.get_access_token('f430effe26ee4f48999afad7df915ac4', :redirect_uri => 
 VkontakteApi.authorization_url(scope: [:notify, :friends, :photos, :offline])
 => b49e2705119452a6bf
 
-VkontakteApi.authorize(code: 'f1e5a1b7ee24777e92')
+VkontakteApi.authorize(code: 'f1aa1e0aea699860d4')
 => 37457e612387f06aa8dd7e1f69581a2df0d586f5f15e0ec5ee90c10210ede2b7404a4c50a6cb880a7f2c6
 
 /// 

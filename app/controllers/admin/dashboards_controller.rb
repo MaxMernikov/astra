@@ -10,6 +10,7 @@ class Admin::DashboardsController < ApplicationController
   end
 
   def vk_friends
-    @users = PotentialFriends.get_some(84735, 200, params[:page].to_i)
+    @users = PotentialFriends.get_some(params[:id], 500, params[:page].to_i)
   end
+  
 end
