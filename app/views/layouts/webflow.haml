@@ -5,11 +5,8 @@
     %meta{charset: "utf-8"}/
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}/
 
-    = stylesheet_link_tag    "webflow", media: "all"
     = csrf_meta_tags
     = render 'partials/ga' if Rails.env.production?
-    = render 'partials/fonts_load'
-    %script{:src => "http://yastatic.net/modernizr/2.7.1/modernizr.min.js"}
 
 
   %body{class: "#{params[:controller]} #{params[:action]}" }
@@ -22,5 +19,8 @@
     = render 'footer'
     = render 'partials/analitycs' if Rails.env.production?
 
+    = stylesheet_link_tag    "webflow", media: "all"
+    = render 'partials/fonts_load'
+    %script{:src => "http://yastatic.net/modernizr/2.7.1/modernizr.min.js"}
     = javascript_include_tag "webflow"
     = render 'notice' if flash[:notice][:type].present? rescue nil
