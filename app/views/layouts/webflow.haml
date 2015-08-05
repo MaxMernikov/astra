@@ -10,7 +10,7 @@
 
 
   %body{class: "#{params[:controller]} #{params[:action]}" }
-    = render 'partials/google_tag'
+    / = render 'partials/google_tag'
     = render 'dialog'
     = render 'header'
     = yield
@@ -19,8 +19,10 @@
     = render 'footer'
     = render 'partials/analitycs' if Rails.env.production?
 
+    = render 'notice' if flash[:notice][:type].present? rescue nil
+    
+
     = stylesheet_link_tag    "webflow", media: "all"
-    = render 'partials/fonts_load'
     %script{:src => "http://yastatic.net/modernizr/2.7.1/modernizr.min.js"}
     = javascript_include_tag "webflow"
-    = render 'notice' if flash[:notice][:type].present? rescue nil
+    = render 'partials/fonts_load'
