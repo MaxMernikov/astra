@@ -2,10 +2,6 @@
   .w-container
     .w-row.mt-32
       - if @cart_items.size == 0
-        .w-col.w-col-2
-        .w-col.w-col-4.text-center
-        
-        = render 'cart_form'
 
       - elsif @cart_items.size == 1
         .w-col.w-col-2
