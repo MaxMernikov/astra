@@ -3,7 +3,7 @@
     .w-row.mt-32
       - @products.each do |product|
         .w-col.w-col-4
-          = render 'partials/product_preview', product: product
+          = render 'partials/product_preview', product: product, client: check_client
 
   = render 'astra_hr', without_image: true
   .w-container

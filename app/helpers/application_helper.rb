@@ -66,4 +66,10 @@ module ApplicationHelper
   def product_cost(cost)
     raw "#{cost}0 000 руб.".gsub(' ', '&nbsp;')
   end
+
+  def check_client
+    return 'tablet' if browser.tablet?
+    return 'mobile' if browser.mobile?
+    'desktop'
+  end
 end

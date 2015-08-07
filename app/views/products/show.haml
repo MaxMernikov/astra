@@ -63,6 +63,6 @@
     .w-row.mt-12
       - @random_three.each do |product|
         .w-col.w-col-4.w-col-small-4.w-col-tiny-4
-          = render 'partials/product_preview', product: product
+          = render 'partials/product_preview', product: product, client: check_client
 
 = render 'astra_hr'

@@ -50,6 +50,7 @@ gem 'meta-tags'
 gem 'newrelic_rpm'
 
 gem 'sitemap_generator'
+gem 'browser'
 
 
 # core

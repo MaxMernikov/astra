@@ -1,6 +1,5 @@
 = link_to product, class: "w-inline-block text-center product-block #{product.title.underscore.gsub(' ', '-')}" do
-  - first_image = product.images.first
-  = image_tag('', title: astra_tag("#{product.category.title} #{product.title}"), alt: astra_tag("#{product.category.title} #{product.title}"), class: 'smart-responsive', 'data-mobile-url' => first_image.image(:mobile), 'data-desktop-url' => first_image.image(:desktop), 'data-tablet-url' => first_image.image(:tablet), 'data-tablet-h-url' => first_image.image(:tablet_h))
+  = image_tag(product.images.first.image(client), title: astra_tag("#{product.category.title} #{product.title}"), alt: astra_tag("#{product.category.title} #{product.title}"))
 
   .product-details-contaner.mb-32
     %h3.product-title
