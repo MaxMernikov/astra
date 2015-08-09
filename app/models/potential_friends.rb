@@ -9,27 +9,28 @@ class PotentialFriends
 
     potential = []
 
-    @vk.friends.get(uid: user_id, count: count, offset: count * offset, fields: [:sex, :city]) do |friend|
-      potential << friend if my_friends.exclude?(friend.uid) && friend.sex == 1 && friend.deactivated == nil && friend.city == 282
-
+    @vk.friends.get(uid: user_id, count: count, offset: count * offset, fields: [:sex, :city, :friend_status]) do |friend|
+      ap friend
+      potential << friend if my_friends.exclude?(friend.uid) && friend.sex == 1 && friend.deactivated == nil && friend.city == 282 && friend.friend_status == 0
     end
 
-    potential_ids = potential.map{|i| i.uid}
+    # potential_ids = potential.map{|i| i.uid}.take(30)
 
-    if potential_ids.present?
-      are_friend = @vk.friends.areFriends(user_ids: potential_ids)
+    # if potential_ids.present?
+    #   are_friend = @vk.friends.areFriends(user_ids: potential_ids)
+    #   ap are_friend
 
-      # отсеиваем всех не друзей
-      are_not_friend = are_friend.map{|i| i.uid if i.friend_status == 0}
-      potential = potential.map{ |i| i if are_not_friend.include?(i.uid) }.compact
+    #   # отсеиваем всех не друзей
+    #   are_not_friend = are_friend.map{|i| i.uid if i.friend_status == 0}
+    #   potential = potential.map{ |i| i if are_not_friend.include?(i.uid) }.compact
 
-      # potential.each do |friend|
-      #   friend.mutual = @vk.friends.getMutual(target_uid: friend.uid).size
-      #   sleep(1.0 / 8)
-      # end
+    #   # potential.each do |friend|
+    #   #   friend.mutual = @vk.friends.getMutual(target_uid: friend.uid).size
+    #   #   sleep(1.0 / 8)
+    #   # end
 
-      # potential = potential.sort_by{ |f| f.mutual }.reverse
-    end
+    #   # potential = potential.sort_by{ |f| f.mutual }.reverse
+    # end
 
     potential
   end
