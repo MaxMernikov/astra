@@ -19,4 +19,5 @@ SitemapGenerator::Sitemap.create do
 
 end
 
-SitemapGenerator::Sitemap.ping_search_engines(yandex: => 'http://blogs.yandex.ru/pings/?status=success&url=%s') # Not needed if you use the rake tasks
+SitemapGenerator::Sitemap.ping_search_engines(yandex: => "http://blogs.yandex.ru/pings/?status=success&url=%s") 
+# Not needed if you use the rake tasks
