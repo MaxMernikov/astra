@@ -17,9 +17,9 @@ class Admin::DashboardsController < ApplicationController
   end
 
   def image_resize_run
-    ap image_resize_params
-    image_resize = ImageResize.create(image_resize_params)
-    raise image_resize.inspect
+    @image_resize = ImageResize.create(image_resize_params)
+    ImageResize.where.not(id: @image_resize.id).destroy_all
+    render :image_resize
   end
 
   private

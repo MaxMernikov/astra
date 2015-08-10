@@ -1,4 +1,9 @@
+- if @image_resize.present?
+  .row
+    .col-xs-6.col-xs-offset-3
+      = image_tag @image_resize.image(:thumb), class: 'img-responsive'
 = form_for([:admin, ImageResize.new], url: image_resize_run_admin_dashboards_path, html: {role: 'form', class: 'form-horizontal'}) do |f|
+  %br
   .row
     .col-xs-6.col-xs-offset-3
       .form-group
