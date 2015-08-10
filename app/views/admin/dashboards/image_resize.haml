@@ -1,0 +1,19 @@
+= form_for([:admin, ImageResize.new], url: image_resize_run_admin_dashboards_path, html: {role: 'form', class: 'form-horizontal'}) do |f|
+  .row
+    .col-xs-6.col-xs-offset-3
+      .form-group
+        .col-sm-2.control-label
+          = f.label :size
+        .col-sm-10
+          = f.text_field :size, class: 'form-control'
+          %small 700x700#
+
+      .form-group
+        .col-sm-2.control-label
+          = f.label :image
+        .col-sm-10
+          = f.file_field :image
+
+  .row
+    .form-group.text-center
+      = f.submit 'Сохранить', class: 'btn btn-success'

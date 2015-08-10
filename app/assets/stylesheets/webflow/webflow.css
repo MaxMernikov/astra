@@ -1,4 +1,4 @@
-/* Generated on: Fri Jun 26 2015 12:11:15 GMT+0000 (UTC) */
+/* Generated on: Mon Aug 10 2015 15:44:20 GMT+0000 (UTC) */
 /* ==========================================================================
    normalize.css v2.0.1, along with Webflow base CSS | MIT License | git.io/normalize
    ========================================================================== */
@@ -187,6 +187,12 @@ p {
   text-align: center;
   list-style-type: none;
 }
+.title.right {
+  text-align: left;
+}
+.title.left-title {
+  text-align: left;
+}
 .cost {
   color: #8d8d8d;
   font-size: 21px;
@@ -199,7 +205,15 @@ p {
   text-align: center;
 }
 .paragraf {
-  font-size: 15px;
+  font-family:'PT Serif', serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+.paragraf.test-text {
+  font-family:'PT Serif', serif;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
 }
 .about-cover {
   position: relative;
@@ -353,8 +367,12 @@ p {
 .mt-12 {
   margin-top: 12px;
 }
+.mt-12.test {
+  line-height: 34px;
+}
 .footer-text {
   margin-bottom: 16px;
+  font-family:'Open Sans', sans-serif;
   color: #8d8d8d;
   font-size: 14px;
   line-height: 19px;

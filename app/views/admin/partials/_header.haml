@@ -22,6 +22,9 @@
     %li{ class: active_menu('admin/vk_friends_admin_dashboards') }
       = link_to 'Друзья VK', vk_friends_admin_dashboards_path
 
+    %li{ class: active_menu('admin/prepare_image') }
+      = link_to 'Img pre', image_resize_admin_dashboards_path
+
   %ul.uk-navbar-nav
     %li
       = link_to 'выйти', destroy_admin_session_path, method: :delete
