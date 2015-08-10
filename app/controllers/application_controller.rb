@@ -18,13 +18,14 @@ class ApplicationController < ActionController::Base
     @categories = Category.show.by_pos
   end
 
-  unless Rails.application.config.consider_all_requests_local
+  # unless Rails.application.config.consider_all_requests_local
     rescue_from CanCan::AccessDenied, ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownController, AbstractController::ActionNotFound, with: :render_404
-  end
+  # end
 
   def render_404
+    @random_three = Product.show.where(id: Product.show.ids.shuffle.take(3))
     set_meta_tags title: '404 Страница не найдена'
-    render 'page/page_404', formats: 'html', status: '404'
+    render 'page/page_404', formats: 'html', status: '404', layout: 'webflow'
   end
 
   def cart_value

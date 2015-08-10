@@ -7,7 +7,6 @@
 
 
     = raw "<style>#{Rails.application.assets.find_asset('webflow.css').to_s.html_safe}</style>".gsub('\r\n', ' ')
-    -# = stylesheet_link_tag 'webflow', media: 'all', async: true
     = csrf_meta_tags
     = render 'partials/ga' if Rails.env.production?
 
