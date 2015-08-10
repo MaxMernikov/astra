@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     astra_cart << params[:order_id]
     cookies[:astra_cart] = astra_cart.to_json
     @count = astra_cart.size
-    render partial: 'update_cart'
+    render partial: 'update_cart', formats: [:js]
   end
 
   def remove_item
