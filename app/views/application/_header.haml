@@ -3,11 +3,12 @@
     .w-nav.navbar{"data-animation" => "default", "data-collapse" => "small", "data-contain" => "1", "data-duration" => "400"}
       .w-container
         = link_to root_path, class: 'w-nav-brand brand' do
-          = image_tag 'webflow/text_logo.png'
+          %i.is.icons-text_logo
           .logo-subtitle -minsk-
-        = link_to page_cart_path, class: 'w-inline-block menu-button left-menu-button' do
+        = link_to page_cart_path, class: 'w-inline-block menu-button left-menu-button cart' do
+          %i.is.icons-cart.cart
           .cart-point{class: "#{'hide' if @cart_value == 0}"}= @cart_value
-          .menu-button-icon.cart
+          -# .menu-button-icon
         .w-nav-button.menu-button
           .w-icon-nav-menu.menu-button-icon
         %nav.w-nav-menu.w-clearfix.nav-menu{:role => "navigation", :style => "transform: translateY(0px) translateX(0px);"}

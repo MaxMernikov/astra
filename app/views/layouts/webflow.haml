@@ -3,14 +3,19 @@
 %html{lang: "ru"}
   %head
     = display_meta_tags site: 'Astra', keywords: 'рюкзаки, городские рюкзаки, сумка, купить рюкзак, купить рюкзак в Минске, рюкзаки астра, изготовление рюкзаков на заказ, городской рюкзак цена', reverse: true
+
     %meta{charset: "utf-8"}/
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}/
 
+    - if Rails.env.production?
+      = raw "<style>#{Rails.application.assets.find_asset('webflow.css').to_s.html_safe}</style>".gsub('\r\n', ' ')
+      = render 'partials/ga'
 
-    = raw "<style>#{Rails.application.assets.find_asset('webflow.css').to_s.html_safe}</style>".gsub('\r\n', ' ')
-    -# = stylesheet_link_tag 'webflow', media: 'all', async: true
+    - else
+      = stylesheet_link_tag 'webflow', media: 'all', async: true
+      = stylesheet_link_tag 'sprite', media: 'all', async: true
+
     = csrf_meta_tags
-    = render 'partials/ga' if Rails.env.production?
 
 
   %body{class: "#{params[:controller]} #{params[:action]}" }

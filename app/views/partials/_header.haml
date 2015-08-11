@@ -1,41 +1,44 @@
-.row.header-{ class: (params[:action] == 'home' && params[:controller] == 'page') ? '' : 'small-fix'}
-  .menu-fragment.col-sm-4.col-lg-3.col-lg-offset-1.text-right.hidden-xs
-    = link_to 'продукция', root_path, class: 'first'
-    = link_to 'галерея', lookbooks_path
+-# .row.header-{ class: (params[:action] == 'home' && params[:controller] == 'page') ? '' : 'small-fix'}
+-#   .menu-fragment.col-sm-4.col-lg-3.col-lg-offset-1.text-right.hidden-xs
+-#     = link_to 'продукция', root_path, class: 'first'
+-#     = link_to 'галерея', lookbooks_path
 
-  .col-sm-4.logo
-    .text-center.full
-      = image_tag 'logo.png', title: 'ASTRA', alt: 'логотип Astra'
-    .text-center.small
-      - if params[:action] == 'home' && params[:controller] == 'page'
-        %h1
-          .slogan городские рюкзаки и сумки
-          = link_to 'Astra', root_path, class: 'logo-text'
-      - else
-        = link_to 'astra', root_path
-      .city - Minsk -
+-#   .col-sm-4.logo
+-#     .text-center.full
+-#       -# = image_tag 'logo.png', title: 'ASTRA', alt: 'логотип Astra'
+-#       %i.is.icons-logo
+-#       = image_tag 'logo.png', title: 'ASTRA', alt: 'логотип Astra'
 
-  .menu-fragment.col-sm-4.col-lg-3.hidden-xs
-    = link_to 'о нас', page_about_path
-    .last
-      = link_to 'контакты', page_contacts_path
-      = link_to '8 (029) 769-78-87', 'tel://8(029)769-78-87', class: 'phone'
+-#     .text-center.small
+-#       - if params[:action] == 'home' && params[:controller] == 'page'
+-#         %h1
+-#           .slogan городские рюкзаки и сумки
+-#           = link_to 'Astra', root_path, class: 'logo-text'
+-#       - else
+-#         = link_to 'astra', root_path
+-#       .city - Minsk -
+
+-#   .menu-fragment.col-sm-4.col-lg-3.hidden-xs
+-#     = link_to 'о нас', page_about_path
+-#     .last
+-#       = link_to 'контакты', page_contacts_path
+-#       = link_to '8 (029) 769-78-87', 'tel://8(029)769-78-87', class: 'phone'
 
 
 
-  %noindex
-    %button.navbar-toggle{"data-target" => "#miller-navbar", "data-toggle" => "collapse", :type => "button"}
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    = link_to '8 (029) 769-78-87', 'tel://8(029)769-78-87', class: 'visible-xs phone-navbar'
-    #miller-navbar.collapse.navbar-collapse.visible-xs-block.visible-xs
-      %ul.nav.navbar-nav
-        %li
-          = link_to 'продукция', root_path
-        %li
-          = link_to 'галерея', lookbooks_path
-        %li
-          = link_to 'о нас', page_about_path
-        %li
-          = link_to 'контакты', page_contacts_path
+-#   %noindex
+-#     %button.navbar-toggle{"data-target" => "#miller-navbar", "data-toggle" => "collapse", :type => "button"}
+-#       %span.icon-bar
+-#       %span.icon-bar
+-#       %span.icon-bar
+-#     = link_to '8 (029) 769-78-87', 'tel://8(029)769-78-87', class: 'visible-xs phone-navbar'
+-#     #miller-navbar.collapse.navbar-collapse.visible-xs-block.visible-xs
+-#       %ul.nav.navbar-nav
+-#         %li
+-#           = link_to 'продукция', root_path
+-#         %li
+-#           = link_to 'галерея', lookbooks_path
+-#         %li
+-#           = link_to 'о нас', page_about_path
+-#         %li
+-#           = link_to 'контакты', page_contacts_path

@@ -1,0 +1,111 @@
+@import "compass"
+
+@import compass/utilities/sprites
+
+// Include compass sprite helpers
+@import compass/css3/background-size
+
+// Include helper to calc background size
+
+=retina-sprite($name, $hover: false, $active: false)
+  +_retina-sprite($name, $sprites, $sprites2x, $hover, $active)
+
+
+=_retina-sprite($name, $sprites, $sprites2x, $hover, $active, $dimensions: true, $pad: 0)
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)
+    &
+      $pos: sprite-position($sprites2x, $name, -$pad * 2, -$pad * 2)
+      background-image: sprite-url($sprites2x)
+      background-position: nth($pos, 1) / 2 nth($pos, 2) / 2
+      +background-size(ceil(image-width(sprite-path($sprites2x)) / 2) auto)
+
+      @if $hover == true
+        $name_hover: $name + _hover
+        &:hover
+          $pos: sprite-position($sprites2x, $name_hover, -$pad * 2, -$pad * 2)
+          background-position: nth($pos, 1) / 2 nth($pos, 2) / 2
+      @if $active == true
+        $name_active: $name + _active
+        &:active
+          $pos: sprite-position($sprites2x, $name_active, -$pad * 2, -$pad * 2)
+          background-position: nth($pos, 1) / 2 nth($pos, 2) / 2
+
+
+
+
+
+=all-retina-sprites($map, $map2x)
+  @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx)
+
+    $base-class: sprite-map-name($map2x)
+
+    .#{$base-class}-all-retina-sprites
+      background-image: sprite-url($map2x)
+
+      +background-size(ceil(image-width(sprite-path($map2x)) / 2) auto)
+    @each $sprite in sprite-names($map2x)
+      .icons-#{$sprite}
+        @extend .#{$base-class}-all-retina-sprites
+        $position: sprite-position($map2x, $sprite)
+        background-position: nth($position, 1) nth($position, 2) / 2
+
+
+
+
+
+
+//  -------------- -------------- -------------- -------------- -------------- --------------
+
+
+
+
+$icons-spacing: 10px
+// $icons-layout: smart
+@import "icons/*.png"
+@include all-icons-sprites(true)
+
+
+// $icons-retina-spacing: 10px
+// @import "icons-retina/*.png"
+// @include all-retina-sprites($icons-sprites, $icons-retina-sprites)
+
+// $sprites: $icons-retina-sprites
+// $sprites2x: $icons-retina-sprites
+
+
+
+=svg_sprite($name)
+  .icons-#{$name}
+    background: image-url("svg/#{$name}.svg") 0 0 / auto auto no-repeat
+    // height: 100%
+
+
+=is_h($name)
+  a:hover
+    >
+      .icons-#{$name}
+        +icons-sprite(#{$name}-is-hover)
+
+=is_a($name)
+  .is-active
+    >
+      .icons-#{$name}
+        +icons-sprite(#{$name}-is-active)
+
+.is
+  display: inline-block
+  vertical-align: middle
+
+
+
+
+// +is_h(demo)
+// +svg_sprite(demo)
+
+
+//  -------------- -------------- -------------- -------------- -------------- --------------
+
+
+
+
+

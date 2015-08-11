@@ -8,7 +8,9 @@ gem 'rails', '4.0.2'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
+# gem 'sass'
 gem 'sass-rails', '~> 4.0.0'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
