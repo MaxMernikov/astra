@@ -1,9 +1,10 @@
 .w-section.home_page.section-content
+  #test test
   .w-container
     .w-row.mt-32
-      - @products.each do |product|
+      - @products.each_with_index do |product, index|
         .w-col.w-col-4
-          = render 'partials/product_preview', product: product, client: check_client
+          = render 'partials/product_preview', product: product, client: check_client, index: index, list: 'Home Page'
 
   = render 'astra_hr', without_image: true
   .w-container
