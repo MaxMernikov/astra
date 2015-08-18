@@ -11,9 +11,9 @@
       = raw "<style>#{Rails.application.assets.find_asset('webflow.css').to_s.html_safe}</style>".gsub('\r\n', ' ')
 
     - else
-      = render 'partials/ga'
       = stylesheet_link_tag 'webflow', media: 'all'
 
+    = render 'partials/ga'
     = csrf_meta_tags
 
 
