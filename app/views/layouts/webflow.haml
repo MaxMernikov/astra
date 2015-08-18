@@ -9,9 +9,9 @@
 
     - if Rails.env.production?
       = raw "<style>#{Rails.application.assets.find_asset('webflow.css').to_s.html_safe}</style>".gsub('\r\n', ' ')
-      = render 'partials/ga'
 
     - else
+      = render 'partials/ga'
       = stylesheet_link_tag 'webflow', media: 'all'
 
     = csrf_meta_tags

@@ -1,8 +1,8 @@
-= link_to 'x', order_remove_item_path(index), class: 'delete-cart', title: 'Удалить позицию', remote: true, remote: true
-- if item.present?
-  = image_tag item.first_image
+- if product.present?
+  = link_to 'x', order_remove_item_path(index), class: 'delete-cart js-remove-product', title: 'Удалить позицию', data: {id: product.id, name: product.title, category: product.category.slug, price: product.cost * 10}
+  = image_tag product.first_image
   %h3.product-title
-    %span.product-category= item.category.dative
+    %span.product-category= product.category.dative
     %br
-    = item.title
-  .product-cost.mb-32= product_cost(item.cost)
+    = product.title
+  .product-cost.mb-32= product_cost(product.cost)

@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
     cookies.delete(:astra_cart)
     # flash[:notice] = {title: 'Спасибо. Ваша заявка принята', body: 'В&nbsp;ближайшее время с&nbsp;вами свяжется наш менеджер для уточнения информации. <br>А вам говорили, что&nbsp;вы великолепны?', type: 'order_created'}
-
+    cookies[:astra_order] = order.id
     render js: "window.location.replace('#{page_thankyou_path}');"
   end
 

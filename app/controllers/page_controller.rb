@@ -28,6 +28,10 @@ class PageController < ApplicationController
   end
 
   def thankyou
+    @order = Order.find_by(id: cookies[:astra_order])
+    @products = @order.product_ids.map{ |i| Product.find(i) } if @order.present?
+    cookies.delete(:astra_order)
+
     render 'thankyou', layout: 'webflow'
   end
 

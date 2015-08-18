@@ -6,7 +6,7 @@
       - elsif @cart_items.size == 1
         .w-col.w-col-2
         .w-col.w-col-4.text-center
-          = render 'cart_item', item: @cart_items.first, index: 0
+          = render 'cart_item', product: @cart_items.first, index: 0
         = render 'cart_form'
 
       - else
@@ -14,7 +14,7 @@
           .w-row
             - @cart_items.each_with_index do |item, index|
               .w-col.w-col-6.text-center
-                = render 'cart_item', item: item, index: index
+                = render 'cart_item', product: item, index: index
         = render 'cart_form'
 
 

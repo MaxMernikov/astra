@@ -7,7 +7,6 @@
             = image_tag(image.image(:preview), 'data-slide'=> index)
 
 
-
       .w-col.w-col-7.cycle-slideshow#cycle-1{ 'data-cycle-timeout' => 0 }
         - @product.images.each do |image|
           = image_tag(image.image(:preview), title: astra_tag("#{@product.category.dative} #{@product.title}"), alt: astra_tag("#{@product.category.dative} #{@product.title}"))
@@ -20,7 +19,7 @@
           .w-col.w-col-3.w-col-small-3.w-col-tiny-3
 
 
-      .w-col.w-col-4
+      .w-col.w-col-4.js-product-page{ data: {id: @product.id, name: @product.title, category: @product.category.slug, price: @product.cost * 10} }
         .info-block
           %h1.title
             = @product.category.dative
@@ -29,7 +28,7 @@
           .cost= product_cost(@product.cost)
         .info-block
           #st-trigger-effects
-            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button', remote: true, rel: 'nofollow', onclick: "ga('send', 'event', 'button','add_to_cart')"
+            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button js-add-product', rel: 'nofollow'
   
 
         .info-block
@@ -61,8 +60,8 @@
   .w-container.other_products.mt-60.container
     %div Другие наши товары:
     .w-row.mt-12
-      - @random_three.each do |product|
+      - @random_three.each_with_index do |product, index|
         .w-col.w-col-4.w-col-small-4.w-col-tiny-4
-          = render 'partials/product_preview', product: product, client: check_client
+          = render 'partials/product_preview', product: product, client: check_client, index: index, list: 'Recomendations'
 
 = render 'astra_hr'
