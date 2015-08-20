@@ -21,6 +21,17 @@ var checkShowed = function(product){
   }
 };
 
+var onProductClick = function(elem){
+  $product = $(elem);
+  ga('ec:addProduct', productHash( $product ));
+  ga('ec:setAction', 'click', {list: $product.data('list')});
+  ga('send', 'event', 'UX', 'click', 'Results', {
+    hitCallback: function() {
+      document.location = $product.prop('href');
+    }
+  });
+}
+
 $(function() {
   $(window).on('scroll', function() {
     $('.product-block img')
@@ -31,19 +42,6 @@ $(function() {
         checkShowed(product);    
       })
   });
-
-  $('.js-show-product').click(function(event){
-    event.preventDefault();
-
-    product = $(this)
-    ga('ec:addProduct', productHash($(this)));
-    ga('ec:setAction', 'click', {list: $(this).data('list')});
-    ga('send', 'event', 'UX', 'click', 'Results', {
-      hitCallback: function() {
-        document.location = product.prop('href');
-      }
-    });
-  })
 
   $('.js-product-page').each(function(){
     ga('ec:addProduct', productHash( $(this) ));

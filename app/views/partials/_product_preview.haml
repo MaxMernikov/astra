@@ -1,4 +1,4 @@
-= link_to product, class: "w-inline-block text-center product-block #{product.title.underscore.gsub(' ', '-')} js-show-product", data: {id: product.id, name: product.title, category: product.category.slug, position: index + 1, list: list, price: product.cost * 10} do
+= link_to product, class: "w-inline-block text-center product-block #{product.title.underscore.gsub(' ', '-')} js-show-product", data: {id: product.id, name: product.title, category: product.category.slug, position: index + 1, list: list, price: product.cost * 10}, onclick: 'onProductClick(this); return !ga.loaded;' do
   = image_tag(product.images.first.image(client), title: astra_tag("#{product.category.title} #{product.title}"), alt: astra_tag("#{product.category.title} #{product.title}"))
 
   .product-details-contaner.mb-32
