@@ -18,6 +18,8 @@ var checkShowed = function(product){
 
     ga('ec:addImpression', productHash(product));
     ga('ec:setAction', 'detail');
+    // ga('send', 'event','scroll',window.location.href);
+    ga('send', 'event', 'scroll', 'impression', {'nonInteraction': true});
   }
 };
 
