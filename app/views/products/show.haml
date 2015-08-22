@@ -19,7 +19,7 @@
           .w-col.w-col-3.w-col-small-3.w-col-tiny-3
 
 
-      .w-col.w-col-4.js-product-page{ data: {id: @product.id, name: @product.title, category: @product.category.slug, price: @product.cost * 10} }
+      .w-col.w-col-4.js-product-pageview
         .info-block
           %h1.title
             = @product.category.dative
@@ -28,7 +28,7 @@
           .cost= product_cost(@product.cost)
         .info-block
           #st-trigger-effects
-            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button js-add-product', rel: 'nofollow'
+            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button js-add-product js-product', rel: 'nofollow', data: {id: @product.id, name: @product.title, category: @product.category.slug, price: @product.cost * 10}, onclick: 'return onAddToCartClick(this);'
   
 
         .info-block
