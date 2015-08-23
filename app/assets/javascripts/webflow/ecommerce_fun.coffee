@@ -45,7 +45,7 @@ ecThanks = ()->
 
     ga 'ec:addProduct', product
 
-  order = $('.js-order')
+  order = $('.js-thanks')
   ga 'ec:setAction', 'purchase',
     'id': order.data('id')
     'revenue': order.data('revenue')
