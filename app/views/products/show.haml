@@ -28,7 +28,7 @@
           .cost= product_cost(@product.cost)
         .info-block
           #st-trigger-effects
-            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button js-add-product js-product', rel: 'nofollow', data: {id: @product.id, name: @product.title, category: @product.category.slug, price: @product.cost * 10}, onclick: 'return onAddToCartClick(this);'
+            = link_to 'Добавить в корзину', order_add_item_path(@product.id), class: 'button js-add-product js-product', rel: 'nofollow', data: { id: @product.id, name: @product.title, category: @product.category.slug, price: curency(@product.cost) }, onclick: 'return onAddToCartClick(this);'
   
 
         .info-block

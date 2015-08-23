@@ -72,4 +72,8 @@ module ApplicationHelper
     return 'mobile' if browser.mobile?
     'desktop'
   end
+
+  def curency(cost)
+    (cost * 10000.0 / 16850).round(2)
+  end
 end

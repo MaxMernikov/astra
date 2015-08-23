@@ -1,5 +1,5 @@
 - if product.present?
-  = link_to 'x', order_remove_item_path(index), class: 'delete-cart js-product', title: 'Удалить позицию', data: {id: product.id, name: product.title, category: product.category.slug, price: product.cost * 10}, onclick: 'onRemoveFromCartClick(this); return !ga.loaded;'
+  = link_to 'x', order_remove_item_path(index), class: 'delete-cart js-product', title: 'Удалить позицию', data: {id: product.id, name: product.title, category: product.category.slug, price: curency(product.cost) }, onclick: 'onRemoveFromCartClick(this); return !ga.loaded;'
   = image_tag product.first_image
   %h3.product-title
     %span.product-category= product.category.dative

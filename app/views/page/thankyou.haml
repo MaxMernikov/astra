@@ -1,7 +1,7 @@
 - if @order.present?
-  .hide.js-thanks{ data: { id: @order.id, revenue: @products.map{|i| i.cost }.sum * 10 }}
+  .hide.js-thanks{ data: { id: @order.id, revenue: curency(@products.map{|i| i.cost }.sum) } }
     - @products.each do |product|
-      .js-product{ data: {id: product.id, name: product.title, category: product.category.slug, price: product.cost * 10} }
+      .js-product{ data: {id: product.id, name: product.title, category: product.category.slug, price: curency(product.cost)} }
 
 .w-section.thankyou.section-content
   .w-container.text-center
