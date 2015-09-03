@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
     order = Order.new(order_params)
     order.product_ids = astra_cart
     order.save
-    NotificationMailer.order_created.deliver if Rails.env.development?
+    NotificationMailer.order_created.deliver unless Rails.env.development?
 
     cookies.delete(:astra_cart)
     # flash[:notice] = {title: 'Спасибо. Ваша заявка принята', body: 'В&nbsp;ближайшее время с&nbsp;вами свяжется наш менеджер для уточнения информации. <br>А вам говорили, что&nbsp;вы великолепны?', type: 'order_created'}
