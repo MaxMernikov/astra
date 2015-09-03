@@ -1,0 +1,33 @@
+<style>#div {
+    width: 700px;
+    height: 700px;
+    background: url('http://astrastore.by/system/images/images/136/30__preview.png?1438727200'),url('https://pp.vk.me/c627330/v627330922/fbea/JiCGMvp7W9Q.jpg');
+    background-blend-mode: screen;
+}</style>
+<br><br><br><br>
+                    <div id="div" style="background-blend-mode: exclusion;"></div>
+<select id="select">
+    <option>normal</option>
+    <option>multiply</option>
+    <option selected="">screen</option>
+    <option>overlay</option>
+    <option>darken</option>
+    <option>lighten</option>
+    <option>color-dodge</option>
+    <option>color-burn</option>
+    <option>hard-light</option>
+    <option>soft-light</option>
+    <option>difference</option>
+    <option>exclusion</option>
+    <option>hue</option>
+    <option>saturation</option>
+    <option>color</option>
+    <option>luminosity</option>
+</select>
+                            <script type="text/javascript">
+                document.getElementById("select").onchange = function(event) {
+    document.getElementById("div").style.backgroundBlendMode = document.getElementById("select").selectedOptions[0].innerHTML;
+}
+console.log(document.getElementById('div'));
+            </script>
+            
