@@ -1,6 +1,6 @@
 module AdminHelper
   def phone_tag(phone)
-    link_to phone, "tel://#{phone.gsub(/[\(\)\- ]/, '')}"
+    link_to phone.gsub('+375 ', ''), "tel://#{phone.gsub(/[\(\)\- ]/, '')}"
   end
 
   def link_finder(text)

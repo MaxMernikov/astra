@@ -22,9 +22,10 @@
               = image_tag order.product.first_image if order.product.present?
           %td
             %b ##{order.id}
-            = time_tag order.created_at, format: :short
-            = time_ago_in_words order.created_at.to_date
             = Product.where(id: order.product_ids).pluck(:title).join(', ')
+            %br
+            = time_tag order.created_at, format: :short
+            %small (#{time_ago_in_words order.created_at.to_date} назад)
 
             - if order.details.present?
               %br
@@ -36,7 +37,8 @@
               = order.mark
     
           %td
-            = phone_tag order.phone
+            %small= phone_tag order.phone
+            %br
             = order.name
 
           %td
