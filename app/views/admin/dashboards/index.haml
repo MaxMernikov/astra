@@ -14,7 +14,7 @@
     %tbody
       - @orders.each do |order|
         %tr{ class: order_class(order) }
-          %td{ style: 'width: 10%' }
+          %td{ style: 'width: 6.5%' }
             - if order.product_ids.present?
               - Product.where(id: order.product_ids).each do |product|
                 = image_tag product.first_image
