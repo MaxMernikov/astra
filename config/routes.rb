@@ -4,7 +4,8 @@ Astra::Application.routes.draw do
 
   namespace :admin do
     resources :dashboards, path: '', only: [:index] do
-      collection do 
+      collection do
+        get :completed
         get :vk_friends
         get :image_resize
         post :image_resize_run

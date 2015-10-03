@@ -6,7 +6,12 @@ class Admin::DashboardsController < ApplicationController
       redirect_to new_admin_session_path
     end
 
-    @orders = Order.order(created_at: :desc)
+    @orders = Order.where(complete: false).order(created_at: :desc)
+  end
+
+  def completed
+    @orders = Order.where(complete: true).order(created_at: :desc)
+    render 'index'
   end
 
   def vk_friends
