@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810173923) do
+ActiveRecord::Schema.define(version: 20151003140200) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(version: 20150810173923) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "product_ids"
+    t.boolean  "sewd",        default: false
   end
 
   add_index "orders", ["cloth_id"], name: "index_orders_on_cloth_id", using: :btree

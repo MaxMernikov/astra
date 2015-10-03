@@ -13,7 +13,7 @@
 
     %tbody
       - @orders.each do |order|
-        %tr{ class: order.complete ? 'success' : 'info'}
+        %tr{ class: order_class(order) }
           %td{ style: 'width: 10%' }
             - if order.product_ids.present?
               - Product.where(id: order.product_ids).each do |product|
@@ -23,7 +23,7 @@
           %td
             %b Заказ ##{order.id}
             = time_tag order.created_at, format: :short
-
+            Прошло дней: #{ (Date.today - order.created_at.to_date).to_i }
             = Product.where(id: order.product_ids).pluck(:title).join(', ')
 
             - if order.details.present?

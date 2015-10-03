@@ -23,7 +23,14 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   def completed
-    @order.update_attribute(:complete, !@order.complete)
+    if @order.complete && @order.sewd
+      @order.update_attributes(complete: false, sewd: false)
+    elsif @order.sewd
+      @order.update_attributes(complete: true)
+    else
+      @order.update_attributes(sewd: true)
+    end
+        
     redirect_to admin_dashboards_path
   end
 
