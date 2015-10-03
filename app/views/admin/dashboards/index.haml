@@ -23,7 +23,7 @@
           %td
             %b Заказ ##{order.id}
             = time_tag order.created_at, format: :short
-            Прошло дней: #{ (Date.today - order.created_at.to_date).to_i }
+            = time_ago_in_words order.created_at.to_date
             = Product.where(id: order.product_ids).pluck(:title).join(', ')
 
             - if order.details.present?
