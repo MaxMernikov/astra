@@ -14,7 +14,7 @@
     %tbody
       - @orders.each do |order|
         %tr{ class: order_class(order) }
-          %td{ style: 'width: 10%' }
+          %td{ style: 'width: 15%' }
             - if order.product_ids.present?
               - Product.where(id: order.product_ids).each do |product|
                 = image_tag product.first_image
@@ -24,8 +24,9 @@
             %b ##{order.id}
             = Product.where(id: order.product_ids).pluck(:title).join(', ')
             %br
-            = time_tag order.created_at, format: :short
-            %small (#{time_ago_in_words order.created_at.to_date} назад)
+            %small
+              = time_tag order.created_at, format: :short
+              %sup #{time_ago_in_words(order.created_at).gsub('около', 'ок.').gsub(/(яцев|яца)/, '.')} назад
 
             - if order.details.present?
               %br
