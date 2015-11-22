@@ -32,40 +32,42 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
-gem 'haml'
 gem 'devise'
 gem 'cancancan'
-gem 'ledermann-rails-settings'
 
-gem 'twitter-bootstrap-rails'
 
-gem 'cocoon'
-gem 'russian'
 
-gem 'paperclip', '~> 4.1'
+
 gem 'redcarpet'
-gem 'meta-tags'
 
-gem 'newrelic_rpm'
-
-gem 'sitemap_generator'
-gem 'browser'
-
+# front-end
+gem 'haml'
+gem 'bootstrap-sass'
 
 # core
-gem 'rails_config'
+gem 'config'
 gem 'hashie'
 gem 'inherited_resources'
 gem 'awesome_print'
 gem 'whenever', :require => false
+
+# product
+gem 'paperclip', '~> 4.1'
 gem 'paperclip-compression'
+gem 'ledermann-rails-settings'
+gem 'cocoon'
 
 # social
 gem 'vkontakte_api', '~> 1.4.3'
 gem 'instagram'
+
+# cosmetic
+gem 'meta-tags'
+gem 'newrelic_rpm'
+gem 'sitemap_generator'
+gem 'browser'
+gem 'russian'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'

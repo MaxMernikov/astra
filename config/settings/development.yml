@@ -1,2 +1,4 @@
-instagram_api:
-  redirect_path: 'http://localhost:3000/fake_path'
+instagram:
+  # redirect_path: 'http://localhost:3000/admin/instagram/callback'
+  redirect_path: 'http://astrastore.by/admin/instagram/callback'
+  

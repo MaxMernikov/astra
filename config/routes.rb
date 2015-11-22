@@ -30,6 +30,17 @@ Astra::Application.routes.draw do
       end
     end
     resources :statistics, only: :index
+
+    namespace :instagram do
+      get :callback
+      get :connect
+      get :limits
+
+      post :init_subscribers
+      get :get_likes      
+
+      get :index
+    end
   end
 
   namespace :page, path: '' do

@@ -1,0 +1,11 @@
+Мы хотим нанять работника который занимался бы нашим представлением в Instagram, но не хотели бы предоставлять ему полный доступ к аккаунту, либо устройству, Одной из обязанностей работника будет ответы в комментариях на вопросы клиентов и отмечание наиболее удачных постов с нашей продукцией по определенному hashtag.
+
+Спасибо
+___
+
+We want to hire an employee who would deal with our performance in Instagram, but would not want to grant it full access to the account or device, one of the duties the employee will answer your questions in the comments of customers and celebrating the most successful post our products on a specific hashtag.
+
+Thank you
+
+http://astrastore.by/admin/instagram/callback
+http://localhost:3000/admin/instagram/callback

@@ -1,0 +1,33 @@
+%br
+.row
+  .col-sm-4
+    .lead Instagram
+  .col-sm-8
+    .pull-right
+      - if current_admin.instagram_token?
+        Авторизирован
+      - else
+        = link_to 'Oauth', admin_instagram_connect_path, class: 'btn btn-secondary-outline', role: 'button'
+
+.row
+  .col-sm-12
+    = link_to 'limits', admin_instagram_limits_path
+    = form_tag admin_instagram_init_subscribers_path do
+      = text_field_tag :username, 'astra_minsk'
+      = submit_tag 'Отправить в очередь'
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Название задачи
+        %th Планируемый объем обработки данных
+        %th Обработано
+        %th
+
+    %tbody
+      - @collection.each do |task|
+        %tr
+          %td= task.title
+          %td= task.ids_init.size
+          %td= task.ids_complete.size
+          %td
+            = link_to 'отлайкать до дыр', admin_instagram_get_likes_path(task_id: task.id), class: 'btn btn-secondary-outline'

@@ -6,8 +6,14 @@
 
     %title Astra Admin
     = display_meta_tags noindex: true
-    = stylesheet_link_tag    "admin", media: "all"
-    = javascript_include_tag "admin"
+
+    - if params[:controller] == 'admin/instagram'
+      = stylesheet_link_tag    "admin_v2", media: "all"
+      = javascript_include_tag "admin_v2"
+    - else
+      = stylesheet_link_tag    "admin", media: "all"
+      = javascript_include_tag "admin"
+
     = csrf_meta_tags
   %body
     - if current_admin

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003140200) do
+ActiveRecord::Schema.define(version: 20151115222405) do
 
   create_table "about_product_images", force: true do |t|
     t.integer  "category_id"
@@ -131,6 +131,16 @@ ActiveRecord::Schema.define(version: 20151003140200) do
     t.integer  "media_count", default: 0
     t.integer  "liked_count", default: 0
     t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "instagram_tasks", force: true do |t|
+    t.string   "title"
+    t.text     "ids_init"
+    t.text     "ids_complete"
+    t.string   "task_type"
+    t.integer  "task_status",  default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

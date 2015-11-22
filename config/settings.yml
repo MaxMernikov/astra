@@ -1,3 +1,6 @@
-instagram_api:
-  client_id: '58b9b7b4bd1242468dcf6965d05973d7'
-  client_secret: '63110b05d0014f7a818161ea37a69f36'
+instagram:
+  # client_id: '487c29165f904125bb91488fc2a9407b'
+  # client_secret: '8c32225002c64b97a4d1cfcfc4d85067'
+
+  client_id: 'ea2d5573bfc240e391962fac77332d38'
+  client_secret: 'f61f768bcb4544b4864d42ed498fc17b'
