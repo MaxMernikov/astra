@@ -43,10 +43,10 @@
             = order.name
 
           %td
-            = link_to admin_order_completed_path(order), class: 'btn btn-success btn-xs' do
+            = link_to admin_order_completed_path(order), class: 'btn btn-success' do
               .icon-cut
 
-            = link_to edit_admin_order_path(order), class: 'btn btn-default btn-xs' do
+            = link_to edit_admin_order_path(order), class: 'btn btn-default' do
               .icon-pencil
 
             / = link_to admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-mini uk-button-danger' do
