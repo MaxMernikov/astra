@@ -26,7 +26,7 @@
     %tbody
       - @collection.each do |task|
         %tr
-          %td= task.title
+          %td= raw task.title
           %td= task.ids_init.size
           %td= task.ids_complete.size
           %td

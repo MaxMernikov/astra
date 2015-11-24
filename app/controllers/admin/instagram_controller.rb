@@ -4,7 +4,7 @@ class Admin::InstagramController < Admin::AdminController
   end
 
   def connect
-    redirect_to Instagram.authorize_url(redirect_uri: Settings.instagram.redirect_path, scope: 'likes basic relationships follower_list comments')
+    redirect_to Instagram.authorize_url(redirect_uri: Settings.instagram.redirect_path, scope: 'likes public_content')
   end
 
   def callback
@@ -26,7 +26,7 @@ class Admin::InstagramController < Admin::AdminController
   def init_subscribers
     init_client
     task = InstagramTask.create(title: "Лайк подписчиков пользователя с ником #{params['username']}")
-    results = @client.user_search(params['username'])
+    ap results = @client.user_search(params['username'])
 
     if results.size > 0
       user = results[0]
