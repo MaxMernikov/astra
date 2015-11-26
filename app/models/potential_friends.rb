@@ -2,8 +2,7 @@ class PotentialFriends
   # 308166833 <- my id
   # 84735
   # PotentialFriends.get_some(84735)
-
-  def self.get_some(user_id = 84735, count = 50, offset = 0)
+  def self.get_some(user_id, count = 50, offset = 0)
     @vk = VkontakteApi::Client.new(Admin.first.vk_token)
     my_friends = @vk.friends.get(uid: 308166833)
 

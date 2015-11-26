@@ -15,7 +15,9 @@ class Admin::DashboardsController < ApplicationController
   end
 
   def vk_friends
-    @users = PotentialFriends.get_some(params[:id], 500, params[:page].to_i)
+    if params[:id].present?
+      @users = PotentialFriends.get_some(params[:id], 500, params[:page].to_i)
+    end
   end
 
   def image_resize

@@ -1,10 +1,20 @@
 %h1 Links =)
-= link_to 'next page', vk_friends_admin_dashboards_path(page: params[:page].to_i + 1), class: 'pull-right'
+= form_tag vk_friends_admin_dashboards_path, method: :get do
+  = text_field_tag :id, params[:id]
+  = submit_tag :submit
 
-- @users.each_slice(10) do |slice|
-  %ol 
-    - slice.each do |user|
-      %li
-        = link_to "#{user.first_name} #{user.last_name}", "https://vk.com/id#{user.uid}", target: '_blank'
-        / = user.mutual
-  %br
+  %ul
+    %li 84735
+    %li 8011445
+
+
+- if @users
+  = link_to 'next page', vk_friends_admin_dashboards_path(page: params[:page].to_i + 1, id: params[:id]), class: 'pull-right'
+
+  - @users.each_slice(10) do |slice|
+    %ol 
+      - slice.each do |user|
+        %li
+          = link_to "#{user.first_name} #{user.last_name}", "https://vk.com/id#{user.uid}", target: '_blank'
+          / = user.mutual
+    %br
