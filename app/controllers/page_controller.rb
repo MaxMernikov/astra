@@ -4,8 +4,10 @@ class PageController < ApplicationController
       title: 'Магазин городских рюкзаков и сумок',
       image_src: root_url + ActionController::Base.helpers.asset_path("logo.png", type: :image)
 
-    @products = Product.by_pos.show
-    render 'home', layout: 'webflow'
+
+    # @products = Product.by_pos.show
+    @galery = LookbookCategory.last.lookbook_items.order(:row).to_json(:only => [:id], :methods => [:col, :row, :size_x, :size_y, :bg_position, :bg_size])
+    render 'new_home', layout: 'webflow'
   end
 
   def about

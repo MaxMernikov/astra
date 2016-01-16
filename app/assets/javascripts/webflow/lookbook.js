@@ -46,7 +46,7 @@ var render_result = function(data){
   for (var i = 0; i < data.length; i++) {
     (function(idx){
       var cof = 0;
-      if(idx < 5){ cof = idx } else { cof = 5 };
+      if(idx < 15){ cof = idx } else { cof = 15 };
 
       setTimeout(function(){
         addElement(data[idx]);
@@ -60,45 +60,50 @@ var render_result = function(data){
 };
 
 $(function() {
-  $('.lookbook-slide').click(function(){
-    page_url = '/lookbook/' + $(this).data('id');
+  order_success = new DialogFx( order_success );
+  order_success.toggle.bind(order_success).call()
 
-    start_func = Date.now();
+  render_result($('#galery_data').data('json'))
+  
+  // $('.lookbook-slide').click(function(){
+  //   page_url = '/lookbook/' + $(this).data('id');
 
-    currentScrollTop = $(window).scrollTop();
+  //   start_func = Date.now();
 
-    $('.go-back-button').removeClass('close');
-    $('.lookbook-gridster').removeClass('close');
-    $(this).addClass('active');
-    $('.lookbook-slide:not(.active)').addClass('passive');
+  //   currentScrollTop = $(window).scrollTop();
 
-    $.ajax({
-      url: page_url,
-      context: document.body
-        }).done(function(data) {
-          end_func = Date.now();
+  //   $('.go-back-button').removeClass('close');
+  //   $('.lookbook-gridster').removeClass('close');
+  //   $(this).addClass('active');
+  //   $('.lookbook-slide:not(.active)').addClass('passive');
 
-          // window.history.pushState('', '', page_url);
+  //   $.ajax({
+  //     url: page_url,
+  //     context: document.body
+  //       }).done(function(data) {
+  //         end_func = Date.now();
 
-          render_timeout = 500 - (end_func - start_func)
-          if( render_timeout < 0){render_timeout = 0}
+  //         // window.history.pushState('', '', page_url);
+
+  //         render_timeout = 500 - (end_func - start_func)
+  //         if( render_timeout < 0){render_timeout = 0}
           
-          setTimeout(function(){
-            render_result(data);
-          }, render_timeout );
+  //         setTimeout(function(){
+  //           render_result(data);
+  //         }, render_timeout );
           
-        });
-      });
+  //       });
+  //     });
 
-  $('.go-back-button').click(function(){
-    $(this).addClass('close');
-    $('.lookbook-gridster').addClass('close');
-    // window.history.pushState('', '', '/lookbook');
+  // $('.go-back-button').click(function(){
+  //   $(this).addClass('close');
+  //   $('.lookbook-gridster').addClass('close');
+  //   // window.history.pushState('', '', '/lookbook');
 
-    setTimeout(function(){
-      return_lookbook_slide();
-    }, 350);
+  //   setTimeout(function(){
+  //     return_lookbook_slide();
+  //   }, 350);
 
-  })
+  // })
 
 });

@@ -3,8 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # http_basic_authenticate_with name: 'max', password: '123'
   protect_from_forgery with: :exception
-  before_filter :load_categories
-  before_filter :cart_value
+  before_filter :the_end
+  # before_filter :load_categories
+  # before_filter :cart_value
+
+  def the_end
+    return true if params[:controller].match('admin')
+    return redirect_to root_path if params[:action] != 'home'
+  end
 
   def after_sign_in_path_for(resource)
     admin_dashboards_path
