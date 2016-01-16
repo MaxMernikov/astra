@@ -8,7 +8,7 @@
 })(jQuery);
 
 var resize_gridster = function(){
-  $('.gridster.responsive ul').height( $('.gridster ul').width() / 3 * 2 );
+  $('.gridster.responsive ul').height( $('.gridster ul').width() / 5 * 2 );
 }
 
 $(document).ready(function() {
@@ -32,7 +32,7 @@ $(document).ready(function() {
       widget_base_dimensions: [300, 200],
       widget_margins: [0, 7],
       helper: 'clone',
-      max_cols: 3,
+      max_cols: 5,
     }).data('gridster')
     resize_gridster();
 

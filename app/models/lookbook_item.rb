@@ -15,8 +15,9 @@ class LookbookItem < ActiveRecord::Base
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }, presence: true
 
   def image_styles
-    return { preview: '384x576#' } if self.y_orient
-    { preview: '576x384#' }
+    # return { preview: '384x576#' } if self.y_orient
+    # { preview: '576x384#' }
+    { preview: '456x450#' }
   end
 
   def re_orientation

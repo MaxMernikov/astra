@@ -1,4 +1,4 @@
-$totalCols: 3 !default
+$totalCols: 5 !default
 $totalRows: 30 !default
 
 .gridster.responsive
@@ -20,10 +20,10 @@ $totalRows: 30 !default
 
     @for $i from 1 through $totalRows
       &[data-row="#{$i}"]
-        top: (100% / 3 * ($i - 1)) + 1%
+        top: (100% / 5 * ($i - 1)) + 1%
 
       &[data-sizey="#{$i}"]
-        height: (100% / 3 * $i) - 1.5%
+        height: (100% / 5 * $i) - 1.5%
 
       // &[data-col="#{$i}"]
       //   left: (100% / $totalCols * ($i - 1)) + 1%

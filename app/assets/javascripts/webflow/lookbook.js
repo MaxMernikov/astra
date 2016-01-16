@@ -1,7 +1,7 @@
 var currentScrollTop = 0;
 var resize_gridster = function(){
   // console.log($('.gridster ul').width() / 3 * 2);
-  $('.gridster.responsive ul').height( $('.gridster ul').width() / 3 * 2 );
+  $('.gridster.responsive ul').height( $('.gridster ul').width() / 2 * 2 );
   // console.log($('.gridster.responsive ul').height());
 
 };
@@ -28,11 +28,11 @@ var render_result = function(data){
   $('.w-row').hide();
 
   gridster = $(".gridster.responsive ul").gridster({
-    widget_base_dimensions: [300, 200],
+    widget_base_dimensions: [200, 200],
     widget_margins: [0, 7],
     helper: 'clone',
-    max_cols: 3,
-    min_cols: 3,
+    max_cols: 5,
+    min_cols: 5,
   }).data('gridster');
 
   gridster.disable();
