@@ -7,37 +7,37 @@
     %li{ class: "nav-item #{active_menu('admin/dashboards')}" }
       = link_to 'Выполненные', completed_admin_dashboards_path, class: 'nav-link'
 
-    %li{ class: "nav-item #{active_menu('admin/categories')}" }
-      = link_to 'Категории', admin_categories_path, class: 'nav-link'
+  /   %li{ class: "nav-item #{active_menu('admin/categories')}" }
+  /     = link_to 'Категории', admin_categories_path, class: 'nav-link'
 
-    %li{ class: "nav-item #{active_menu('admin/products')}" }
-      = link_to 'Продукты', admin_products_path, class: 'nav-link'
+  /   %li{ class: "nav-item #{active_menu('admin/products')}" }
+  /     = link_to 'Продукты', admin_products_path, class: 'nav-link'
 
-    %li{ class: "nav-item #{active_menu('admin/lookbook_categories')}" }
-      = link_to 'Gallery', admin_lookbook_categories_path, class: 'nav-link'
+  /   %li{ class: "nav-item #{active_menu('admin/lookbook_categories')}" }
+  /     = link_to 'Gallery', admin_lookbook_categories_path, class: 'nav-link'
 
-    -# %li{ class: active_menu('admin/feedbacks') }
-    -#   = link_to 'Обратная связь', admin_feedbacks_path
+  /   -# %li{ class: active_menu('admin/feedbacks') }
+  /   -#   = link_to 'Обратная связь', admin_feedbacks_path
 
-    -# %li{ class: active_menu('admin/statistics') }
-    -#   = link_to 'Статистика', admin_statistics_path
+  /   -# %li{ class: active_menu('admin/statistics') }
+  /   -#   = link_to 'Статистика', admin_statistics_path
 
-    %li{ class: active_menu('admin/vk_friends_admin_dashboards') }
-      = link_to 'Друзья VK', vk_friends_admin_dashboards_path
+  /   %li{ class: active_menu('admin/vk_friends_admin_dashboards') }
+  /     = link_to 'Друзья VK', vk_friends_admin_dashboards_path
 
     
 
-    / %li.navbar-toggler{ class: active_menu(['admin/nup/feedbacks', 'admin/nup/feedback_subscribers', 'admin/nup/faqs'])  }
-    /   %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-    /     Прочее
-    /     %b.caret
-    /     %ul.dropdown-menu
-    %li{ class: "nav-item #{active_menu('admin/prepare_image')}" }
-      = link_to 'Instagram', admin_instagram_index_path, class: 'nav-link'
+  /   / %li.navbar-toggler{ class: active_menu(['admin/nup/feedbacks', 'admin/nup/feedback_subscribers', 'admin/nup/faqs'])  }
+  /   /   %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+  /   /     Прочее
+  /   /     %b.caret
+  /   /     %ul.dropdown-menu
+  /   %li{ class: "nav-item #{active_menu('admin/prepare_image')}" }
+  /     = link_to 'Instagram', admin_instagram_index_path, class: 'nav-link'
 
-    %li{ class: "nav-item #{active_menu('admin/prepare_image')}" }
-      = link_to 'Img pre', image_resize_admin_dashboards_path, class: 'nav-link'
+  /   %li{ class: "nav-item #{active_menu('admin/prepare_image')}" }
+  /     = link_to 'Img pre', image_resize_admin_dashboards_path, class: 'nav-link'
 
-  %ul.nav.navbar-nav.pull-right
-    %li.nav-item
-      = link_to 'выйти', destroy_admin_session_path, method: :delete, class: 'nav-link'
+  / %ul.nav.navbar-nav.pull-right
+  /   %li.nav-item
+  /     = link_to 'выйти', destroy_admin_session_path, method: :delete, class: 'nav-link'
